@@ -1,4 +1,4 @@
-# ThreatActorIntelligenceVault
+# Threat Actor Intelligence Vault
 
 This repository is a continuously evolving collection of Cyber Threat Intelligence focused on known threat actors and cybercriminal groups.
 
