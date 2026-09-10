@@ -16,13 +16,13 @@ The repository is intended as a research and defensive reference. Attribution in
 
 ## Threat Actors
 
-| Actor | Type | Motivation | First observed | Status |
-|---|---|---|---|---|
-| [Akira](actors/akira/) | Ransomware / RaaS | Financial | March-April 2023 | Active in collected reporting |
+| Actor                  | Type              | Motivation | First observed   | Status                        |
+| ---------------------- | ----------------- | ---------- | ---------------- | ----------------------------- |
+| [Akira](actors/akira/) | Ransomware / RaaS | Financial  | March-April 2023 | Active in collected reporting |
 
 ## Repository Structure
 
-Each actor is organized into a small set of analytical and technical documents:
+Each threat actor follows the same general structure so intelligence, technical material, IOCs and detections remain easy to navigate as the repository grows:
 
 ```text
 actor/
@@ -36,10 +36,23 @@ actor/
 │   ├── tooling-malware.md
 │   ├── vulnerabilities.md
 │   └── mitre-attack.md
-├── IOCs.md
-├── Detections.md
+├── detections/
+│   ├── Detections.md
+│   ├── KQL.md
+│   ├── Splunk.md
+│   └── <actor>-Hunting.yar
+├── iocs/
+│   ├── IOCs.md
+│   ├── ip-addresses.md
+│   ├── file-artifacts.md
+│   ├── hashes.md
+│   ├── extensions.md
+│   ├── file-patterns.md
+│   └── onion-infrastructure.md
 └── References.md
 ```
+
+Not every threat actor will necessarily contain every indicator or detection type. Files are populated only when relevant intelligence is available.
 
 ## Analytical Note
 
