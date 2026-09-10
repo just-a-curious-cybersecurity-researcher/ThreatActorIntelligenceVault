@@ -1,15 +1,46 @@
-# Threat Actor Intelligence Vault
+# Threat Actor Intelligence
 
-This repository is a continuously evolving collection of Cyber Threat Intelligence focused on known threat actors and cybercriminal groups.
+This repository is a personal Cyber Threat Intelligence (CTI) knowledge base built from publicly available reporting and technical research.
 
-Its purpose is to consolidate and structure publicly available information about different threat actors, including their known Tactics, Techniques and Procedures (TTPs), Indicators of Compromise (IOCs), malware, tooling, infrastructure, exploited vulnerabilities, attribution, targeting patterns, and operational behavior.
+The objective is to consolidate information about threat actors, ransomware operations and related cybercriminal activity into a consistent structure that combines:
 
-The information included in this repository is primarily gathered from public sources such as security advisories, threat intelligence reports, incident response publications, malware research, vendor reports, and other open-source intelligence.
+- analytical assessments and actor profiling;
+- operational lifecycle and observed tradecraft;
+- MITRE ATT&CK mapping;
+- malware, tooling and exploited vulnerabilities;
+- indicators of compromise;
+- detection opportunities;
+- financial and blockchain intelligence where publicly available.
 
-Each threat actor profile aims to provide a centralized view of what is publicly known about the group, including how they typically gain initial access, operate inside compromised environments, move laterally, evade defenses, exfiltrate data, deploy malware or ransomware, and monetize their activity.
+The repository is intended as a research and defensive reference. Attribution in cyber threat intelligence is inherently probabilistic: vendor naming, actor clustering and relationships between groups may change as new evidence emerges. Claims that remain uncertain are therefore presented as assessments rather than facts.
 
-Where available, profiles may also include additional intelligence such as campaign history, relationships with other threat groups, infrastructure overlaps, blockchain activity, financial flows, MITRE ATT&CK mappings, and detection opportunities.
+## Threat Actors
 
-The goal of this repository is not to provide definitive attribution, but to build a structured and practical reference of publicly reported threat actor activity that can be useful for threat intelligence, incident response, threat hunting, detection engineering, and security research.
+| Actor | Type | Motivation | First observed | Status |
+|---|---|---|---|---|
+| [Akira](actors/akira/) | Ransomware / RaaS | Financial | March-April 2023 | Active in collected reporting |
 
-As new information becomes available, existing profiles may be updated and new threat actors will be added.
+## Repository Structure
+
+Each actor is organized into a small set of analytical and technical documents:
+
+```text
+actor/
+├── README.md
+├── intelligence/
+│   ├── overview.md
+│   ├── operations.md
+│   ├── attribution.md
+│   └── blockchain.md
+├── technical/
+│   ├── tooling-malware.md
+│   ├── vulnerabilities.md
+│   └── mitre-attack.md
+├── IOCs.md
+├── Detections.md
+└── References.md
+```
+
+## Analytical Note
+
+The presence of a single tool, IOC or ATT&CK technique is not sufficient to attribute activity to a specific threat actor. Greater analytical weight should be placed on combinations of behavior, infrastructure, malware artifacts, temporal context and corroborating reporting.
