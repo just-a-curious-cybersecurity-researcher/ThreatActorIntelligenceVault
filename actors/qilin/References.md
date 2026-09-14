@@ -227,3 +227,27 @@ Software mapping, not one organizational identity across every deployment cluste
 ### D01
 
 **Microsoft — detection schemas and logging**, reviewed 2026-09-10. [Defender process events](https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-deviceprocessevents-table), [registry events](https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-deviceregistryevents-table), [Sysmon](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon), [PowerShell logging](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logging_windows). Used for schema/sensor assumptions; runtime tenant validation remains required.
+
+### Q35
+
+**Group-IB — Qilin Revisited** — 2024-07-17; reviewed 2026-09-11.  
+[Group-IB — Qilin Revisited](https://www.group-ib.com/blog/qilin-revisited/)  
+Primary IR/sample research used for computer discovery, token handling, PsExec propagation and backup-console actions. Computer enumeration is classified by behavior rather than copying the source's account-discovery label. No particular public Veeam PoC is assumed to have been used.
+
+### Q36
+
+**Arete — Malware Spotlight: Qilin Ransomware** — 2026-08-19; reviewed 2026-09-11.  
+[Arete — Malware Spotlight: Qilin Ransomware](https://areteir.com/resources/malware-spotlight-qilin-ransomware)  
+Primary incident inventory and sample analysis. Used for selected tooling and exclusion examples; lists are build-specific. Its licensed YARA rule is not reproduced.
+
+### Q37
+
+**SANS / Will Thomas — The Evolution of Qilin RaaS** — 2025 research; reviewed 2026-09-11.  
+[SANS — The Evolution of Qilin RaaS](https://www.sans.org/blog/evolution-qilin-raas)  
+Research on public negotiation evidence and service organization. The February 2025 negotiation is a single case; offers and deletion guarantees remain adversary claims.
+
+### Q38
+
+**Symantec Threat Hunter Team — Ransomware 2025, Qilin case study** — February 2025 report; October 2024 incident, p. 8.  
+[Symantec — Ransomware 2025](https://www.security.com/sites/default/files/2025-02/2025_02_Ransomware_2025.pdf)  
+Primary case evidence for NetSupport, credential tooling and Rclone. Adobe exploitation and the possible BianLian-related backdoor are qualified assessments. Adjacent RansomHub procedures are not attributed to Qilin.

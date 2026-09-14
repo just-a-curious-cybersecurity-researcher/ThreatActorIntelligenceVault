@@ -1,38 +1,47 @@
 # Qilin / Agenda
 
-Qilin is a financially motivated ransomware-as-a-service program associated with the earlier Agenda name. Its Go/Rust encryptors and supporting infrastructure serve affiliates whose intrusion methods differ. This dossier traces the program's evolution while separating core operators, malware families and deployment clusters. Reviewed **2026-09-10**.
+Qilin is a financially motivated ransomware-as-a-service program associated with the earlier Agenda name. Its Go/Rust encryptors and supporting infrastructure serve affiliates whose intrusion methods differ. This dossier traces the program's evolution while separating core operators, malware families and deployment clusters. Reviewed **2026-09-11**.
 
 ## Quick Profile
 
-| Field | Evidence-based description |
+| Field | Assessment |
 |---|---|
-| Names | Qilin / Agenda; REVENANT SPIDER (CrowdStrike), Water Galura (TrendAI); scope qualified in attribution |
-| First observed | Mid-2022; June operator/probable-case reporting, August public Go analysis and August–September rebrand assessment |
-| Motivation / model | Financial extortion; RaaS with configurable payloads and negotiation/publication support |
-| Platforms | Windows; separate Linux/ESXi payloads; newer Nutanix checks are capability evidence |
-| Victimology | Global, varying by affiliate; healthcare/education in early samples, manufacturing/services prominent later; SMEs and cloud providers in Italian 2026 reporting |
-| Suspected nexus | Moderate Confidence Russian-speaking criminal ecosystem; no universal nationality/location or state-control conclusion |
-| Financial visibility | Service relationships to AudiA6 and FirstVPN; no validated direct victim-payment/treasury address in the reviewed public inventory |
+| Name | Qilin / Agenda |
+| Vendor alias | REVENANT SPIDER (CrowdStrike); Water Galura (TrendAI); boundaries qualified in attribution |
+| First observed | Mid-2022; operator, probable incident, public analysis and branding dates differ |
+| Motivation | Financial |
+| Model | Ransomware-as-a-Service with configurable builders and extortion support |
+| Primary platforms | Windows and separate Linux/ESXi payloads; newer Nutanix checks are capability evidence |
+| Primary regions in collected reporting | Global; United States, Canada, UK, France and Germany prominent in cited populations |
+| Common target sectors | Manufacturing, professional services, healthcare, education and others; SMEs/cloud providers in Italian reporting |
+| Suspected nexus | Moderate Confidence Russian-speaking criminal ecosystem; nationality, location and state control unestablished |
+| Status | Active in the collected reporting; source-bounded rather than live monitoring |
 
 ## Key Intelligence Judgments
 
-**KJ-01 — High Confidence:** affiliate and sample variability matters. Panel evidence and distinct incident chains show that one universal Qilin playbook would misrepresent the operation. [RaaS and cases](intelligence/operations.md)
+**KJ-01 — High Confidence.** Valid accounts, exposed infrastructure and targeted phishing are documented access paths. [Operations](intelligence/operations.md#2-initial-access)
 
-**KJ-02 — High Confidence:** identity and management infrastructure can amplify impact. GPO credential collection, MSP RMM access and centralized share/hypervisor deployment create exposure beyond a single endpoint. [Technical analysis](technical/tooling-malware.md)
+**KJ-02 — High Confidence.** Credential collection, AD discovery, lateral movement, recovery impairment and ransomware deployment recur, with different order and scope across affiliates. [Attack lifecycle](intelligence/operations.md)
 
-**KJ-03 — Moderate Confidence:** Russian-language recruitment and related technical evidence support an ecosystem nexus, while named state or criminal groups using Qilin remain separate deployment relationships. [Attribution and alternatives](intelligence/attribution.md)
+**KJ-03 — High Confidence.** Legitimate RMM, administration and transfer tools are extensively abused. Product names alone are weak attribution signals. [Tooling](technical/tooling-malware.md)
 
-**KJ-04 — Moderate Confidence:** the public financial evidence supports use of third-party services. Official FirstVPN wallet attribution does not establish Qilin's control of those wallets; the exact purchase address and treasury remain unknown. [Financial analysis](intelligence/blockchain.md)
+**KJ-04 — Moderate Confidence.** State/criminal clusters deploying Qilin and migration between RaaS programs do not establish common program ownership. [Relationships](intelligence/attribution.md)
+
+**KJ-05 — Moderate Confidence.** Russian-language recruitment and related indicators support a criminal-ecosystem nexus, not universal nationality or physical location. [Geographic nexus](intelligence/attribution.md#geographic-nexus)
+
+**KJ-06 — High Confidence.** Qilin combines encryption with disclosure pressure; management-plane and central-share access can amplify impact beyond the executing host. [Operations](intelligence/operations.md#13-ransomware-deployment-and-impact)
+
+**KJ-07 — Moderate Confidence.** AudiA6 and FirstVPN reporting establishes service relationships,. [Financial analysis](intelligence/blockchain.md)
 
 ## Navigation
 
 ### Intelligence
 
 - [Overview and timeline](intelligence/overview.md)
-- [Operations and campaigns](intelligence/operations.md)
+- [Operations / Attack Lifecycle](intelligence/operations.md)
 - [Attribution and relationships](intelligence/attribution.md)
 - [Blockchain and financial intelligence](intelligence/blockchain.md)
-- [Source review and intelligence gaps](intelligence/source-review.md)
+- [Source review](intelligence/source-review.md)
 
 ### Technical
 
@@ -46,6 +55,14 @@ Qilin is a financially motivated ransomware-as-a-service program associated with
 - [Detections](detections/Detections.md)
 - [Ransom notes](ransom-notes/Ransom-Notes.md)
 - [References](References.md)
+
+## Analytical Caveat
+
+This is a public-source dossier, not live monitoring. No actor-controlled service or stolen-data corpus was accessed. Return to [actor index](../README.md).
+
+## Evidence Currency
+
+Presentation and operational evidence reviewed **2026-09-11**. Individual observations keep their original dates; financial screening remains the September 10 snapshot. See [Source Review](intelligence/source-review.md) for added research.
 
 ## Structure
 
@@ -88,7 +105,3 @@ qilin/
 └── References.md
 ```
 <!-- tree:end -->
-
-## Analytical Caveat
-
-This is a public-source dossier, not live monitoring. No actor-controlled service or stolen-data corpus was accessed. Unsupported claim details, precise treasury identities and unobserved WSL execution remain documented gaps. Return to [actor index](../README.md).

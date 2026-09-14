@@ -1,7 +1,17 @@
 # Qilin / Agenda — Linux Sample Note
 
-Trend Micro's October 23, 2025 analysis includes a ransom-note screenshot extracted from a Linux payload. It describes an Agenda-style publication threat and extension/domain/login/password fields. The dossier preserves that description; it does not reconstruct the body, infer the dropped filename, or disclose victim credentials. [Q23](../References.md#q23)
+## Variant, Filename and Period
 
-**High Confidence** in the reported binary artifact; exact note bytes and relationship to the archived Windows-associated templates are unknown. Nutanix checks in newer samples do not prove this note was left on an AHV victim. The report's WSL execution explanation remains an assessment separate from the existence of the Linux sample.
+Trend Micro's October 23, 2025 analysis includes a ransom-note screenshot extracted from a Linux payload. [Q23](../References.md#q23)
 
-Return to [index](Ransom-Notes.md).
+## Known Text and Differences
+
+The screenshot describes an Agenda-style publication threat.
+
+## Contact and Infrastructure
+
+Extension/domain/login/password fields are shown in the source's description. No missing body or victim credentials are reconstructed. Nutanix checks in newer samples do not prove that this note was left on an AHV victim.
+
+## Source and Evidence State
+
+**High Confidence** in the reported binary artifact; the report's WSL explanation is a separate assessment about execution. Source: [Trend Q23](../References.md#q23). Return to [index](Ransom-Notes.md).

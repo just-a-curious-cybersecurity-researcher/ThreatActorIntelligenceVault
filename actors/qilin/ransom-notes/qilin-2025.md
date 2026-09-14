@@ -1,7 +1,17 @@
 # Qilin — 2025 Windows Case Note
 
-Talos Figure 23 is a note excerpt from its 2025 cases. It describes theft/encryption, a Tor leak endpoint, a clear-IP access alternative and victim-specific extension/login/password fields. **High Confidence in vendor-reported artifact**, incomplete body available in this dossier. Exact IP and private fields are not guessed or copied from unrelated tracker entries. [Q15](../References.md#q15)
+## Variant, Filename and Period
 
-The report analyzes two Windows encryptor configurations, but the note alone does not distinguish them. No exact sample-to-note hash correspondence is established here. This entry is separated from ThreatLabz's media-pressure template because similarity is not proof of identical bytes, contact route or observation date.
+Talos's 2025 Windows case analysis, Figure 23. The report analyzes two encryptor configurations, but the note alone does not distinguish them. [Q15](../References.md#q15)
 
-**Intelligence Gap:** obtain a complete redacted text tied to the actual sample and incident date. Return to [index](Ransom-Notes.md).
+## Known Text and Differences
+
+The available excerpt describes theft/encryption and victim-specific extension/login/password fields. It is kept separate from ThreatLabz's media-pressure template: similar content does not prove identical bytes, contact route or observation date.
+
+## Contact and Infrastructure
+
+The excerpt describes a Tor leak endpoint and a clear-IP access alternative. The exact IP and private fields are not guessed or copied from unrelated tracker entries.
+
+## Source and Evidence State
+
+**High Confidence in the vendor-reported artifact**, incomplete body available in this dossier. Source: [Talos Q15](../References.md#q15), Figure 23. Return to [index](Ransom-Notes.md).

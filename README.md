@@ -53,13 +53,13 @@ The presence of a single tool, IOC or ATT&CK technique is not sufficient to attr
 
 ## Intelligence Workflow and Confidence
 
-**Collection → Processing → Analysis → Dissemination:** source registers identify publisher, dates and access limits; IOC registers normalize values and roles while preserving unresolved leads; intelligence documents evaluate competing explanations; actor summaries and detections translate findings into defensive use. Source-review documents record the disposition of original references and remaining gaps.
+**Collection → Processing → Analysis → Dissemination:** source registers identify publisher, dates and access limits; IOC registers normalize values and roles while preserving unresolved leads; intelligence documents evaluate competing explanations; actor summaries and detections translate findings into defensive use. Source-review documents record the disposition and substantive use of references.
 
 - **High Confidence:** direct or strongly corroborated evidence supports the specific proposition. “High confidence in published reporting” still does not mean independently verified private-key ownership or actor identity.
 - **Moderate Confidence:** credible evidence supports an assessment, but incomplete visibility or plausible alternatives remain.
 - **Low Confidence:** a tentative lead, indirect relationship or uncorroborated claim; unsuitable as a sole attribution or blocking basis.
 
-Separate observed events, sample capabilities, third-party reporting, vendor attribution, analyst assessments and attacker claims. Multiple articles repeating one underlying report are one evidence chain. Publication date, incident date, collection date and current service availability are different fields. Unavailable evidence is an intelligence gap, not a reason to invent a note, exploit, wallet or identity.
+Separate observed events, sample capabilities, third-party reporting, vendor attribution, analyst assessments and attacker claims. Multiple articles repeating one underlying report are one evidence chain. Publication date, incident date, collection date and current service availability are different fields. When evidence is insufficient to populate a category, omit that content or section. Do not insert placeholder statements about uncertainty, missing information or intelligence gaps, and do not borrow another actor's facts to fill it. Use the same presentation for supported content; empty categories do not need to be reproduced. Retain source attribution and qualifications needed to represent the evidence that is actually included accurately.
 
 ## Defensive and Financial Use
 

@@ -1,6 +1,6 @@
 # Qilin — MITRE ATT&CK Evidence Mapping
 
-**Reviewed 2026-09-10.** Each row is a dossier mapping of a documented behavior or sample capability. It is not a claim that every affiliate performs it. High Confidence in a reported observation does not automatically establish actor identity. Software analysis describes capability; incident reports describe observed use.
+**Reviewed 2026-09-11.** Each row is a dossier mapping of a documented behavior or sample capability. It is not a claim that every affiliate performs it. High Confidence in a reported observation does not automatically establish actor identity. Software analysis describes capability; incident reports describe observed use.
 
 Names and tactics use the official Enterprise ATT&CK STIX snapshot retrieved 2026-09-10, SHA256 `dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4`. [MITRE data](https://github.com/mitre-attack/attack-stix-data). The catalog changes; the compact [validation profile](../../../scripts/attack-profile.json) preserves the identifiers used here.
 
@@ -26,7 +26,7 @@ Names and tactics use the official Enterprise ATT&CK STIX snapshot retrieved 202
 | [T1136.001 — Local Account](https://attack.mitre.org/techniques/T1136/001) | Persistence | Supportt administrative backdoor account in reported campaign | [Q18](../References.md#q18) | Moderate Confidence |
 | [T1087.002 — Domain Account](https://attack.mitre.org/techniques/T1087/002) | Discovery | Domain user/group queries before propagation | [Q18](../References.md#q18) | High Confidence in source observation / mapping |
 | [T1069.002 — Domain Groups](https://attack.mitre.org/techniques/T1069/002) | Discovery | Domain administrator group collection | [Q18](../References.md#q18) | High Confidence in source observation / mapping |
-| [T1018 — Remote System Discovery](https://attack.mitre.org/techniques/T1018) | Discovery | AD computer and ESXi host enumeration | [Q15](../References.md#q15), [Q18](../References.md#q18) | High Confidence in source observation / mapping |
+| [T1018 — Remote System Discovery](https://attack.mitre.org/techniques/T1018) | Discovery | AD computer and ESXi host enumeration; Group-IB also documents payload-driven computer discovery | [Q15](../References.md#q15), [Q18](../References.md#q18), [Q35](../References.md#q35) | High Confidence in source observation / mapping |
 | [T1135 — Network Share Discovery](https://attack.mitre.org/techniques/T1135) | Discovery | Network-share discovery | [Q09](../References.md#q09), [Q15](../References.md#q15) | High Confidence in source observation / mapping |
 | [T1046 — Network Service Discovery](https://attack.mitre.org/techniques/T1046) | Discovery | Internal scanning and repeated SMB/RDP connections | [Q09](../References.md#q09) | High Confidence in source observation / mapping |
 | [T1082 — System Information Discovery](https://attack.mitre.org/techniques/T1082) | Discovery | OS, CPU and memory discovery in reported tooling chain | [Q18](../References.md#q18) | Moderate Confidence |
@@ -54,7 +54,7 @@ Names and tactics use the official Enterprise ATT&CK STIX snapshot retrieved 202
 | [T1567.002 — Exfiltration to Cloud Storage](https://attack.mitre.org/techniques/T1567/002) | Exfiltration | Cyberduck to Backblaze, MEGA and easyupload transfers in separate incidents | [Q15](../References.md#q15), [Q09](../References.md#q09), [Q22](../References.md#q22) | High Confidence in source observation / mapping |
 | [T1048.003 — Exfiltration Over Unencrypted Non-C2 Protocol](https://attack.mitre.org/techniques/T1048/003) | Exfiltration | FTP exfiltration to 194.165.16.13 in probable Qilin-related May 2024 intrusion | [Q09](../References.md#q09) | Moderate Confidence |
 | [T1486 — Data Encrypted for Impact](https://attack.mitre.org/techniques/T1486) | Impact | Configurable Go/Rust Windows and Linux/ESXi encryption | [Q13](../References.md#q13), [Q15](../References.md#q15), [Q12](../References.md#q12), [Q23](../References.md#q23) | High Confidence in source observation / mapping |
-| [T1490 — Inhibit System Recovery](https://attack.mitre.org/techniques/T1490) | Impact | Shadow-copy/snapshot removal | [Q15](../References.md#q15), [Q22](../References.md#q22) | High Confidence in source observation / mapping |
+| [T1490 — Inhibit System Recovery](https://attack.mitre.org/techniques/T1490) | Impact | Shadow-copy/snapshot removal and backup-job destruction | [Q15](../References.md#q15), [Q22](../References.md#q22), [Q35](../References.md#q35) | High Confidence in source observation / mapping |
 | [T1489 — Service Stop](https://attack.mitre.org/techniques/T1489) | Impact | Service and VM shutdown before disk encryption | [Q15](../References.md#q15) | High Confidence in source observation / mapping |
 | [T1531 — Account Access Removal](https://attack.mitre.org/techniques/T1531) | Impact | ESXi root password changes impair legitimate access | [Q09](../References.md#q09), [Q15](../References.md#q15) | High Confidence in source observation / mapping |
 
