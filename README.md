@@ -21,6 +21,7 @@ The repository is intended as a research and defensive reference. Attribution in
 |---|---|---|---|---|
 | [Akira](actors/akira/README.md) | Ransomware / RaaS | Financial | March–April 2023 emergence | 2026-09-10 |
 | [Qilin / Agenda](actors/qilin/README.md) | Ransomware / RaaS | Financial | Mid-2022; operator, sample and branding dates differ | 2026-09-10 |
+| [APT28 / Fancy Bear](actors/apt28%20-%20Fancy%20Bear/README.md) | State-linked espionage | Military / political intelligence | At least 2004 in retrospective reporting | 2026-09-14 |
 
 See the [actor index](actors/README.md), [financial-source review](actors/financial-source-review.md) and [validation report](VALIDATION.md).
 
@@ -68,3 +69,5 @@ Legitimate administration tools acquire meaning through account, host, tenant, t
 Blockchain roles are explicit: Victim Payment Address, Affiliate Address, Intermediary Address, Peel Chain Address, Consolidation Address, Suspected Operator Address, Suspected Treasury Address, Exchange Deposit, VASP, Mixer, Bridge, Service Infrastructure, OFAC-Sanctioned Address, Law-Enforcement Seizure Address or Unknown Downstream Address. Only evidence-backed categories are populated. An official attribution to a service and an analyst-assessed relationship to a ransomware group have separate confidence levels. No downstream address inherits organizational ownership automatically.
 
 The [validation script](scripts/validate_repository.py) checks internal links/anchors, index coverage, README trees, indicator syntax/checksums and active ATT&CK entries. Optional [harmless detection-fixture tests](scripts/test_detection_artifacts.py) compile YARA and exercise selected regex boundaries. See [validation](VALIDATION.md) for commands and practical limits.
+
+APT28 retains ransomware-specific sections as Not applicable and records source gaps explicitly, following its dossier scope. Other dossiers retain their existing evidence-based inclusion conventions.
