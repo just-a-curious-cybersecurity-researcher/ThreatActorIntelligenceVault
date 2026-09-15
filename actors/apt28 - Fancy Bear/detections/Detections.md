@@ -1,50 +1,57 @@
 # APT28 — Detections
 
-This directory contains published defensive detections and hunting material based on the APT28 activity documented in this dossier.
+This directory contains defensive detection and threat-hunting content associated with the APT28 procedures documented in this repository.
 
-> **Important:** review sensor coverage, product dependencies and local administrative baselines before deployment. A match supports investigation; it does not establish APT28 attribution.
+> **Review / tuning:** queries are investigation starting points. Validate sensor coverage, approved administration and campaign context before production use. A behavioral or artifact match does not establish APT28 attribution.
 
 ## Content
 
-- [Published YARA](APT28-Hunting.yar) — Four official HEADLACE / MASEPIE hunting rules
-- [KQL](KQL.md) — Three published Microsoft GooseEgg queries
-- [Splunk](Splunk.md) — Four published Splunk Outlook searches
+- [KQL](KQL.md) — 33 copyable queries: nine retained Microsoft hunts and 24 locally authored hunts.
+- [Splunk](Splunk.md) — 28 copyable searches: four retained Splunk Security Content searches and 24 locally authored hunts.
+- [YARA](APT28-Hunting.yar) — ten rules: four retained published HEADLACE / MASEPIE rules, five local content heuristics and one local exact-hash rule.
+
+## Coverage, Telemetry and Tuning Register
+
+| Procedure / campaign | Local query IDs | Required telemetry | Review / tuning |
+|---|---|---|---|
+| Document execution and HEADLACE delivery | H01, H03–H04 | Process creation and command line | Inspect ancestry and scripts; approved automation can match |
+| Outlook credential exposure | H02 | Endpoint network events | Confirm public destination, message context and authentication evidence |
+| GooseEgg persistence and staging | H05–H08 | Process, registry and file events | Correlate task, COM handler and copied constraint file |
+| Outlook macro persistence and execution | H09–H12, H14 | File, registry and process events | Inspect macro ownership, policy changes and executing process |
+| OneDrive DLL side-loading | H13 | Image-load events | Validate loaded DLL path, signature and hash |
+| Browser and prompted credential collection | H15–H16 | Process command line; recovered scripts for YARA | Script bodies may be absent from process logs |
+| Registry-hive collection | H17 | Process creation | Baseline backup and response activity |
+| Remote service execution | H18 | Process creation / parent image | PsExec is also legitimate administration |
+| Neusploit staging | H19 | File creation | Names alone have low specificity; correlate exact hashes |
+| Mail-channel hunting | H20 | Endpoint network events | Generic script-host hypothesis; mail automation can match |
+| Native discovery | H21 | Process creation | Local threshold: three distinct tools in ten minutes |
+| Router-campaign infrastructure | H22 | Endpoint network events | 182 historical IPs; no assumption of current hostile control |
+| Sample matching | H23 | File/process/image-load hashes, depending on platform | 14 SHA-256 and two SHA-1 values; legitimate OneDrive excluded |
+| Webhook communication | H24 | Network hostname visibility or Sysmon DNS | DNS resolution and successful connection are different observations |
+
+## Query Organization
+
+H01–H24 use the same identifiers in KQL and Splunk. Each entry includes its telemetry, origin and interpretation limits. Sensor differences are explicit: a Sysmon file-creation event does not represent every modification, and DNS telemetry does not prove data transfer.
+
+The retained Microsoft queries also cover cloud sign-ins and Exchange/mailbox investigation. They state required account input or custom Exchange ingestion. The four retained Splunk searches require the publisher's macros and Endpoint CIM mapping; local searches operate on extracted Sysmon fields.
+
+## YARA Coverage
+
+| Rule | Origin / type | Coverage | Review / tuning |
+|---|---|---|---|
+| APT28_HEADLACE_SHORTCUT | Published | Shortcut dropper content | File triage; inspect target and provenance |
+| APT28_HEADLACE_CREDENTIALDIALOG | Published | Credential-prompt script strings | Recovered script content required |
+| APT28_HEADLACE_CORE | Published | HEADLACE batch content | Does not establish execution |
+| APT28_MASEPIE | Published | Python implant strings | Source-level content; packed forms may not match |
+| APT28_GooseEgg_Artifact_Bundle_Triage | Local heuristic | co-located GooseEgg artifact strings; not a binary-family signature | Extracted content below 10 MB; validate matched strings |
+| APT28_Outlook_Macro_Configuration_Triage | Local heuristic | scripts staging Outlook macros and changing startup/security settings | Extracted content below 10 MB; validate matched strings |
+| APT28_Browser_Secret_Script_Triage | Local heuristic | STEELHOOK-related script heuristic; also matches credential auditing tools | Extracted content below 10 MB; validate matched strings |
+| APT28_Headless_Webhook_Script_Triage | Local heuristic | HEADLACE/HOOKEDGE-related service-abuse heuristic; approved automation can match | Extracted content below 10 MB; validate matched strings |
+| APT28_Neusploit_Staging_Strings_Triage | Local heuristic | co-located Neusploit staging names; no exploit or family identification | Extracted content below 10 MB; validate matched strings |
+| APT28_Retained_SHA256_Exact_Match | Local exact hash | 14 retained SHA-256 values | Whole-file match below 100 MB; requires the YARA hash module |
 
 ## September 2026 Review
 
-**Last updated:** 2026-09-14. Rules and queries retain publisher logic; no new detection rule is attributed to a vendor. Public source status does not establish production suitability. Neither a matching string nor an ATT&CK technique proves APT28 attribution.
+Reviewed **2026-09-15**. Empty and inapplicable detection sections have been removed. Locally authored content translates documented procedures into testable defensive hypotheses; it is not presented as vendor-published detection logic. Bibliographic provenance is centralized in the actor's reference file.
 
-**APT28_HEADLACE_SHORTCUT.** Type: YARA Coverage: Internet shortcut dropper Source: [A21](../References.md#a21), pp. 19–20 Publication / revision: 2025-05-21 Notes: Hunt; contextual triage required
-
-**APT28_HEADLACE_CREDENTIALDIALOG.** Type: YARA Coverage: Credential-dialog script Source: [A21](../References.md#a21), p. 20 Publication / revision: 2025-05-21 Notes: Five matching strings; no execution required
-
-**APT28_HEADLACE_CORE.** Type: YARA Coverage: HEADLACE batch core Source: [A21](../References.md#a21), pp. 20–21 Publication / revision: 2025-05-21 Notes: Generic command overlap possible
-
-**APT28_MASEPIE.** Type: YARA Coverage: Python backdoor text Source: [A21](../References.md#a21), p. 21 Publication / revision: 2025-05-21 Notes: Static content coverage
-
-**GooseEgg driver-store / registry queries.** Type: KQL Coverage: File and registry telemetry Source: [A17](../References.md#a17) Publication / revision: 2024-04-22 Notes: Schema and string representation need tenant validation
-
-**NotDoor analytic story.** Type: SPL Coverage: Outlook macro file and registry changes Source: [A50](../References.md#a50)–[A54](../References.md#a54) Publication / revision: 2026-05-13 revision Notes: Requires CIM and publisher macros; see upstream limitations
-
-**New Outlook Macro Created.** Type: Sigma Coverage: Outlook-created VbaProject.OTM Source: [A75](../References.md#a75) Publication / revision: 2023-02-08 revision Notes: Status test; generic macro creation, not a NotDoor signature
-
-**Jaguar Tooth, SIDs 230418000–230418006.** Type: Snort Coverage: Cisco SNMP exploitation / implant traffic Source: [NCSC published rules](https://www.ncsc.gov.uk/sites/default/files/documents/NCSC-MAR-Jaguar-Tooth-snort.txt), [A48](../References.md#a48) Publication / revision: 2023-04-18 Notes: Sensor placement matters; Suricata compatibility not asserted
-
-**AUTHENTIC ANTICS / Jaguar Tooth signatures.** Type: YARA Coverage: NCSC malware analysis artifacts Source: [A49](../References.md#a49) Publication / revision: Catalog reviewed 2026-09-14 Notes: Linked originals; downloads not locally compiled
-
-## Additional Telemetry Opportunities
-
-These hypotheses summarize investigations and recommendations in the cited publications. They are not newly invented rule bodies.
-
-| Opportunity | Evidence | Collection and decision |
-|---|---|---|
-| Detect router DNS changes and selective redirection | [A32](../References.md#a32), [A33](../References.md#a33) | Router configuration history, resolver responses, TLS warnings, identity logs. Compare approved resolvers; correlate targeted Microsoft authentication traffic with token misuse |
-| Identify exploitation of Outlook NTLM handling | [A16](../References.md#a16) | Email properties, outbound SMB/NTLM, Windows authentication events. Investigate unexpected external authentication; distinguish scanners and sanctioned test accounts |
-| Find Outlook macro persistence | [A25](../References.md#a25), [A50](../References.md#a50) | File creation, registry writes, Outlook process ancestry, mail audit. Validate macro owner, signing and management policy before containment |
-| Investigate GooseEgg escalation | [A17](../References.md#a17) | Driver-store changes, COM registration, scheduled tasks, process hashes. Correlate artifacts on one host; approved printer servicing can match |
-| Detect cloud-backed implants | [A28](../References.md#a28) | Endpoint process-to-network mapping, proxy and cloud access logs. Investigate unapproved account / app / process relationships; do not block a whole cloud provider from a domain match |
-| Examine lateral access through nearby Wi-Fi | [A18](../References.md#a18) | Wireless-controller authentication, endpoint adapter history, VPN and identity records. Trace account and endpoint provenance across organizations; ordinary roaming is not malicious |
-| Identify logistics reconnaissance and theft | [A21](../References.md#a21) | Mailbox access, remote service logons, archive creation and transfer records. Correlate source-linked indicators with unusual access to shipment and support information |
-| Review OAuth/token theft | [A23](../References.md#a23), [A33](../References.md#a33) | Sign-ins, token use, Outlook module loads and network telemetry. Revoke affected sessions and investigate the endpoint; password change alone may not remove stolen-token access |
-
-Apply vendor patch guidance, phishing-resistant MFA, restricted external SMB, router management isolation and centralized logging according to the cited advisories. Prioritize identity and edge-device evidence alongside endpoint collection. Validation here cannot establish recall against live campaigns or replace deployment testing.
+See [validation](../../../VALIDATION.md) for structural checks, harmless YARA fixtures and the limits of static query review.

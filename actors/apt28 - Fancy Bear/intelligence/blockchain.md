@@ -4,7 +4,7 @@ Last updated: **2026-09-14**. This section covers operational funding and sancti
 
 ## Overview
 
-The absence of a ransomware business model does not mean an absence of cryptocurrency use. The DOJ's 2018 election case alleges cryptocurrency payments supporting servers, domains and accounts. Elliptic separately published analysis of infrastructure funding associated with Fancy Bear. These are expenditure and attribution records, not ransom receipts. [A05](../References.md#a05), [A41](../References.md#a41)
+The absence of a ransomware business model does not mean an absence of cryptocurrency use. The DOJ's 2018 election case alleges cryptocurrency payments supporting servers, domains and accounts. Elliptic separately published analysis of infrastructure funding associated with Fancy Bear. These are expenditure and attribution records, not ransom receipts. 
 
 ## Blockchain Attribution and Visibility Limitations
 
@@ -14,7 +14,7 @@ The collected sources do not provide a sufficiently documented, current APT28 ad
 
 ## Phase I — 2016 Infrastructure Expenditure
 
-The election indictment alleges that defendants used cryptocurrency, including mined bitcoin, to fund operations. It describes common funding of DCLeaks registration and phishing infrastructure. The charged laundering conspiracy concerns more than USD 95,000 used for operational expenses, not an APT28 ransom-income estimate. [A05](../References.md#a05)
+The election indictment alleges that defendants used cryptocurrency, including mined bitcoin, to fund operations. It describes common funding of DCLeaks registration and phishing infrastructure. The charged laundering conspiracy concerns more than USD 95,000 used for operational expenses, not an APT28 ransom-income estimate. 
 
 ### Assessment
 
@@ -22,7 +22,7 @@ The election indictment alleges that defendants used cryptocurrency, including m
 
 ## Phase II — 2017–2018 Provider Analysis
 
-Elliptic describes tracing payments for Crookservers infrastructure toward a wallet it assessed as apparently controlled by Fancy Bear. It discusses exchange-origin funds, including BTC-e context, and a candidate transaction inferred from a payment described in the indictment. The article says that the indictment itself does not publish specific bitcoin addresses or transaction IDs. [A41](../References.md#a41)
+Elliptic describes tracing payments for Crookservers infrastructure toward a wallet it assessed as apparently controlled by Fancy Bear. It discusses exchange-origin funds, including BTC-e context, and a candidate transaction inferred from a payment described in the indictment. The article says that the indictment itself does not publish specific bitcoin addresses or transaction IDs. 
 
 ### Assessment
 
@@ -30,17 +30,17 @@ Elliptic describes tracing payments for Crookservers infrastructure toward a wal
 
 ## Phase III — 2018–2025 Sanctions and Legal Attribution
 
-**2018-07-13.** Authority / instrument: DOJ election charges Subject and connection: Twelve officers; Units 26165 and 74455; alleged infrastructure funding Evidentiary use: Charging allegations, not a current sanctions list. [A05](../References.md#a05)
+**2018-07-13.** Authority / instrument: DOJ election charges Subject and connection: Twelve officers; Units 26165 and 74455; alleged infrastructure funding Evidentiary use: Charging allegations, not a current sanctions list. 
 
-**2018.** Authority / instrument: DOJ case 18-263 Subject and connection: Seven GRU defendants; anti-doping targeting and related money-laundering allegations Evidentiary use: Separate conspiracy and victim population. [A06](../References.md#a06)
+**2018.** Authority / instrument: DOJ case 18-263 Subject and connection: Seven GRU defendants; anti-doping targeting and related money-laundering allegations Evidentiary use: Separate conspiracy and victim population. 
 
-**2018-12-19.** Authority / instrument: Treasury / OFAC designations Subject and connection: Named GRU officers; election and WADA roles Evidentiary use: Government attribution and historical designations; no automatic wallet label. [A09](../References.md#a09)
+**2018-12-19.** Authority / instrument: Treasury / OFAC designations Subject and connection: Named GRU officers; election and WADA roles Evidentiary use: Government attribution and historical designations; no automatic wallet label. 
 
-**2020-10-22.** Authority / instrument: EU restrictive measures / UK enforcement announcement Subject and connection: Two individuals and the unit involved in Bundestag hacking Evidentiary use: Historical asset-freeze/travel-ban actions. [A07](../References.md#a07), [A08](../References.md#a08)
+**2020-10-22.** Authority / instrument: EU restrictive measures / UK enforcement announcement Subject and connection: Two individuals and the unit involved in Bundestag hacking Evidentiary use: Historical asset-freeze/travel-ban actions. 
 
-**2025-07-18.** Authority / instrument: UK announcement Subject and connection: Units 26165, 29155 and 74455 plus 18 individuals Evidentiary use: Multiple distinct units listed in one announcement; not evidence of one actor. [A24](../References.md#a24)
+**2025-07-18.** Authority / instrument: UK announcement Subject and connection: Units 26165, 29155 and 74455 plus 18 individuals Evidentiary use: Multiple distinct units listed in one announcement; not evidence of one actor. 
 
-**Retrieved 2026-09-14.** Authority / instrument: FBI wanted notice Subject and connection: Dmitriy Badin, alleged Unit 26165 officer Evidentiary use: Wanted status in the retrieved public record; no reward value invented. [A58](../References.md#a58)
+**Retrieved 2026-09-14.** Authority / instrument: FBI wanted notice Subject and connection: Dmitriy Badin, alleged Unit 26165 officer Evidentiary use: Wanted status in the retrieved public record; no reward value invented. 
 
 ### Assessment
 
@@ -48,9 +48,9 @@ Sanctions announcements establish dated official actions. They are not a fresh m
 
 ## Phase IV — 2026 Research and Infrastructure Disruption
 
-Operation Masquerade disrupted a US router population supporting DNS hijacking. It was a technical/legal intervention, not a documented seizure of ransom proceeds or closure of an affiliate marketplace. [A35](../References.md#a35)
+Operation Masquerade disrupted a US router population supporting DNS hijacking. It was a technical/legal intervention, not a documented seizure of ransom proceeds or closure of an affiliate marketplace. 
 
-TRM's 2026 AI-in-Crime report mentions APT28/PROMPTSTEAL in its discussion of AI-assisted malware. That appearance in a crypto-crime report does not establish APT28 participation in ransomware monetization. [A42](../References.md#a42)
+TRM's 2026 AI-in-Crime report mentions APT28/PROMPTSTEAL in its discussion of AI-assisted malware. That appearance in a crypto-crime report does not establish APT28 participation in ransomware monetization. 
 
 ### Analytical Assessment
 
@@ -62,11 +62,11 @@ Use of bitcoin, a VPN provider, an exchange or a compromised router can reflect 
 
 ## Deviations from Phase IV
 
-The 2026 material concerns infrastructure disruption and contextual financial research. It does not establish a ransomware cash-out phase against which financial deviations could be measured. [A35](../References.md#a35), [A42](../References.md#a42)
+The 2026 material concerns infrastructure disruption and contextual financial research. It does not establish a ransomware cash-out phase against which financial deviations could be measured. 
 
 ## APT28 ↔ Criminal Infrastructure
 
-The MooBot episode is an access/infrastructure relationship. DOJ describes criminal initial compromise followed by APT28's reuse. The public evidence reviewed does not disclose an access purchase, affiliate commission or common command structure. [A19](../References.md#a19), [A20](../References.md#a20)
+The MooBot episode is an access/infrastructure relationship. DOJ describes criminal initial compromise followed by APT28's reuse. The public evidence reviewed does not disclose an access purchase, affiliate commission or common command structure. 
 
 ## APT28 ↔ Ransomware
 
@@ -74,7 +74,7 @@ The MooBot episode is an access/infrastructure relationship. DOJ describes crimi
 
 ## Cash-Out Timing
 
-Not applicable to ransom revenue in this dossier. No attributed transaction series supports current cash-out timing. [A05](../References.md#a05), [A41](../References.md#a41)
+Not applicable to ransom revenue in this dossier. No attributed transaction series supports current cash-out timing. 
 
 ## Intelligence Gaps
 
@@ -92,7 +92,7 @@ No APT28-specific financial-service takedown is established by the reviewed sour
 
 ## Regulatory and Judicial Review
 
-The authorities reviewed include DOJ, Treasury/OFAC, EU/UK sanctions announcements and an FBI wanted notice. Europol's IOCTA discusses Sofacy's targeting and influence context; it does not establish an APT28 arrest or wallet seizure. No applicable Eurojust case or specific reward amount was verified. [A57](../References.md#a57)
+The authorities reviewed include DOJ, Treasury/OFAC, EU/UK sanctions announcements and an FBI wanted notice. Europol's IOCTA discusses Sofacy's targeting and influence context; it does not establish an APT28 arrest or wallet seizure. No applicable Eurojust case or specific reward amount was verified. 
 
 ## Multi-Chain Research and Next Collection Priorities
 

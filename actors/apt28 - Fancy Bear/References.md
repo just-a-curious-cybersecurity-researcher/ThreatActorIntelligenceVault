@@ -458,3 +458,47 @@ Status test; generic Outlook-created macro detection, not a NotDoor-specific att
 ## Review Coverage
 
 Reviewed 2026-09-14. The [source review](intelligence/source-review.md) records use, destination and retrieval limits for all 75 entries. Publication, incident and review dates remain distinct.
+
+## Detection Implementation Provenance — 2026-09-15
+
+H01–H24 are locally authored behavioral/artifact hunts in both query files. The references below support the procedure or retained indicator, not vendor authorship, runtime validation or detection efficacy. Local thresholds and sensor translations are repository decisions.
+
+| Local query | Documented basis |
+|---|---|
+| H01 — Office spawning a script interpreter or proxy execution binary | A21, A29 |
+| H02 — Outlook outbound SMB to a public IPv4 address | A16 |
+| H03 — HEADLACE-style headless browser launched by a script | A21, A37, A64 |
+| H04 — Script command renaming an image or stylesheet into a batch file | A37, A64 |
+| H05 — GooseEgg-associated scheduled task | A17 |
+| H06 — GooseEgg-associated COM registration | A17 |
+| H07 — GooseEgg-associated protocol handler | A17 |
+| H08 — GooseEgg copied printer constraint file in ProgramData | A17 |
+| H09 — Outlook macro project written by another process | A25, A29, A75 |
+| H10 — Outlook macro security lowered | A25, A51 |
+| H11 — Outlook macro provider enabled at startup | A25, A53 |
+| H12 — Outlook dialog settings changed by another process | A25, A54 |
+| H13 — OneDrive loading SSPICLI from a user or staging directory | A25 |
+| H14 — Outlook spawning a command or script interpreter | A25, A29 |
+| H15 — Browser-secret collection terms in PowerShell | A21 |
+| H16 — Credential prompt with password extraction and file output | A21 |
+| H17 — Registry hive export associated with credential collection | A17 |
+| H18 — Remote-service command execution through PSEXESVC | A21 |
+| H19 — Neusploit staging artifact creation | A29 |
+| H20 — Mail protocol connection from a scripting process | A21, A22 |
+| H21 — Native discovery command burst | A21 |
+| H22 — Connections to the retained router-campaign IP inventory | A32 |
+| H23 — Retained malicious sample hashes | A17, A25, A28, A29 |
+| H24 — Scripting or browser context contacting webhook service | A21, A36, A37 |
+
+| Local YARA rule | Documented basis |
+|---|---|
+| APT28_GooseEgg_Artifact_Bundle_Triage | A17; local string-bundle heuristic, not a published family signature |
+| APT28_Outlook_Macro_Configuration_Triage | A25, A29; local string-bundle heuristic, not a published family signature |
+| APT28_Browser_Secret_Script_Triage | A21; local string-bundle heuristic, not a published family signature |
+| APT28_Headless_Webhook_Script_Triage | A21, A36, A37; local string-bundle heuristic, not a published family signature |
+| APT28_Neusploit_Staging_Strings_Triage | A29; local string-bundle heuristic, not a published family signature |
+| APT28_Retained_SHA256_Exact_Match | A17, A25, A29; SHA-256 inventory and hash provenance in this dossier |
+
+The four retained YARA rules are from A21. Retained Microsoft KQL comes from A16, A17 and A33; retained Splunk searches come from A51–A54. The EWS aggregation preserves the required `count()` call. Existing compatibility notes remain beside the retained searches.
+
+Implementation schemas: [Defender image-load events](https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-deviceimageloadevents-table), [Defender file events](https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-devicefileevents-table), [Defender registry events](https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-deviceregistryevents-table), and [Sysmon event documentation](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon). Consulted 2026-09-15; these are platform references, not additional actor-attribution sources.
