@@ -1,5 +1,7 @@
 # Qilin — IP Addresses
 
+**Presentation reviewed:** 2026-09-15.
+
 Reviewed 2026-09-10. Addresses may be reassigned or shared. Validate time, network telemetry and case context before use. A C2 assessment is not proof of Qilin ownership. The Darktrace population consists of probable affiliate cases with differing attribution confidence.
 
 | Indicator | Role and context | Observation | Confidence / use |
@@ -10,9 +12,9 @@ Reviewed 2026-09-10. Addresses may be reassigned or shared. Validate time, netwo
 | `45.221.64[.]245` | Secondary delivery host, /mot/ path | October 2025 fake-CAPTCHA report | Moderate Confidence in observed delivery infrastructure; Qilin entry chain assessed |
 | `104.164.55[.]7` | Secondary delivery host, /231/means.d path | October 2025 fake-CAPTCHA report | Moderate Confidence in observed delivery infrastructure; Qilin entry chain assessed |
 
-## Probable Qilin Case Infrastructure
+## Campaign Infrastructure
 
-The following Darktrace observations retain their case-specific attribution limits. They are not a shared ownership claim or a universal Qilin C2 set. 
+The following Darktrace observations retain their case-specific attribution limits. They are not a shared ownership claim or a universal Qilin C2 set.
 
 | Indicator | Published role | Observation / limitation |
 |---|---|---|

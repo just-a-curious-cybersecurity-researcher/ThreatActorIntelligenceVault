@@ -1,5 +1,7 @@
 # Akira — File and Note Patterns
 
+**Presentation reviewed:** 2026-09-15.
+
 | Pattern | Context / period | Source / confidence |
 |---|---|---|
 | `akira_readme.txt` | Canonical C++ note, documented June 2023 and September 2024 | High Confidence |

@@ -1,4 +1,6 @@
-# Akira — Source Review and Intelligence Gaps
+# Akira — Source Review
+
+**Presentation reviewed:** 2026-09-15.
 
 Review date: **2026-09-10**. This register separates collection from the resulting analysis. A source being reachable is not evidence that all its claims are reliable. The reference register resolves publisher, URL, date and limitations for the original and additional sources.
 

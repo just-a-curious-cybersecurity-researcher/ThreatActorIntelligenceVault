@@ -1,5 +1,7 @@
 # Qilin — File and Note Patterns
 
+**Presentation reviewed:** 2026-09-15.
+
 | Pattern | Context / period | Source / confidence |
 |---|---|---|
 | `<company_id>-RECOVER-README.txt` | Go analysis August 2022; Agenda archived `DtMXQFOCos-RECOVER-README.txt` | High Confidence |

@@ -1,5 +1,7 @@
 # Akira — Ransomware Extensions
 
+**Presentation reviewed:** 2026-09-15.
+
 | Extension | Variant / period | Evidence / confidence |
 |---|---|---|
 | `.akira` | Early C++ Windows/Linux, 2023; C++ return observed September 2024 | High Confidence |

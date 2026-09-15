@@ -1,5 +1,7 @@
 # Akira — Attribution and Relationships
 
+**Presentation reviewed:** 2026-09-15.
+
 ## Evidence Classes and Confidence
 
 **Observed** here means observed by the named publisher. This repository has not independently accessed victim networks or private attribution telemetry. **High Confidence** means strong direct or convergent evidence for the specific claim; **Moderate Confidence** means credible but incomplete evidence or plausible alternatives; **Low Confidence** marks weak, indirect or uncorroborated support.
@@ -17,11 +19,11 @@
 
 ## Geographic Nexus
 
-TRM reports Russian-language forum communications and non-VPN Russian IP observations, assessing a possible Russian/post-Soviet base. GLIMPS mentions Slavic communications and avoidance of Russian victims without exposing its underlying evidence. These are **vendor reports**, not independently inspected communications. 
+TRM reports Russian-language forum communications and non-VPN Russian IP observations, assessing a possible Russian/post-Soviet base. GLIMPS mentions Slavic communications and avoidance of Russian victims without exposing its underlying evidence. These are **vendor reports**, not independently inspected communications.
 
 **Assessment — Moderate Confidence:** a Russian-speaking criminal-ecosystem nexus is plausible. Confidence in a specific country of operation or nationality is **Low Confidence**. Language, hosting and victim selection can reflect affiliates, service providers, incomplete collection, deliberate avoidance or deception. No state sponsorship is established.
 
-TRM also reports absence of a Russian-keyboard execution safeguard. That weakens any claim that malware behavior proves universal regional avoidance. Lack of known Russian victims is not proof of operator location. 
+TRM also reports absence of a Russian-keyboard execution safeguard. That weakens any claim that malware behavior proves universal regional avoidance. Lack of known Russian victims is not proof of operator location.
 
 ## Relationships and Alternative Hypotheses
 
@@ -38,8 +40,10 @@ TRM also reports absence of a Russian-keyboard execution safeguard. That weakens
 
 Attribute an incident using convergent malware, note/configuration, negotiation, timeline and intrusion evidence. Do not infer Akira from an RMM product, a VPN CVE or a shared exchange. Financial links cannot establish the identity of whoever operated a victim endpoint. See [Source Review](source-review.md) for outstanding evidence needs.
 
-## Official Historical Organizational Evidence — May 2026
+## Official Organizational Evidence and Limits
 
-DOJ reports that Deniss Zolotarjovs, a Latvian national based in Moscow, received a 102-month sentence after pleading guilty to money-laundering and wire-fraud conspiracy. It places his participation around June 2021–August 2023 in an organization led by former Conti leaders, and includes **Akira** among that organization's ransom-note brands. DOJ describes a hierarchical organization operating for a time from St. Petersburg. **High Confidence in this being the official account**, supported by the prosecution; it is stronger evidence for a historical connection than code similarity alone. 
+**Evidence period:** May 2026.
+
+DOJ reports that Deniss Zolotarjovs, a Latvian national based in Moscow, received a 102-month sentence after pleading guilty to money-laundering and wire-fraud conspiracy. It places his participation around June 2021–August 2023 in an organization led by former Conti leaders, and includes **Akira** among that organization's ransom-note brands. DOJ describes a hierarchical organization operating for a time from St. Petersburg. **High Confidence in this being the official account**, supported by the prosecution; it is stronger evidence for a historical connection than code similarity alone.
 
 **Scope assessment — Moderate Confidence:** this strengthens the historical Conti/Akira relationship. The release does not establish that Zolotarjovs administered Akira's current RaaS, identify which Akira incidents he negotiated, or determine every affiliate's nationality. Brand-level totals in this prosecution must not become Akira-only victim or revenue figures. Royal, Karakurt, TommyLeaks and SchoolBoys are related brands in this official account, not interchangeable contemporary Akira aliases.

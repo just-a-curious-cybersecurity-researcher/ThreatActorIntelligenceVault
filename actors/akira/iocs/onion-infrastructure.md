@@ -1,5 +1,7 @@
 # Akira — Onion / Data Leak Infrastructure
 
+**Presentation reviewed:** 2026-09-15.
+
 - `akiral2iz6a7qgd3ayp3l6yub7xx2uep76idk3u2kollpj5z3z636bad[.]onion`
 - `akiralkzxzq2dsrzsrvbr2xgbbu2wgsmxryd4csgfameg52n7efvr2id[.]onion`
 

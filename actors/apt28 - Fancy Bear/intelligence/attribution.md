@@ -1,5 +1,7 @@
 # APT28 — Attribution and Relationships
 
+**Presentation reviewed:** 2026-09-15.
+
 Last updated: **2026-09-14**.
 
 ## Evidence Classes and Confidence
@@ -37,13 +39,13 @@ Last updated: **2026-09-14**.
 | GruesomeLarch | Volexity | Nearest-neighbor incident attribution. |
 | TG-4127 / IRON TWILIGHT | Secureworks CTU | Historical primary research now hosted by Sophos; not an extra independent source. |
 
-**Alias discrepancy:** ANSSI's 2025 English report and Unit 42's catalogue list **UAC-0028**. Recent CERT-UA references use **UAC-0001**. Both strings are recorded with their sources; this dossier does not silently normalize all UAC identifiers into one operational cluster. 
+**Alias discrepancy:** ANSSI's 2025 English report and Unit 42's catalogue list **UAC-0028**. Recent CERT-UA references use **UAC-0001**. Both strings are recorded with their sources; this dossier does not silently normalize all UAC identifiers into one operational cluster.
 
 ## Geographic Nexus
 
-FireEye originally assessed Russian sponsorship from intelligence priorities and development evidence. US charging allegations and UK attribution later identified unit-level relationships. Russian-language resources, Moscow working hours or Russian hosting would be insufficient alone; the assessment here rests on the broader source record. 
+FireEye originally assessed Russian sponsorship from intelligence priorities and development evidence. US charging allegations and UK attribution later identified unit-level relationships. Russian-language resources, Moscow working hours or Russian hosting would be insufficient alone; the assessment here rests on the broader source record.
 
-The 2025 joint advisory includes NSA, FBI, CISA, NCSC, ANSSI and German BSI/BND/BfV among its authors/co-sealers. A jointly signed document is one coordinated assessment, not multiple independent incident datasets. 
+The 2025 joint advisory includes NSA, FBI, CISA, NCSC, ANSSI and German BSI/BND/BfV among its authors/co-sealers. A jointly signed document is one coordinated assessment, not multiple independent incident datasets.
 
 ## Relationships and Alternative Hypotheses
 
@@ -75,12 +77,12 @@ Use the cluster name in the originating report, the associated date and the exac
 
 ## Official Organizational Evidence and Limits
 
-**2018 election indictment.** Organizational evidence: Names personnel assigned to Units 26165 and 74455 and alleges distinct roles Confidence / limit: Strong public legal attribution; allegations retained. 
+**2018 election indictment.** Organizational evidence: Names personnel assigned to Units 26165 and 74455 and alleges distinct roles Confidence / limit: Strong public legal attribution; allegations retained.
 
-**2018 anti-doping case.** Organizational evidence: Alleges remote operators and traveling close-access teams, with publication support Confidence / limit: Does not establish current personnel or contractor arrangements. 
+**2018 anti-doping case.** Organizational evidence: Alleges remote operators and traveling close-access teams, with publication support Confidence / limit: Does not establish current personnel or contractor arrangements.
 
-**2020 EU/UK sanctions.** Organizational evidence: Unit 26165 and individuals linked to Bundestag operation Confidence / limit: Sanction decision is distinct from conviction. 
+**2020 EU/UK sanctions.** Organizational evidence: Unit 26165 and individuals linked to Bundestag operation Confidence / limit: Sanction decision is distinct from conviction.
 
-**2025–2026 UK/US attribution.** Organizational evidence: AUTHENTIC ANTICS and router operations tied to Unit 26165 Confidence / limit: Source assessment, not independent access to GRU records. 
+**2025–2026 UK/US attribution.** Organizational evidence: AUTHENTIC ANTICS and router operations tied to Unit 26165 Confidence / limit: Source assessment, not independent access to GRU records.
 
-The NCSC's 2025 AUTHENTIC ANTICS news page also mentions Unit 74455 alongside the OPCW attempt. Dedicated earlier UK material and the 2026 APT28 advisory place the attempted 2018 close-access OPCW operation in APT28 context. This inconsistency is preserved; it is not used to merge the units. 
+The NCSC's 2025 AUTHENTIC ANTICS news page also mentions Unit 74455 alongside the OPCW attempt. Dedicated earlier UK material and the 2026 APT28 advisory place the attempted 2018 close-access OPCW operation in APT28 context. This inconsistency is preserved; it is not used to merge the units.

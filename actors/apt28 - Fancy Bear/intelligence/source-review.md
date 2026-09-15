@@ -1,4 +1,6 @@
-# APT28 — Source Review and Intelligence Gaps
+# APT28 — Source Review
+
+**Presentation reviewed:** 2026-09-15.
 
 Review date: **2026-09-14**. This register separates collection from the resulting analysis. A source being reachable is not evidence that all its claims are reliable. The [reference register](../References.md) resolves publisher, URL, date and limitations for the original and additional sources. The review is bounded to the retained public material; retrieval limitations do not imply full-text validation.
 
@@ -84,13 +86,13 @@ Review date: **2026-09-14**. This register separates collection from the resulti
 
 ## Analytical Decisions
 
-- Name the assessing government; indictment allegations are not convictions. 
+- Name the assessing government; indictment allegations are not convictions.
 - Overlapping labels need not denote identical operator populations. [Attribution](attribution.md)
-- Preserve ESET's medium-confidence assessment and Proofpoint's distinction from TA422. 
-- Exclude from confirmed APT28 tooling. 
-- Separate Unit 74455 / Sandworm from anti-doping espionage. 
-- Do not transfer Midnight Blizzard's 2026 campaign into APT28. 
-- Cryptocurrency infrastructure funding is not RaaS revenue. 
+- Preserve ESET's medium-confidence assessment and Proofpoint's distinction from TA422.
+- Exclude from confirmed APT28 tooling.
+- Separate Unit 74455 / Sandworm from anti-doping espionage.
+- Do not transfer Midnight Blizzard's 2026 campaign into APT28.
+- Cryptocurrency infrastructure funding is not RaaS revenue.
 - Retain published logic and disclose upstream limitations. The 2026-09-15 expansion also adds explicitly labelled local procedure hunts and YARA heuristics; their provenance is mapped in the actor bibliography. [Detection register](../detections/Detections.md)
 - Publication does not establish present control; absent observation bounds remain empty. [IOC provenance](../iocs/IOCs.md#publication-provenance)
 
@@ -110,9 +112,9 @@ See [References](../References.md), [Attribution](attribution.md), [Blockchain](
 
 ## Additional Findings After Original-Source Review
 
-Government and criminal-case publications provide the principal attribution anchors. CERT Polska's May 2024 investigation retains qualified actor association and a legitimate-service caveat. CERT-UA endpoints did not expose readable article text in this review; named vendor/government corroboration supports the retained details. ESET annual reporting and public CrowdStrike material provide context, not actor-specific conclusions from industry-wide totals. 
+Government and criminal-case publications provide the principal attribution anchors. CERT Polska's May 2024 investigation retains qualified actor association and a legitimate-service caveat. CERT-UA endpoints did not expose readable article text in this review; named vendor/government corroboration supports the retained details. ESET annual reporting and public CrowdStrike material provide context, not actor-specific conclusions from industry-wide totals.
 
-DOJ, Elliptic and public TRM material support the financial discussion without establishing a verified wallet inventory or RaaS payment flow. Targeted Chainalysis, GovCERT and Eurojust APT28 searches yielded no usable direct result. Incomplete ransomware.live retrieval and indexed checks are not a complete census or proof of absence. No paid reporting, private victim telemetry, live router probing or actor contact was used. 
+DOJ, Elliptic and public TRM material support the financial discussion without establishing a verified wallet inventory or RaaS payment flow. Targeted Chainalysis, GovCERT and Eurojust APT28 searches yielded no usable direct result. Incomplete ransomware.live retrieval and indexed checks are not a complete census or proof of absence. No paid reporting, private victim telemetry, live router probing or actor contact was used.
 
 Visible Huntress and derivative profile material was insufficient for detailed tactical claims, so original reporting takes precedence. Published government YARA and vendor query bodies retain their original logic; some NCSC catalog downloads remain available only through the source register. Local compilation covers copied rule files, not every catalogued signature. See the [detection register](../detections/Detections.md).
 

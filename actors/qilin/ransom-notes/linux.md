@@ -1,8 +1,10 @@
 # Qilin / Agenda — Linux Sample Note
 
+**Presentation reviewed:** 2026-09-15.
+
 ## Variant, Filename and Period
 
-Trend Micro's October 23, 2025 analysis includes a ransom-note screenshot extracted from a Linux payload. 
+Trend Micro's October 23, 2025 analysis includes a ransom-note screenshot extracted from a Linux payload.
 
 ## Known Text and Differences
 

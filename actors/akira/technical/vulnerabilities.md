@@ -1,5 +1,7 @@
 # Akira — Vulnerabilities and Exposed Infrastructure
 
+**Presentation reviewed:** 2026-09-15.
+
 Review date: **2026-09-10**. Confidence describes the **Akira association**, not CVE severity. Product exposure, exploitation evidence and attack stage are separate. Version and patch decisions require the current vendor advisory.
 
 ## Supported Associations
@@ -27,6 +29,6 @@ Review date: **2026-09-10**. Confidence describes the **Akira association**, not
 
 ## Operational Interpretation
 
-Patching an appliance does not invalidate already stolen credentials, sessions or MFA seeds. Investigate credential exposure and access history separately. Arctic Wolf's 2024 cases involved affected firmware but lacked definitive exploit evidence; its 2025 update explicitly left credential theft as a likely explanation and did not connect the MySonicWall backup incident to this campaign. 
+Patching an appliance does not invalidate already stolen credentials, sessions or MFA seeds. Investigate credential exposure and access history separately. Arctic Wolf's 2024 cases involved affected firmware but lacked definitive exploit evidence; its 2025 update explicitly left credential theft as a likely explanation and did not connect the MySonicWall backup incident to this campaign.
 
 **Intelligence gaps:** exact exploit dates and affected versions per victim; initial credential acquisition; prevalence by CVE; whether legacy configuration or existing access explains activity on patched systems. Do not add every CVE in an attractive product to an actor's observed exploit list.

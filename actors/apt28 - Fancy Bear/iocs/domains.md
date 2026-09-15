@@ -1,5 +1,7 @@
 # APT28 — Domains and External Services
 
+**Presentation reviewed:** 2026-09-15.
+
 **Reviewed:** 2026-09-14. Recent means recently published, not independently confirmed active. Blank observation dates are intentional.
 
 | Indicator | Role / date context | Confidence and caution |

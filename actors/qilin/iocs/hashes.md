@@ -1,10 +1,12 @@
 # Qilin — Hash Indicators
 
+**Presentation reviewed:** 2026-09-15.
+
 The values below come from explicit publisher IOC sections. No malware was downloaded or executed. A valid hash is an exact-match pivot, not proof of current maliciousness or Qilin attribution. Source roles and uncertainty are preserved in the provenance table.
 
-## Windows Qilin Ransomware Samples — SHA-256
+## Windows Samples — SHA-256
 
-The December 2022 Agenda analysis publishes these Windows sample values. Only the third is specifically identified as the analyzed Rust sample here; the companion samples' precise branches are not inferred. 
+The December 2022 Agenda analysis publishes these Windows sample values. Only the third is specifically identified as the analyzed Rust sample here; the companion samples' precise branches are not inferred.
 
 ```text
 37546b811e369547c8bd631fa4399730d3bdaff635e744d83632b74f44f56cf6

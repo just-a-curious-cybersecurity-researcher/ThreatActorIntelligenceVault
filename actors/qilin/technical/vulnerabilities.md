@@ -1,5 +1,7 @@
 # Qilin — Vulnerabilities and Exposed Infrastructure
 
+**Presentation reviewed:** 2026-09-15.
+
 Reviewed **2026-09-11**. Product exposure, valid-account login and a malicious tool's presence do not independently prove exploitation. The confidence below concerns reporting of use in a specified campaign; patch/build details should be obtained from the vendor for the deployed product.
 
 ## Supported Associations

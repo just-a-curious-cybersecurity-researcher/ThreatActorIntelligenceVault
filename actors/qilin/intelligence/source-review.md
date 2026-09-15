@@ -1,5 +1,7 @@
 # Qilin — Source Review
 
+**Presentation reviewed:** 2026-09-15.
+
 ## Original Reference-by-Reference Disposition
 
 | Original entry | Review and information added / corrected | Destination |

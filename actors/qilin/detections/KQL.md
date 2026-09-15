@@ -1,6 +1,10 @@
 # Qilin — Microsoft Defender XDR / KQL Hunting Queries
 
-**Status:** reviewed defensive hunts, not production alerts or Qilin attribution signatures. Reviewed 2026-09-10. No connected query backend was available; validation is static. Each hunt states source, sensor assumptions and tuning.
+**Presentation reviewed:** 2026-09-15.
+
+**Status:** defensive hunts requiring local validation and tuning; not actor-attribution signatures. Query execution against a connected backend has not been validated.
+
+## Scope and Requirements
 
 MDE queries require the named Defender for Endpoint tables. SHA256 may be empty; preserve SHA1 and process identity in pivots. Registry/path representations and ActionType support need tenant verification. Splunk examples assume Windows XML extraction, `index=windows`, `Computer`, `User`, `Image`, `CommandLine`, `TargetFilename` and the stated EventCode/sourcetype. Configure Sysmon collection first; Event 4104 uses PowerShell logging and may require block-fragment reassembly. No query scans hypervisor logs implicitly.
 
@@ -8,9 +12,24 @@ Avoid blanket tool allowlists. Combine approved owner, instance/tenant, hash/sig
 
 ## Coverage, Telemetry and Tuning Register
 
+| Query family | Coverage | Review / tuning |
+|---|---|---|
+| 1. Credential Access | 2 queries | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 2. Active Directory and Network Discovery | 2 queries | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 3. Persistence and Remote Administration | 1 query | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 4. Tunneling and C2 | 1 query | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 5. Defense Evasion and Impairment | 1 query | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 6. Collection and Exfiltration | 2 queries | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 7. Recovery Inhibition | 1 query | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 8. Deployment and Impact | 3 queries | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 9. Multi-Stage Correlation | 1 query | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 10. Campaign Artifact Hunts | 5 queries | Review the telemetry and tuning notes on each entry; correlate with incident context |
+
+## Interpretation Notes
+
 Query identifiers Q01–Q19 are stable across KQL and SPL; their numbered sections organize the same investigation families as the other actor dossiers. Individual queries retain their own evidence, telemetry and tuning notes.
 
-| Query family | Evidence | Required interpretation / false positives |
+| Query family | Coverage | Review / tuning |
 |---|---|---|
 | 1.x credential access | Q03–Q04; Talos credential toolkit | Authorized password recovery and IR can match; a setting change does not prove theft |
 | 2.x discovery | Q07, Q15; RMM case and Group-IB computer enumeration | Inventory and administration match; the query is not an actor identifier |
@@ -23,9 +42,13 @@ Query identifiers Q01–Q19 are stable across KQL and SPL; their numbered sectio
 | 9.x multi-stage | Q19; source-linked lifecycle synthesis | Co-occurrence is not an ordered attack; first matching stage and time-bucket limits apply |
 | 10.x campaign-specific | Q01–Q02, Q08, Q10, Q14 | Source and sensor scope stated per hunt; WSL remains a hypothesis |
 
+
+
 ## 1. Credential Access
 
 ### 1.1 Q03 — WDigest plaintext retention enabled
+
+**Origin:** Repository-authored defensive hunt.
 
 **Telemetry:** MDE RegistryValueSet or Sysmon registry Event 13.
 
@@ -43,6 +66,8 @@ DeviceRegistryEvents
 ```
 
 ### 1.2 Q04 — Credential toolkit and output orchestration
+
+**Origin:** Repository-authored defensive hunt.
 
 **Telemetry:** Process creation; script block/module logs improve renamed-tool visibility.
 
@@ -63,6 +88,8 @@ DeviceProcessEvents
 
 ### 2.1 Q07 — RMM-launched domain reconnaissance
 
+**Origin:** Repository-authored defensive hunt.
+
 **Telemetry:** Endpoint process ancestry; collect parent and grandparent when available.
 
 **Review / tuning:** MSPs legitimately enumerate domains. Review tenant/customer scope, session administrator, schedule and neighboring agent installations. Parent process checks can miss deeper shells; pivot on process tree.
@@ -82,6 +109,8 @@ DeviceProcessEvents
 
 ### 2.2 Q15 — Domain computer discovery or RSAT preparation
 
+**Origin:** Repository-authored defensive hunt.
+
 **Telemetry:** Process command lines; PowerShell script blocks improve visibility when commands are read from a file.
 
 **Review / tuning:** Inventory, server setup and authorized administration can match. This discovers computers, not user accounts. Correlate the initiating identity and later remote service execution.
@@ -97,9 +126,11 @@ DeviceProcessEvents
           ProcessCommandLine, InitiatingProcessFileName
 ```
 
-## 3. RMM / RAT and Remote Administration
+## 3. Persistence and Remote Administration
 
 ### 3.1 Q05 — ScreenConnect instance installed through an existing RMM session
+
+**Origin:** Repository-authored defensive hunt.
 
 **Telemetry:** Process ancestry and installation command; verify software installation and RMM tenant logs.
 
@@ -120,6 +151,8 @@ DeviceProcessEvents
 
 ### 4.1 Q16 — Reported proxy-DLL staging artifact
 
+**Origin:** Repository-authored defensive hunt.
+
 **Telemetry:** MDE file creation/modification or Sysmon Event 11; no assumption of network traffic from a file event.
 
 **Review / tuning:** The DLL name is generic and changeable. This is a staging lead, not detection of an active tunnel or a SystemBC family signature. Confirm the loading process, sample and subsequent network destinations.
@@ -134,9 +167,11 @@ DeviceFileEvents
           InitiatingProcessFileName, InitiatingProcessCommandLine
 ```
 
-## 5. Defense Impairment / Evasion
+## 5. Defense Evasion and Impairment
 
 ### 5.1 Q13 — Reported driver and DLL artifacts
+
+**Origin:** Repository-authored defensive hunt.
 
 **Telemetry:** MDE file events; Splunk Sysmon driver-load Event 6. The platforms detect different stages.
 
@@ -155,6 +190,8 @@ DeviceFileEvents
 
 ### 6.1 Q06 — Cyberduck connection to Backblaze
 
+**Origin:** Repository-authored defensive hunt.
+
 **Telemetry:** MDE network events; Splunk Sysmon Event 3 requires DestinationHostname enrichment.
 
 **Review / tuning:** Authorized backups and migrations match. Connection alone does not establish direction or bytes uploaded; obtain Cyberduck history, destination bucket/account and cloud audit. No hostname means this query can miss an event.
@@ -169,6 +206,8 @@ DeviceNetworkEvents
 ```
 
 ### 6.2 Q17 — WinRAR archive creation
+
+**Origin:** Repository-authored defensive hunt.
 
 **Telemetry:** Process command line; successful archive creation and transfer require separate file/network evidence.
 
@@ -187,6 +226,8 @@ DeviceProcessEvents
 
 ### 7.1 Q09 — Safe Mode and recovery-inhibition commands
 
+**Origin:** Repository-authored defensive hunt.
+
 **Telemetry:** Process command lines; validate boot/System logs and VSS audit separately.
 
 **Review / tuning:** Disaster-recovery testing and maintenance can match. The aggregate is co-occurrence, not an ordered attack chain. Require unapproved change context and preserve pre-reboot telemetry.
@@ -201,9 +242,11 @@ DeviceProcessEvents
     by DeviceId, DeviceName, AccountSid, bin(Timestamp, 30m)
 ```
 
-## 8. Ransomware Deployment / Impact
+## 8. Deployment and Impact
 
 ### 8.1 Q11 — Ransom-note creation with variable company identifier
+
+**Origin:** Repository-authored defensive hunt.
 
 **Telemetry:** MDE file events or Sysmon Event 11.
 
@@ -220,6 +263,8 @@ DeviceFileEvents
 
 ### 8.2 Q12 — QLOG encryptor-worker artifacts
 
+**Origin:** Repository-authored defensive hunt.
+
 **Telemetry:** File-creation telemetry; writes must be enabled for temp paths.
 
 **Review / tuning:** Unrelated software can use QLOG/ThreadId names. The combined directory and exact filename structure is stronger; correlate with note drops, share writes and known sample hashes. Presence is not proof encryption completed.
@@ -235,6 +280,8 @@ DeviceFileEvents
 
 ### 8.3 Q18 — PsExec distribution or remote service execution
 
+**Origin:** Repository-authored defensive hunt.
+
 **Telemetry:** Process creation; service installation and SMB auditing can corroborate remote execution.
 
 **Review / tuning:** Software deployment and approved administration use PsExec. Renaming can evade this filename hunt. Identify both the initiating host and remote service host, account and copied payload before claiming ransomware deployment.
@@ -248,9 +295,11 @@ DeviceProcessEvents
           ProcessCommandLine, InitiatingProcessFileName, InitiatingProcessCommandLine
 ```
 
-## 9. Multi-Stage Ransomware Correlation
+## 9. Multi-Stage Correlation
 
 ### 9.1 Q19 — Multiple ransomware-relevant stages on one device and account
+
+**Origin:** Repository-authored defensive hunt.
 
 **Telemetry:** Process commands only. The aggregate does not implicitly include network, registry or hypervisor events.
 
@@ -275,9 +324,11 @@ DeviceProcessEvents
 | where Stages >= 3
 ```
 
-## 10. Source-Linked Campaign Hunts
+## 10. Campaign Artifact Hunts
 
 ### 10.1 Q01 — Unexpected logon scripts written into SYSVOL
+
+**Origin:** Repository-authored defensive hunt.
 
 **Telemetry:** MDE file events or Sysmon Event 11; collect SYSVOL paths on DCs.
 
@@ -294,6 +345,8 @@ DeviceFileEvents
 ```
 
 ### 10.2 Q02 — Credential output staged back into SYSVOL
+
+**Origin:** Repository-authored defensive hunt.
 
 **Telemetry:** MDE file creation/modification or Sysmon Event 11.
 
@@ -313,6 +366,8 @@ DeviceFileEvents
 ```
 
 ### 10.3 Q08 — Qilin restoration-task or Run-key artifacts
+
+**Origin:** Repository-authored defensive hunt.
 
 **Telemetry:** Process creation for task commands; registry telemetry for Run value content.
 
@@ -335,6 +390,8 @@ union Tasks, Runs
 
 ### 10.4 Q10 — PowerShell vCenter cluster and hypervisor changes
 
+**Origin:** Repository-authored defensive hunt.
+
 **Telemetry:** Command-line hunting on management hosts; ScriptBlockText query for Splunk Event 4104.
 
 **Review / tuning:** Authorized PowerCLI maintenance is expected. Commands read from a script may not appear on the command line; KQL coverage is intentionally partial. Confirm vCenter tasks, principal, SSH changes and time before treating HA/DRS changes as malicious.
@@ -350,6 +407,8 @@ DeviceProcessEvents
 ```
 
 ### 10.5 Q14 — Linux-payload or WSL clues under RMM ancestry
+
+**Origin:** Repository-authored defensive hunt.
 
 **Telemetry:** Windows process ancestry only; Linux/WSL auditing required to verify execution.
 

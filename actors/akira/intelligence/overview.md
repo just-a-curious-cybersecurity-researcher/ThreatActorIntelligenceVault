@@ -1,12 +1,14 @@
 # Akira — Intelligence Overview
 
+**Presentation reviewed:** 2026-09-15.
+
 ## Background
 
 Akira emerged around March-April 2023 as a financially motivated ransomware operation. The collected reporting describes the group as operating under a **Ransomware-as-a-Service (RaaS)** model, while also characterizing the ecosystem as relatively closed compared with highly open affiliate programs.
 
 CrowdStrike tracks the threat actor as **PUNK SPIDER**.
 
-Initial activity primarily affected Windows environments. During 2023 the operation expanded into Linux targeting. **Megazord is a Windows encryptor**; co-deployment with the Linux/ESXi Akira_v2 variant demonstrates an operation spanning platforms, not a cross-platform Megazord binary. 
+Initial activity primarily affected Windows environments. During 2023 the operation expanded into Linux targeting. **Megazord is a Windows encryptor**; co-deployment with the Linux/ESXi Akira_v2 variant demonstrates an operation spanning platforms, not a cross-platform Megazord binary.
 
 ## Targeting and Victimology
 
@@ -43,7 +45,7 @@ Akira has also reportedly conducted **extortion without encryption**, using exfi
 
 Early Akira variants were written in **C++** and commonly appended the `.akira` extension to encrypted files. Later variants such as **Megazord** used **Rust** and have been associated with the `.powerranges` extension.
 
-Collected technical notes describe similarities between the ransomware structure and **Conti v2**, including use of ChaCha-family encryption and comparable implementation choices. The cipher must be tied to the build: Talos describes ChaCha8 in renewed C++ samples in September 2024, while earlier samples use other ChaCha-family implementations with RSA protection. 
+Collected technical notes describe similarities between the ransomware structure and **Conti v2**, including use of ChaCha-family encryption and comparable implementation choices. The cipher must be tied to the build: Talos describes ChaCha8 in renewed C++ samples in September 2024, while earlier samples use other ChaCha-family implementations with RSA protection.
 
 Akira ransomware also attempts to hinder recovery, including by targeting filesystem snapshots and deleting Windows Volume Shadow Copies.
 
@@ -58,7 +60,7 @@ Recent material in the dossier includes:
 - continued targeting of SonicWall SSL-VPN environments;
 - reuse of previously stolen credentials and possible exploitation of configuration weaknesses even where devices have been patched;
 - an observed affiliate attempt to reboot a compromised host into **Safe Mode with Networking** to disable EDR and Defender protections;
-- **GLIMPS reports** ClickFix followed by SectopRAT, but supplies no incident timeline or primary citation: **Low Confidence** in generalizing this as an established Akira initial-access chain. 
+- **GLIMPS reports** ClickFix followed by SectopRAT, but supplies no incident timeline or primary citation: **Low Confidence** in generalizing this as an established Akira initial-access chain.
 
 ## Intelligence Gaps
 
@@ -84,10 +86,10 @@ The collected research does not conclusively establish:
 
 **Assessment — High Confidence:** prioritize identity, backup and virtualization control planes alongside endpoint protection. Their compromise can expose many workloads without installing an encryptor on each guest.
 
-Victim lists overrepresent disclosed and non-paying organizations. Early Arctic Wolf reporting included approximately 80% SMBs in a 63-victim sample; that is historical evidence against a large-enterprise-only model, not a current size distribution. Manufacturing and service businesses recur across independent IR and leak-site analyses. 
+Victim lists overrepresent disclosed and non-paying organizations. Early Arctic Wolf reporting included approximately 80% SMBs in a 63-victim sample; that is historical evidence against a large-enterprise-only model, not a current size distribution. Manufacturing and service businesses recur across independent IR and leak-site analyses.
 
-TRM's approximately 980 posts for part of 2025, GLIMPS's more than 500 organizations, and other vendors' totals cannot be reconciled without underlying records. They may reflect different capture, deduplication or date rules. Do not present any as an independently verified global incident census. 
+TRM's approximately 980 posts for part of 2025, GLIMPS's more than 500 organizations, and other vendors' totals cannot be reconciled without underlying records. They may reflect different capture, deduplication or date rules. Do not present any as an independently verified global incident census.
 
 ## Law-Enforcement Development
 
-The May 2026 Zolotarjovs sentencing adds official evidence concerning historical Conti-linked organizational use of the Akira brand. See [attribution](attribution.md#official-historical-organizational-evidence--may-2026) for the exact period and limits; this is not evidence of a complete Akira takedown. 
+The May 2026 Zolotarjovs sentencing adds official evidence concerning historical Conti-linked organizational use of the Akira brand. See [attribution](attribution.md#official-organizational-evidence-and-limits) for the exact period and limits; this is not evidence of a complete Akira takedown.

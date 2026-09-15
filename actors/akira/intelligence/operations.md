@@ -1,5 +1,7 @@
 # Akira — Operations and Attack Lifecycle
 
+**Presentation reviewed:** 2026-09-15.
+
 Akira does not follow a single immutable intrusion chain. As a RaaS operation, individual affiliates may differ in tooling and execution. Nevertheless, the collected reporting shows a recurring operational pattern.
 
 ```mermaid
@@ -35,6 +37,7 @@ The objective is to identify externally reachable services and, after compromise
 Observed initial-access paths include:
 
 ### Valid credentials and remote services
+
 Akira affiliates have been reported abusing existing credentials to authenticate to:
 
 - VPN infrastructure;
@@ -44,6 +47,7 @@ Akira affiliates have been reported abusing existing credentials to authenticate
 Credentials may be previously compromised, obtained from criminal marketplaces or tested through brute force/password spraying. Environments without effective MFA are particularly exposed to this approach.
 
 ### Exploitation of public-facing infrastructure
+
 The collected research includes exploitation or targeting of vulnerable products from:
 
 - Cisco ASA / FTD;
@@ -55,6 +59,7 @@ The collected research includes exploitation or targeting of vulnerable products
 Specific CVEs are maintained in [`../technical/vulnerabilities.md`](../technical/vulnerabilities.md).
 
 ### Phishing
+
 The ATT&CK material collected for Akira also includes spearphishing links and malicious attachments as reported initial-access methods.
 
 ## 3. Execution and Foothold
@@ -106,6 +111,7 @@ Credential access can then enable lateral movement, pass-the-hash activity and e
 Akira affiliates conduct extensive discovery before the impact phase.
 
 ### Network discovery
+
 Observed tools include:
 
 - Advanced IP Scanner;
@@ -114,6 +120,7 @@ Observed tools include:
 - Masscan.
 
 ### Active Directory and share discovery
+
 Observed tooling includes:
 
 - BloodHound;
@@ -266,14 +273,14 @@ The credential, discovery, remote-access, exfiltration and impact inventory comb
 
 ## Additional Case Evidence
 
-**Darktrace, incident 2025-08-20 — Moderate Confidence in Akira linkage.** The company observed unusual WinRM with a Ruby client, ICertPassage requests followed by PKINIT and U2U ticket activity, interpreting the sequence as UnPAC-the-hash. This is richer evidence than generic “Kerberos use”; it does not identify a particular AD CS exploit class. Its mention of RDP to an “ESXi device” is an unresolved asset/protocol ambiguity, not evidence of native ESXi RDP support. IP roles are in [IP Addresses](../iocs/ip-addresses.md). 
+**Darktrace, incident 2025-08-20 — Moderate Confidence in Akira linkage.** The company observed unusual WinRM with a Ruby client, ICertPassage requests followed by PKINIT and U2U ticket activity, interpreting the sequence as UnPAC-the-hash. This is richer evidence than generic “Kerberos use”; it does not identify a particular AD CS exploit class. Its mention of RDP to an “ESXi device” is an unresolved asset/protocol ambiguity, not evidence of native ESXi RDP support. IP roles are in [IP Addresses](../iocs/ip-addresses.md).
 
-**Huntress, published August 2026.** Newly documented artifacts include full-property AD user/computer exports, S3 upload with s5cmd and registration of AnyDesk under SafeBoot before an msconfig-driven reboot. The missing EDR visibility was temporary; exfiltration preceded failed encryption. 
+**Huntress, published August 2026.** Newly documented artifacts include full-property AD user/computer exports, S3 upload with s5cmd and registration of AnyDesk under SafeBoot before an msconfig-driven reboot. The missing EDR visibility was temporary; exfiltration preceded failed encryption.
 
 **Analytical implication — High Confidence:** a missing encryption alert does not close an extortion incident. Correlate VPN identity, server activity and egress; preserve appliance and hypervisor logs outside their own administrative boundary. File-share encryption from an unmanaged host can make the first protected endpoint look like a victim of remote writes rather than the source of execution.
 
 ## Negotiation and Organizational Signals
 
-KELA's 2023 sample describes negotiators referring price decisions to other personnel, separate pricing for decryption and data deletion, and staged movement from naming victims to publishing data. Demands varied from $105,000 to $3.7 million in that sample. These are negotiation observations, not proof of a formal management chart or present-day tariff. Some chats persisted despite promised deletion. 
+KELA's 2023 sample describes negotiators referring price decisions to other personnel, separate pricing for decryption and data deletion, and staged movement from naming victims to publishing data. Demands varied from $105,000 to $3.7 million in that sample. These are negotiation observations, not proof of a formal management chart or present-day tariff. Some chats persisted despite promised deletion.
 
 **Assessment — Moderate Confidence:** specialization in negotiation is plausible; scripted bargaining or affiliate delegation can produce similar communications. A deletion log or guarantee is an adversary assertion and cannot establish that all stolen copies were destroyed. Note-level evidence is catalogued in [Ransom Notes](../ransom-notes/Ransom-Notes.md).

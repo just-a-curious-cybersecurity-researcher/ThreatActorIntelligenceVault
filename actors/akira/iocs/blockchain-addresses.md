@@ -1,5 +1,7 @@
 # Akira — Blockchain Addresses
 
+**Presentation reviewed:** 2026-09-15.
+
 Reviewed **2026-09-10**. **21 unique reported payment addresses**, preserved from the original inventory. These are historical attribution records, not a list of active treasury wallets. The confidence column concerns the **reported Akira incident association**, not operator identity or present control. No designation date applies to these rows on the basis of the reviewed payment reporting; this is not sanctions clearance.
 
 | Address | Network / format | Role | Actor / incident | Observation context | Confidence |
@@ -28,7 +30,7 @@ Reviewed **2026-09-10**. **21 unique reported payment addresses**, preserved fro
 
 RansomLook mirrors **ransomwhe.re**; these are one attribution chain, not two independent sources. Fifteen rows occur there and nine in KELA, with three overlaps. KELA's negotiation access gives better contextual support, although incident identities and raw transaction graphs are not supplied here. Tracker dates are displayed transaction dates, not first-seen dates of actor ownership. Receipt alone does not prove that every transfer is a ransom payment.
 
-## Unresolved Appendix Identifier
+## Address Attribution and Scope
 
 `ce92e951c6f30b1ffc92501c537a4cf4a1ea2c16e244133cac2176fe3a838ec0` occurs in KELA's Akira appendix. It is a 64-hex identifier, **not a Bitcoin address**. Its transaction-hash or other role remains unverified; it is excluded from the address count and sanctions-address matching.
 

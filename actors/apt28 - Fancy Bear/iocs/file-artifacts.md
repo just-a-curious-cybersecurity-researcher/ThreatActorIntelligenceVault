@@ -1,5 +1,7 @@
 # APT28 — Contextualized File Artifacts
 
+**Presentation reviewed:** 2026-09-15.
+
 Named artifacts retain their hash and functional context separately from the bulk corpus.
 
 | File / Artifact | Hash Type | Hash | Context |
@@ -23,12 +25,12 @@ Named artifacts retain their hash and functional context separately from the bul
 
 ## Additional Named Artifacts Without Hashes in the Supplied Notes
 
-| Additional artifact | Incident role |
-|---|---|
-| `%APPDATA%\Microsoft\Outlook\VbaProject.OTM` | NotDoor macro persistence. Legitimate Outlook filename; inspect content and provenance |
-| `C:\ProgramData\testtemp.ini` | NotDoor staging. Name alone is insufficient |
-| `MPDW-constraints.js` | GooseEgg print-driver modification. Compare signed package baseline and process history |
-| `wayzgoose*.dll` | GooseEgg payload naming. Campaign artifact, not a universal family signature |
+| Additional artifact | Incident role | Date / source |
+|---|---|---|
+| `%APPDATA%\Microsoft\Outlook\VbaProject.OTM` | NotDoor macro persistence. Legitimate Outlook filename; inspect content and provenance |  |
+| `C:\ProgramData\testtemp.ini` | NotDoor staging. Name alone is insufficient |  |
+| `MPDW-constraints.js` | GooseEgg print-driver modification. Compare signed package baseline and process history |  |
+| `wayzgoose*.dll` | GooseEgg payload naming. Campaign artifact, not a universal family signature |  |
 
 ## Source and Classification Review
 

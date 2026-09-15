@@ -1,12 +1,14 @@
 # Akira — Blockchain and Financial Intelligence
 
+**Presentation reviewed:** 2026-09-15.
+
 ## Overview
 
 Public on-chain analysis included in the collected research describes a clear evolution in how Akira receives, consolidates, launders and cashes out ransomware proceeds.
 
-The November 2025 joint advisory reports approximately **USD 244.17 million in ransomware proceeds as of late September 2025**. This is the authorities' dated aggregate, not a September 2026 balance, independently reproduced sum of this repository's 21 payment addresses, or net operator profit. It cannot be added to provider-specific laundering estimates, which may overlap. 
+The November 2025 joint advisory reports approximately **USD 244.17 million in ransomware proceeds as of late September 2025**. This is the authorities' dated aggregate, not a September 2026 balance, independently reproduced sum of this repository's 21 payment addresses, or net operator profit. It cannot be added to provider-specific laundering estimates, which may overlap.
 
-TRM divides its observations into four phases, bounded by its **2026-03-20** profile. The diagrams below summarize that provider account; they are not independently reconstructed transaction graphs. 
+TRM divides its observations into four phases, bounded by its **2026-03-20** profile. The diagrams below summarize that provider account; they are not independently reconstructed transaction graphs.
 
 ```mermaid
 flowchart LR
@@ -56,7 +58,9 @@ Blockchain attribution in this repository therefore distinguishes between:
 
 The currently collected publicly reported payment addresses are maintained in [`../iocs/blockchain-addresses.md`](../iocs/blockchain-addresses.md).
 
-## Phase I — 2023
+## Financial Evidence Timeline
+
+### Phase I — 2023
 
 Early Akira payment flows reportedly provided the clearest visibility into possible affiliate structure.
 
@@ -67,31 +71,31 @@ Observed patterns included:
 - common cash-out points;
 - repeatable transactional behavior that could help distinguish likely affiliates.
 
-### Assessment
+#### Assessment
 
 The relative diversity of transaction paths is consistent with greater affiliate-level visibility or autonomy during the early period.
 
-## Phase II — Early to Mid-2024
+### Phase II — Early to Mid-2024
 
 Akira reportedly shifted toward a more standardized laundering workflow using **WanChain**.
 
 Most victim payments were described as being routed through a single WanChain address and later dispersed to multiple global VASPs for cash-out.
 
-### Assessment
+#### Assessment
 
 This represents a move away from easily distinguishable affiliate-level clustering toward more centralized or standardized financial infrastructure.
 
-## Phase III — Late 2024
+### Phase III — Late 2024
 
 The operation reportedly changed again, routing victim proceeds through the **Defiway** bridge.
 
 During this period, **Fog ransomware** was observed using the same laundering approach.
 
-### Assessment
+#### Assessment
 
 The overlap supports the possibility of cooperation, common service providers, shared affiliates or common financial infrastructure. Shared bridge usage alone does not prove organizational identity.
 
-## Phase IV — August 2025 to March 20, 2026
+### Phase IV — August 2025 to March 20, 2026
 
 The collected research describes a more standardized process:
 
@@ -111,11 +115,11 @@ Key observations:
 - admin/affiliate revenue sharing appears to occur only after funds reach the shared VASP address, making the split opaque on-chain;
 - cash-out may occur on the same day or within approximately 36 hours of payment receipt.
 
-### Analytical Assessment
+#### Analytical Assessment
 
 **Moderate confidence:** the increasing standardization of Akira's laundering process may indicate greater centralization of treasury or cash-out operations.
 
-### Alternative Explanations
+#### Alternative Explanations
 
 The same observable pattern could also be produced by:
 
@@ -138,7 +142,9 @@ Possible interpretations include:
 - experimentation with alternative laundering paths;
 - early evidence of a new laundering phase.
 
-## Akira ↔ Fog
+## Financial Relationships
+
+### Akira ↔ Fog
 
 Fog ransomware reportedly used the same Defiway laundering infrastructure during Phase III.
 
@@ -150,7 +156,7 @@ Fog   ──┘
 
 This strengthens evidence of an operational or service-level relationship but is not definitive evidence of shared ownership.
 
-## Akira ↔ Frag
+### Akira ↔ Frag
 
 The collected research states that TRM assesses Frag may represent an extension of Akira.
 
@@ -186,17 +192,17 @@ Blockchain evidence is strongest when combined with non-financial CTI. Shared wa
 
 ## Independent Corroboration and Financial-Service Disruption
 
-Chainalysis independently reports Akira and Fog flows to the same no-KYC exchange in its February 2025 review of 2024. This corroborates **shared cash-out behavior**, but does not independently reproduce TRM's exact Defiway cluster, prove identical private-key control, or identify all affiliates. A common broker or exchange is an alternative explanation. 
+Chainalysis independently reports Akira and Fog flows to the same no-KYC exchange in its February 2025 review of 2024. This corroborates **shared cash-out behavior**, but does not independently reproduce TRM's exact Defiway cluster, prove identical private-key control, or identify all affiliates. A common broker or exchange is an alternative explanation.
 
-On June 11, 2026, Europol announced the disruption of AudiA6, a suspected laundering service associated with approximately **EUR 336 million during 2022–2025**. TRM separately estimates that its identified AudiA6 infrastructure received **USD 386,200 attributable to Akira** and **USD 7.1 million attributable to Qilin**. The operation and the actor-level flow estimates have different sources; the aggregate is neither Akira revenue nor the value of assets seized. **Moderate Confidence** in the actor/service connection: provider attribution with no transaction-level replication in this dossier. No AudiA6 address is promoted to an Akira treasury address. 
+On June 11, 2026, Europol announced the disruption of AudiA6, a suspected laundering service associated with approximately **EUR 336 million during 2022–2025**. TRM separately estimates that its identified AudiA6 infrastructure received **USD 386,200 attributable to Akira** and **USD 7.1 million attributable to Qilin**. The operation and the actor-level flow estimates have different sources; the aggregate is neither Akira revenue nor the value of assets seized. **Moderate Confidence** in the actor/service connection: provider attribution with no transaction-level replication in this dossier. No AudiA6 address is promoted to an Akira treasury address.
 
 ## Regulatory and Judicial Review
 
 See the shared [dated financial-source review](../../financial-source-review.md) for OFAC/SDN screening, official actions, provider coverage and retrieval limitations. French OFAC, named in AA24-109A, is a police office and must not be confused with US Treasury OFAC.
 
-US Treasury removed Tornado Cash sanctions on **2025-03-21**. Its historical designation must not be carried forward automatically to the later TRM-reported Akira transactions. Neither the delisting nor interaction with a mixer identifies the person controlling the funds. 
+US Treasury removed Tornado Cash sanctions on **2025-03-21**. Its historical designation must not be carried forward automatically to the later TRM-reported Akira transactions. Neither the delisting nor interaction with a mixer identifies the person controlling the funds.
 
-The May 2026 Zolotarjovs sentence concerns a money-laundering/wire-fraud conspiracy in a historical multi-brand organization. The release contains no validated Akira payment or seizure address for this inventory. Its organization-wide payment figures are not Akira-only totals. 
+The May 2026 Zolotarjovs sentence concerns a money-laundering/wire-fraud conspiracy in a historical multi-brand organization. The release contains no validated Akira payment or seizure address for this inventory. Its organization-wide payment figures are not Akira-only totals.
 
 ## Multi-Chain Research and Next Collection Priorities
 

@@ -1,5 +1,7 @@
 # Akira — Impersonation and Recovery-Agency Warning
 
+**Presentation reviewed:** 2026-09-15.
+
 ## Variant, Filename and Period
 
 Textual variation associated with Akira; archive sequence does not establish publication order or sample lineage.

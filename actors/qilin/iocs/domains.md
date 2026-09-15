@@ -1,5 +1,7 @@
 # Qilin — Domains and External Services
 
+**Presentation reviewed:** 2026-09-15.
+
 | Indicator | Role / date context | Confidence and caution |
 |---|---|---|
 | `ikea0[.]com` | Likely Cobalt Strike C2 in 2024 probable Qilin-related case | Moderate Confidence; historical attribution |

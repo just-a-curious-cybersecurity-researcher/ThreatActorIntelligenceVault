@@ -1,6 +1,8 @@
 # APT28 — IP Addresses
 
-**Reviewed:** 2026-09-14. These are published historical observations, not a live blocklist. NCSC published the two DNS-hijacking infrastructure clusters on 2026-04-07. Individual first_seen and last_seen dates are not supplied; empty cells preserve that distinction. Shared hosting and reassignment require contextual validation. 
+**Presentation reviewed:** 2026-09-15.
+
+**Reviewed:** 2026-09-14. These are published historical observations, not a live blocklist. NCSC published the two DNS-hijacking infrastructure clusters on 2026-04-07. Individual first_seen and last_seen dates are not supplied; empty cells preserve that distinction. Shared hosting and reassignment require contextual validation.
 
 | Indicator | Role and context | Observation | Confidence / use |
 |---|---|---|---|
@@ -154,7 +156,7 @@
 | 185.237.166[.]248 | DNS-hijacking infrastructure, cluster 1 | Publication: 2026-04-07; first_seen:; last_seen: | Published NCSC infrastructure; current control not validated |
 | 185.237.166[.]249 | DNS-hijacking infrastructure, cluster 1 | Publication: 2026-04-07; first_seen:; last_seen: | Published NCSC infrastructure; current control not validated |
 
-## Additional DNS-Hijacking Campaign Infrastructure
+## Campaign Infrastructure
 
 | Indicator | Published role | Observation / limitation |
 |---|---|---|

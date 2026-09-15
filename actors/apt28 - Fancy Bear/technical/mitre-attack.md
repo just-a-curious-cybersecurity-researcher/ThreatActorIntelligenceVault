@@ -1,5 +1,7 @@
 # APT28 — MITRE ATT&CK Evidence Mapping
 
+**Presentation reviewed:** 2026-09-15.
+
 **Reviewed:** 2026-09-14. Each row maps a source-described behavior or capability, not universal actor practice or independent proof of attribution.
 
 Names and tactics were checked against the official Enterprise ATT&CK data, retrieved 2026-09-14; SHA-256 `dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4`. Used identifiers are retained in the [validation profile](../../../scripts/attack-profile.json).

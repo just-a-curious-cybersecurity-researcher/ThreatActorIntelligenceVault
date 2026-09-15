@@ -1,14 +1,16 @@
 # APT28 — Blockchain Addresses
 
-| Role | Actor / incident | Observation context | Confidence |
-|---|---|---|---|
-| Infrastructure funding context; no verified address retained | APT28 / 2016 allegations | Historical procurement, not ransom payments | No address ownership assertion |
+**Presentation reviewed:** 2026-09-15.
 
-## Unresolved Appendix Identifier
+| Address | Network / format | Role | Actor / incident | Observation context | Confidence |
+|---|---|---|---|---|---|
+|  |  | Infrastructure funding context; no verified address retained | APT28 / 2016 allegations | Historical procurement, not ransom payments | No address ownership assertion |
+
+## Address Attribution and Scope
 
 Not applicable: no unresolved appendix value is being promoted into an APT28 wallet indicator.
 
-No verified actor-controlled wallet address is reproduced. The 2018 DOJ indictment alleges cryptocurrency-funded infrastructure; it does not make every exchange or service wallet an APT28 address. 
+No verified actor-controlled wallet address is reproduced. The 2018 DOJ indictment alleges cryptocurrency-funded infrastructure; it does not make every exchange or service wallet an APT28 address.
 
 ## Downstream and Regulatory Context
 

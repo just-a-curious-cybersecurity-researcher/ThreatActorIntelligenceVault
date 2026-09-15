@@ -1,5 +1,7 @@
 # Qilin — Ransom Notes
 
+**Presentation reviewed:** 2026-09-15.
+
 Reviewed **2026-09-10**. Three public redacted plaintext artifacts and two technical screenshot/report contexts are separately catalogued. Collection suffixes do not establish chronology or encryptor generation. The notes' theft, recovery and media claims are attacker statements.
 
 | Document | Variant / evidence | Approximate observation |

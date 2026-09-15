@@ -1,5 +1,7 @@
 # Akira
 
+**Presentation reviewed:** 2026-09-15.
+
 Akira is a financially motivated ransomware operation first observed around March-April 2023. The collected reporting describes it as a Ransomware-as-a-Service (RaaS) operation with a relatively closed enterprise model. CrowdStrike tracks the actor as **PUNK SPIDER**.
 
 Akira has primarily targeted organizations in North America and Europe, with additional activity reported in other regions. Frequently affected sectors include industrial and manufacturing organizations, professional services, technology, education, finance and critical infrastructure. The operation initially focused mainly on Windows environments and expanded to Linux systems during 2023.
@@ -29,7 +31,7 @@ Its intrusions commonly combine compromised credentials or exploitation of expos
 
 **KJ-03 — High confidence.** Akira affiliates make extensive use of legitimate administration software, offensive-security tools and LOLBins. Individual tools such as AnyDesk, Rclone, Mimikatz, PsExec or Ngrok are therefore weak attribution signals when observed in isolation.
 
-**KJ-04 — Moderate Confidence.** Code/financial overlap and the May 2026 DOJ account support a historical Conti relationship. The official account includes Akira among a multi-brand organization’s names during a bounded period; it does not establish that every current affiliate belongs to one unchanged organization. 
+**KJ-04 — Moderate Confidence.** Code/financial overlap and the May 2026 DOJ account support a historical Conti relationship. The official account includes Akira among a multi-brand organization’s names during a bounded period; it does not establish that every current affiliate belongs to one unchanged organization.
 
 **KJ-05 — Moderate Confidence.** A Russian-speaking ecosystem nexus is supported by vendor reporting; nationality, physical location and state direction remain unestablished. See the evidence and alternatives in [Attribution](intelligence/attribution.md).
 

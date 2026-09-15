@@ -1,5 +1,7 @@
 # Qilin / Agenda
 
+**Presentation reviewed:** 2026-09-15.
+
 Qilin is a financially motivated ransomware-as-a-service program associated with the earlier Agenda name. Its Go/Rust encryptors and supporting infrastructure serve affiliates whose intrusion methods differ. This dossier traces the program's evolution while separating core operators, malware families and deployment clusters. Reviewed **2026-09-11**.
 
 ## Quick Profile

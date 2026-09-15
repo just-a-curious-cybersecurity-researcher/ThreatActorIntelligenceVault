@@ -1,5 +1,7 @@
 # Canonical Akira
 
+**Presentation reviewed:** 2026-09-15.
+
 ## Variant, Filename and Period
 
 Early C++ Windows/Linux Akira; `.akira`. Avast documented this filename/template in June 2023; the archive itself does not supply an incident timestamp.

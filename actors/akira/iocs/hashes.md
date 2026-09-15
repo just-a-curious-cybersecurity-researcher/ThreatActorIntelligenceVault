@@ -1,8 +1,10 @@
 # Akira — Hash Indicators
 
+**Presentation reviewed:** 2026-09-15.
+
 > Bulk hash indicators are useful for retrospective scanning and triage but have limited durability. Prefer contextualized artifacts and behavioral detections where possible.
 
-## Windows Akira Ransomware Samples — SHA-256
+## Windows Samples — SHA-256
 
 ```text
 03aa12ac2884251aa24bf0ccd854047de403591a8537e6aba19e822807e06a45
@@ -17,7 +19,7 @@ a2df5477cf924bd41241a3326060cc2f913aff2379858b148ddec455e4da67bc
 fef09b0aa37cbdb6a8f60a6bd8b473a7e5bffdc7fd2e952444f781574abccf64
 ```
 
-## Linux / Unix Akira Ransomware Samples — SHA-256
+## Linux / Unix Samples — SHA-256
 
 ```text
 3d2b58ef6df743ce58669d7387ff94740ceb0122c4fc1c4ffd81af00e72e60a4

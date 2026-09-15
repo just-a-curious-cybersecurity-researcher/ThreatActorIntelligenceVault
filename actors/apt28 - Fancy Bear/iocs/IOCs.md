@@ -1,5 +1,7 @@
 # APT28 — Indicators of Compromise
 
+**Presentation reviewed:** 2026-09-15.
+
 ## Contents
 
 - Hash provenance — [Publication provenance](hash-provenance.md)

@@ -1,5 +1,7 @@
 # Qilin — Attribution and Relationships
 
+**Presentation reviewed:** 2026-09-15.
+
 ## Evidence Classes and Confidence
 
 **Observed** means observed by the named publisher, not independently observed on victim systems by this repository. **High Confidence** requires strong direct or convergent support; **Moderate Confidence** denotes credible but incomplete evidence or alternatives; **Low Confidence** denotes tentative or uncorroborated support. Confidence in a published vendor label is separate from confidence in organizational identity.
@@ -16,9 +18,9 @@
 
 ## Geographic Nexus
 
-Group-IB preserved Russian-language recruitment material stating that CIS targets were excluded. Talos observed Windows-1251 encoding in a credential-exfiltration script and explicitly allowed a false-flag explanation. CrowdStrike assigns a Russian/Eastern European location label. These support a **Moderate Confidence Russian-speaking criminal-ecosystem nexus**, not the nationality or physical location of every operator. Neither Chinese mythological branding nor an Eastern European code page establishes state sponsorship. 
+Group-IB preserved Russian-language recruitment material stating that CIS targets were excluded. Talos observed Windows-1251 encoding in a credential-exfiltration script and explicitly allowed a false-flag explanation. CrowdStrike assigns a Russian/Eastern European location label. These support a **Moderate Confidence Russian-speaking criminal-ecosystem nexus**, not the nationality or physical location of every operator. Neither Chinese mythological branding nor an Eastern European code page establishes state sponsorship.
 
-Advertised geographic exclusions may reflect affiliate rules, operational convenience or reputation management. Absence from a leak tracker is weak negative evidence. A universal Russian-language binary kill switch is not established by the technical sources reviewed. This is why categorical country-of-origin labels in secondary profiles are qualified here. 
+Advertised geographic exclusions may reflect affiliate rules, operational convenience or reputation management. Absence from a leak tracker is weak negative evidence. A universal Russian-language binary kill switch is not established by the technical sources reviewed. This is why categorical country-of-origin labels in secondary profiles are qualified here.
 
 ## Relationships and Alternative Hypotheses
 

@@ -1,8 +1,10 @@
 # Qilin — Blockchain Addresses
 
+**Presentation reviewed:** 2026-09-15.
+
 Reviewed **2026-09-10**. **Five officially listed FirstVPN service addresses.** This is an evidence register, not a Qilin-owned wallet list. [Financial analysis](../intelligence/blockchain.md), [official screening](../../financial-source-review.md).
 
-## Officially Listed Service Infrastructure
+## Address Attribution and Scope
 
 All entries share the following explicitly scoped metadata:
 

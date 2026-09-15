@@ -1,5 +1,7 @@
 # Akira — Indicators of Compromise
 
+**Presentation reviewed:** 2026-09-15.
+
 This directory contains indicators collected from the Akira research in this repository, separated by indicator type for easier review, enrichment and hunting.
 
 > **Caution:** IOCs age quickly and should not be treated as sufficient attribution evidence on their own. Validate indicators against source date, prevalence, environment context and surrounding behavior before using them for blocking or incident attribution.

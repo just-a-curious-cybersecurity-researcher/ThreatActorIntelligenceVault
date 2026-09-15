@@ -1,5 +1,7 @@
 # Qilin — Ransomware Extensions
 
+**Presentation reviewed:** 2026-09-15.
+
 Qilin uses configurable, often victim-specific extensions. **No universal `.qilin` extension is established** by these sources.
 
 | Extension | Variant / period | Evidence / confidence |

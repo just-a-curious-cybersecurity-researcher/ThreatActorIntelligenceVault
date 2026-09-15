@@ -1,5 +1,7 @@
 # Akira — Contextualized File Artifacts
 
+**Presentation reviewed:** 2026-09-15.
+
 This file keeps named artifacts separate from the bulk hash corpus so that analysts can retain filename and functional context.
 
 | File / Artifact | Hash Type | Hash | Context |
@@ -60,7 +62,7 @@ For bulk indicator matching, see [hashes.md](hashes.md).
 
 For each existing hash, consult the [provenance register](hash-provenance.md). Labels above are retained from the original collection and are **not independently revalidated malware verdicts**. A `.exe` described as an “encryption script” should be interpreted as a reported deployment artifact until the sample's function is verified. Ladon and Snaffler are dual-use tools; their names alone do not establish an encryptor. The source description of `winrar-x64-623.exe` as a network transfer program is imprecise: WinRAR is an archiver.
 
-The original Level.io “trojanized” labels are not established by a filename: both `level.exe` and `level-windows-amd64.exe` require sample-specific verification. Legitimate Level.io use and malware impersonating it are distinct hypotheses. 
+The original Level.io “trojanized” labels are not established by a filename: both `level.exe` and `level-windows-amd64.exe` require sample-specific verification. Legitimate Level.io use and malware impersonating it are distinct hypotheses.
 
 | Additional artifact | Incident role | Date / source |
 |---|---|---|

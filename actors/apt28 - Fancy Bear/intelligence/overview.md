@@ -1,42 +1,44 @@
 # APT28 — Intelligence Overview
 
+**Presentation reviewed:** 2026-09-15.
+
 Last updated: **2026-09-14**. Confidence applies to the specific judgment or incident, not to every activity grouped under an alias.
 
 ## Background
 
-FireEye's 2014 report assessed a Russian-government sponsor from targeting, development patterns and language/time-zone evidence. Later government statements identify GRU Unit 26165. The stronger later attribution must not be projected backwards as something the 2014 researchers independently proved. 
+FireEye's 2014 report assessed a Russian-government sponsor from targeting, development patterns and language/time-zone evidence. Later government statements identify GRU Unit 26165. The stronger later attribution must not be projected backwards as something the 2014 researchers independently proved.
 
-ESET uses an at-least-2004 activity boundary. Its historical corpus includes Xagent, Sedreco, Xtunnel and USBStealer; the 2026 research connects portions of the modern arsenal to earlier code. This supports continuity of tooling, without proving an unchanged staff roster over two decades. 
+ESET uses an at-least-2004 activity boundary. Its historical corpus includes Xagent, Sedreco, Xtunnel and USBStealer; the 2026 research connects portions of the modern arsenal to earlier code. This supports continuity of tooling, without proving an unchanged staff roster over two decades.
 
 ## Targeting and Victimology
 
-**Ukrainian government and armed forces.** Intelligence value / reported targeting: Operational information, communications and personnel surveillance Evidence / confidence: ESET and official reporting; high confidence in reported targeting. 
+**Ukrainian government and armed forces.** Intelligence value / reported targeting: Operational information, communications and personnel surveillance Evidence / confidence: ESET and official reporting; high confidence in reported targeting.
 
-**Aid logistics, defense suppliers and IT providers.** Intelligence value / reported targeting: Shipment planning and trusted relationships supporting Ukraine Evidence / confidence: Joint advisory since 2022; high. 
+**Aid logistics, defense suppliers and IT providers.** Intelligence value / reported targeting: Shipment planning and trusted relationships supporting Ukraine Evidence / confidence: Joint advisory since 2022; high.
 
-**European diplomatic and political institutions.** Intelligence value / reported targeting: Foreign policy, defense and political decision-making Evidence / confidence: ANSSI, EU and HOOKEDGE reporting; high for established cases, moderate for inferred collection priorities. 
+**European diplomatic and political institutions.** Intelligence value / reported targeting: Foreign policy, defense and political decision-making Evidence / confidence: ANSSI, EU and HOOKEDGE reporting; high for established cases, moderate for inferred collection priorities.
 
-**US political organizations.** Intelligence value / reported targeting: Email theft and subsequent publication in 2016 Evidence / confidence: DOJ allegations and incident-response evidence; high attribution confidence, legal allegations retained. 
+**US political organizations.** Intelligence value / reported targeting: Email theft and subsequent publication in 2016 Evidence / confidence: DOJ allegations and incident-response evidence; high attribution confidence, legal allegations retained.
 
-**Anti-doping bodies and sports officials.** Intelligence value / reported targeting: Retaliatory theft and selective disclosure following doping investigations Evidence / confidence: DOJ anti-doping case; high confidence in the existence and scope of the charges. 
+**Anti-doping bodies and sports officials.** Intelligence value / reported targeting: Retaliatory theft and selective disclosure following doping investigations Evidence / confidence: DOJ anti-doping case; high confidence in the existence and scope of the charges.
 
-**Hotels, neighboring organizations and routers.** Intelligence value / reported targeting: Access paths to people or networks of intelligence interest Evidence / confidence: Case-dependent; these intermediaries are not necessarily the final intelligence target. 
+**Hotels, neighboring organizations and routers.** Intelligence value / reported targeting: Access paths to people or networks of intelligence interest Evidence / confidence: Case-dependent; these intermediaries are not necessarily the final intelligence target.
 
 Victim country is not operator location. A document impersonating a ministry does not prove that ministry was compromised. Counts of phishing messages, routers, accounts and organizations cannot be added into one victim total.
 
 ## Operational Model
 
-The applicable model is intelligence collection, with specialized development, remote operations and historically documented close-access teams. The 2018 anti-doping case alleges that traveling teams transferred access to operators in Russia. It does not describe open affiliate recruitment. 
+The applicable model is intelligence collection, with specialized development, remote operations and historically documented close-access teams. The 2018 anti-doping case alleges that traveling teams transferred access to operators in Russia. It does not describe open affiliate recruitment.
 
-MooBot provides a concrete criminal-infrastructure overlap: APT28 used routers previously compromised by non-GRU criminal actors. That supports appropriation of access, not proof of an affiliate contract, a revenue-sharing arrangement or a joint ransomware enterprise. 
+MooBot provides a concrete criminal-infrastructure overlap: APT28 used routers previously compromised by non-GRU criminal actors. That supports appropriation of access, not proof of an affiliate contract, a revenue-sharing arrangement or a joint ransomware enterprise.
 
 ## Ransomware Development
 
-**No aplica / Not applicable:** the reviewed evidence does not establish an APT28 ransomware product, builder market or RaaS program. The corresponding technical inventory documents espionage implants in [Tooling and Malware](../technical/tooling-malware.md). Trend's destructive-command observation is retained separately from encryption-for-payment. 
+**No aplica / Not applicable:** the reviewed evidence does not establish an APT28 ransomware product, builder market or RaaS program. The corresponding technical inventory documents espionage implants in [Tooling and Malware](../technical/tooling-malware.md). Trend's destructive-command observation is retained separately from encryption-for-payment.
 
 ## Data Leak Site
 
-**No aplica / Not applicable to a ransomware leak site.** DCLeaks, Guccifer 2.0 and the Fancy Bears' Hack Team persona belong to documented hack-and-leak allegations. They are not evidence of a ransom-payment portal or affiliate panel. Publication support involved Unit 74455 in the DOJ cases. 
+**No aplica / Not applicable to a ransomware leak site.** DCLeaks, Guccifer 2.0 and the Fancy Bears' Hack Team persona belong to documented hack-and-leak allegations. They are not evidence of a ransom-payment portal or affiliate panel. Publication support involved Unit 74455 in the DOJ cases.
 
 The ransomware.live check is recorded as a bounded search, with retrieval limitations, in [Source Review](source-review.md). Absence from a ransomware tracker is not a classification test for a state actor.
 
@@ -44,10 +46,10 @@ The ransomware.live check is recorded as a bounded search, with retrieval limita
 
 The recent evidence covers several independent campaigns:
 
-- **Office exploitation:** Zscaler observed CVE-2026-21509 exploitation on 2026-01-29, after the 2026-01-26 emergency update. This establishes rapid use after disclosure in that visibility window. 
-- **Long-term implants:** ESET reports paired BeardShell/Covenant deployments during 2025–2026. 
-- **Router-mediated collection:** NCSC, Microsoft, Lumen and DOJ describe compromised-router DNS redirection and selective interception. 
-- **Lightweight scripts:** Recorded Future's HOOKEDGE page includes 2026-06-29 and July revisions, although its executive summary retains an April endpoint. 
+- **Office exploitation:** Zscaler observed CVE-2026-21509 exploitation on 2026-01-29, after the 2026-01-26 emergency update. This establishes rapid use after disclosure in that visibility window.
+- **Long-term implants:** ESET reports paired BeardShell/Covenant deployments during 2025–2026.
+- **Router-mediated collection:** NCSC, Microsoft, Lumen and DOJ describe compromised-router DNS redirection and selective interception.
+- **Lightweight scripts:** Recorded Future's HOOKEDGE page includes 2026-06-29 and July revisions, although its executive summary retains an April endpoint.
 
 These findings do not imply one combined intrusion or one implant replacing every previous family.
 
@@ -90,10 +92,10 @@ See the final [assessment and collection gaps](source-review.md#prioritized-inte
 | 2024–2026 | **Victim / sector / country:** Routers and selected downstream identities / global; African government targets in Microsoft visibility **Technique and outcome:** DHCP/DNS changes, selected redirection and credential interception **Malware / tooling:** DNS infrastructure; no endpoint implant required for this path **Publication / source:** 2026-04-07;  **Confidence:** High; ongoing validity of each IP not established |
 | 2026-04-07 | **Victim / sector / country:** US part of router network **Technique and outcome:** Operation Masquerade disrupts malicious DNS configuration **Malware / tooling:** Court-authorized remediation **Publication / source:**  **Confidence:** High; disruption is geographically bounded |
 
-**Excluded from the APT28 incident total:** Olympic Destroyer / PyeongChang 2018 (Unit 74455), CaptiveCrunch 2026 (Midnight Blizzard), and TA458's new 2026 webmail exploits as unqualified APT28 events. 
+**Excluded from the APT28 incident total:** Olympic Destroyer / PyeongChang 2018 (Unit 74455), CaptiveCrunch 2026 (Midnight Blizzard), and TA458's new 2026 webmail exploits as unqualified APT28 events.
 
 ## Law-Enforcement Development
 
-The 2018 election and anti-doping cases describe named officers, organizations and alleged roles. The 2020 EU/UK sanctions, 2024 botnet disruption and 2026 Operation Masquerade represent different interventions. Neither an indictment nor infrastructure seizure establishes that the intrusion set ceased operating. 
+The 2018 election and anti-doping cases describe named officers, organizations and alleged roles. The 2020 EU/UK sanctions, 2024 botnet disruption and 2026 Operation Masquerade represent different interventions. Neither an indictment nor infrastructure seizure establishes that the intrusion set ceased operating.
 
 See [Attribution](attribution.md) for organizational distinctions and [Blockchain](blockchain.md) for funding, sanctions and provider evidence.

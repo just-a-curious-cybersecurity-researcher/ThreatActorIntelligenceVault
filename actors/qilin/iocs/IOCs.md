@@ -1,5 +1,7 @@
 # Qilin — Indicators of Compromise
 
+**Presentation reviewed:** 2026-09-15.
+
 This directory separates indicators by type for enrichment, investigation and hunting. Each value must retain its source, observation period, role and confidence. These are historical pivots, not a current universal blocking list.
 
 > **Caution:** a hash, IP, filename or legitimate tool alone does not establish Qilin attribution. Check prevalence, ownership interval, account, process and surrounding activity.

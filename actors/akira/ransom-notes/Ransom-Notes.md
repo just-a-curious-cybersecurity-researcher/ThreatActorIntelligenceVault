@@ -1,5 +1,7 @@
 # Akira — Ransom Notes
 
+**Presentation reviewed:** 2026-09-15.
+
 This collection distinguishes **textual templates**, **encryptor families** and **filenames known only from reporting**. A collector's suffix is not a malware version. Reviewed 2026-09-10. Threats and recovery promises in notes are attacker claims, not validated facts or advice.
 
 | Document | Variant / evidence | Approximate observation |

@@ -1,5 +1,7 @@
 # Qilin — Agenda-Branded Note
 
+**Presentation reviewed:** 2026-09-15.
+
 ## Variant, Filename and Period
 
 Filename: `DtMXQFOCos-RECOVER-README.txt`. Consistent with early Agenda branding and the company-ID-first filename in August 2022 analysis, but the archive provides no exact incident date or sample hash.

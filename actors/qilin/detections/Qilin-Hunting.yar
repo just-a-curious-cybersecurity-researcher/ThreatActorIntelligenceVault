@@ -1,3 +1,9 @@
+/*
+    Presentation reviewed: 2026-09-15.
+    Defensive file and artifact triage; review each rule's scope and conditions.
+    Rule provenance remains in the actor bibliography and existing metadata.
+*/
+
 /* Defensive artifact triage. No execution, actor-identity or event-order claims.
    Notes and research archives are expected matches. All rules require tuning. */
 rule QILIN_AGENDA_Redacted_Note_Triage

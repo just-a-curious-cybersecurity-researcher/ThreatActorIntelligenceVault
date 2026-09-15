@@ -1,5 +1,7 @@
 # APT28 — Ransom Notes
 
+**Presentation reviewed:** 2026-09-15.
+
 Last updated: **2026-09-14**.
 
 | Document | Variant / evidence | Approximate observation |
@@ -8,7 +10,7 @@ Last updated: **2026-09-14**.
 
 **Variant, Filename and Period.** **No aplica / Not applicable.** APT28 is documented here as an espionage intrusion set. No actor-specific ransom-note filenames or encryption passwords are supplied.
 
-**Known Text and Differences.** No note text is reproduced. DCLeaks, Guccifer 2.0 and the Fancy Bears' Hack Team publication persona belong to hack-and-leak allegations; they are not ransom-note variants. 
+**Known Text and Differences.** No note text is reproduced. DCLeaks, Guccifer 2.0 and the Fancy Bears' Hack Team publication persona belong to hack-and-leak allegations; they are not ransom-note variants.
 
 **Contact and Infrastructure.** No ransom-negotiation address, affiliate panel or contact workflow is established. Published malware exfiltration destinations are documented in [Domains and External Services](../iocs/domains.md), with their actual roles.
 

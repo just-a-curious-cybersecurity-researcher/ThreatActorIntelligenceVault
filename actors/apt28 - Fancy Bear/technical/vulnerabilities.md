@@ -1,5 +1,7 @@
 # APT28 — Vulnerabilities and Exposed Infrastructure
 
+**Presentation reviewed:** 2026-09-15.
+
 Last updated: **2026-09-14**. A CVE's identifier year is not its exploitation date. Source reports are used for actor association; this is not an exploit catalogue or a claim that every listed vulnerability was exploited at every victim.
 
 ## Supported Associations
@@ -37,6 +39,6 @@ The MS17-010 row is intentionally a bulletin/exploit-family association, not an 
 
 Prioritize exposed authentication, email clients/servers, network-device management and local escalation paths according to the organization's actual assets. Patching removes a vulnerability; it does not revoke previously stolen credentials or restore a modified router configuration.
 
-The public advisories recommend supported firmware, restricted management exposure, strong authentication, monitoring and appropriate NTLM protections. Their recovery guidance includes more than rebooting an infected router. 
+The public advisories recommend supported firmware, restricted management exposure, strong authentication, monitoring and appropriate NTLM protections. Their recovery guidance includes more than rebooting an infected router.
 
 For confirmed compromise, validate restoration of configuration and access controls, investigate affected identities and retain evidence of the original state. Use the [published hunting collection](../detections/Detections.md); no exploit payloads are included.

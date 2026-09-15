@@ -1,8 +1,10 @@
 # Qilin — 2025 Windows Case Note
 
+**Presentation reviewed:** 2026-09-15.
+
 ## Variant, Filename and Period
 
-Talos's 2025 Windows case analysis, Figure 23. The report analyzes two encryptor configurations, but the note alone does not distinguish them. 
+Talos's 2025 Windows case analysis, Figure 23. The report analyzes two encryptor configurations, but the note alone does not distinguish them.
 
 ## Known Text and Differences
 

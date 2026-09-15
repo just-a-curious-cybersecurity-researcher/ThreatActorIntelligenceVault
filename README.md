@@ -49,6 +49,10 @@ ThreatActorIntelligenceVault/
 
 ## Analytical Note
 
+Equivalent actor documents share the section names and order, table columns and heading hierarchy registered in the repository validator. Actor-specific campaigns, periods, variants and supported coverage remain variable. Optional sections are omitted when they have no content. `Presentation reviewed` records a format review, not a new intelligence collection date.
+
+Detection indexes use a common coverage register and YARA inventory. KQL and Splunk entries use the same numbered investigation families and field order: origin, telemetry, review / tuning, then copyable code. YARA files share declaration and section formatting while retaining rule-specific metadata and logic.
+
 The presence of a single tool, IOC or ATT&CK technique is not sufficient to attribute activity to a specific threat actor. Greater analytical weight should be placed on combinations of behavior, infrastructure, malware artifacts, temporal context and corroborating reporting.
 
 
@@ -70,6 +74,6 @@ Legitimate administration tools acquire meaning through account, host, tenant, t
 
 Blockchain roles are explicit: Victim Payment Address, Affiliate Address, Intermediary Address, Peel Chain Address, Consolidation Address, Suspected Operator Address, Suspected Treasury Address, Exchange Deposit, VASP, Mixer, Bridge, Service Infrastructure, OFAC-Sanctioned Address, Law-Enforcement Seizure Address or Unknown Downstream Address. Only evidence-backed categories are populated. An official attribution to a service and an analyst-assessed relationship to a ransomware group have separate confidence levels. No downstream address inherits organizational ownership automatically.
 
-The [validation script](scripts/validate_repository.py) checks internal links/anchors, index coverage, README trees, indicator syntax/checksums and active ATT&CK entries. Optional [harmless detection-fixture tests](scripts/test_detection_artifacts.py) compile YARA and exercise selected regex boundaries. See [validation](VALIDATION.md) for commands and practical limits.
+The [validation script](scripts/validate_repository.py) checks shared document templates, table columns, query metadata order, YARA presentation, internal links/anchors, index coverage, README trees, indicator syntax/checksums and active ATT&CK entries. Optional [harmless detection-fixture tests](scripts/test_detection_artifacts.py) compile YARA, exercise selected regex boundaries and verify that format deviations are rejected. See [validation](VALIDATION.md) for commands and practical limits.
 
-APT28 retains ransomware-specific sections as Not applicable and records source gaps explicitly, following its dossier scope. Other dossiers retain their existing evidence-based inclusion conventions.
+Common presentation does not require adding unsupported ransomware procedures to an espionage actor or copying another group's intelligence.

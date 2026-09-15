@@ -1,5 +1,7 @@
 # Akira — File-Handling Warning Template
 
+**Presentation reviewed:** 2026-09-15.
+
 ## Variant, Filename and Period
 
 Associated with Akira branding; no sample hash, precise date or independently established encryptor generation is attached to this archive. The `_2` is an archive identifier.

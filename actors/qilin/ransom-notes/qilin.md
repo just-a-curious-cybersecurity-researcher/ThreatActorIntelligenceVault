@@ -1,5 +1,7 @@
 # Qilin — Qilin Base Template
 
+**Presentation reviewed:** 2026-09-15.
+
 ## Variant, Filename and Period
 
 Filename: `README-RECOVER-[rand].txt` (archive placeholder for the victim identifier). Branding and portal changes are documented in this archived template.

@@ -1,5 +1,7 @@
 # Akira — MITRE ATT&CK Evidence Mapping
 
+**Presentation reviewed:** 2026-09-15.
+
 **Reviewed 2026-09-10.** Each row is a dossier mapping of a documented behavior or sample capability. It is not a claim that every affiliate performs it. High Confidence in a reported observation does not automatically establish actor identity. Software analysis describes capability; incident reports describe observed use.
 
 Names and tactics use the official Enterprise ATT&CK STIX snapshot retrieved 2026-09-10, SHA256 `dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4`. MITRE data. The catalog changes; the compact [validation profile](../../../scripts/attack-profile.json) preserves the identifiers used here.

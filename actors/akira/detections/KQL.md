@@ -1,14 +1,35 @@
 # Akira — Microsoft Defender XDR / KQL Hunting Queries
 
+**Presentation reviewed:** 2026-09-15.
+
+**Status:** defensive hunts requiring local validation and tuning; not actor-attribution signatures. Query execution against a connected backend has not been validated.
+
+## Scope and Requirements
+
 These queries are designed as **hunting and detection starting points** for Microsoft Defender XDR Advanced Hunting. They are not intended to be copied into production without review and tuning.
 
 > **Environment-specific tuning is mandatory.** Many Akira-associated utilities are legitimate. AnyDesk, TeamViewer, Rclone, WinSCP, PowerShell, `nltest`, `net.exe`, PsExec and similar tools can be normal in some organizations. Review approved software, admin accounts, jump hosts, software-distribution servers, backup systems, red-team activity and other expected usage before turning these hunts into alerts.
 
 ## Coverage, Telemetry and Tuning Register
 
+| Query family | Coverage | Review / tuning |
+|---|---|---|
+| 1. Credential Access | 6 queries | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 2. Active Directory and Network Discovery | 5 queries | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 3. Persistence and Remote Administration | 3 queries | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 4. Tunneling and C2 | 3 queries | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 5. Defense Evasion and Impairment | 5 queries | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 6. Collection and Exfiltration | 3 queries | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 7. Recovery Inhibition | 2 queries | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 8. Deployment and Impact | 4 queries | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 9. Multi-Stage Correlation | 1 query | Review the telemetry and tuning notes on each entry; correlate with incident context |
+| 10. Campaign Artifact Hunts | 6 queries | Review the telemetry and tuning notes on each entry; correlate with incident context |
+
+## Interpretation Notes
+
 This register applies to **every numbered query** in this file. These are hunts; no KQL/SPL backend was available for execution. Source attribution describes campaign evidence, not rule specificity. The [current ATT&CK table](../technical/mitre-attack.md) contains supported mappings.
 
-| Query family | Evidence | Required interpretation / false positives |
+| Query family | Coverage | Review / tuning |
 |---|---|---|
 | 1.x credential access |  | DFIR, backup exports and authorized assessments match. MiniDump typically receives a **numeric PID**, so no literal `lsass` requirement; verify the target PID and output. Command strings do not prove the dump succeeded. |
 | 2.x discovery |  | Inventory, vulnerability scanning and helpdesk activity match. Connection fan-out may be an application server; `dcount` is approximate and thresholds are starting values. |
@@ -23,9 +44,17 @@ This register applies to **every numbered query** in this file. These are hunts;
 
 For MDE, enable each required sensor/table and preserve process IDs plus creation time or unique IDs in pivots; PID reuse and empty SHA256 are normal limitations. For Splunk, select an explicit time range and configure Sysmon Events 1, 3, 7, 11, 13 as required; image-load events are not collected by every deployment. Windows Security/System queries use their own channels. Exclusions should combine owner, signer/hash, path, purpose and time rather than blanket allowlisting a tool name.
 
+
+
 ## 1. Credential Access
 
 ### 1.1 LSASS dump through `comsvcs.dll` MiniDump
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** legitimate troubleshooting is possible but uncommon. Prioritize interactive users, unusual paths, remote sessions and subsequent archive/lateral-movement activity.
 
 ```kusto
 DeviceProcessEvents
@@ -36,9 +65,13 @@ DeviceProcessEvents
           InitiatingProcessFileName, InitiatingProcessCommandLine, SHA256
 ```
 
-**Review:** legitimate troubleshooting is possible but uncommon. Prioritize interactive users, unusual paths, remote sessions and subsequent archive/lateral-movement activity.
-
 ### 1.2 Known credential-dumping tooling
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** filenames can be renamed and strings may appear in security tooling. Use prevalence and signer/path context.
 
 ```kusto
 DeviceProcessEvents
@@ -55,9 +88,13 @@ DeviceProcessEvents
           ProcessCommandLine, InitiatingProcessFileName, SHA256
 ```
 
-**Review:** filenames can be renamed and strings may appear in security tooling. Use prevalence and signer/path context.
-
 ### 1.3 SAM / SECURITY / SYSTEM hive dumping
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** registry backup and forensic workflows may legitimately export these hives.
 
 ```kusto
 DeviceProcessEvents
@@ -69,9 +106,13 @@ DeviceProcessEvents
           InitiatingProcessFileName, InitiatingProcessCommandLine
 ```
 
-**Review:** registry backup and forensic workflows may legitimately export these hives.
-
 ### 1.4 NTDS.dit / domain credential database access
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** domain-controller maintenance and backup products can generate related activity. Restrict or baseline expected DC administration.
 
 ```kusto
 DeviceProcessEvents
@@ -82,9 +123,13 @@ DeviceProcessEvents
           InitiatingProcessFileName, InitiatingProcessCommandLine
 ```
 
-**Review:** domain-controller maintenance and backup products can generate related activity. Restrict or baseline expected DC administration.
-
 ### 1.5 Browser credential-store copying with `esentutl.exe`
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 DeviceProcessEvents
@@ -96,6 +141,12 @@ DeviceProcessEvents
 ```
 
 ### 1.6 Credential-access activity concentrated on one host
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 let CredentialTools = dynamic(["mimikatz", "lazagne", "donpapi", "netexec", "veeamhax", "ticketdumper"]);
@@ -114,6 +165,12 @@ DeviceProcessEvents
 
 ### 2.1 Multiple AD/share discovery tools on one system
 
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** this is deliberately a correlation rule. It is higher-signal but may miss single-tool use.
+
 ```kusto
 DeviceProcessEvents
 | where Timestamp > ago(1d)
@@ -125,9 +182,13 @@ DeviceProcessEvents
 | where array_length(ToolsSeen) >= 2
 ```
 
-**Review:** this is deliberately a correlation rule. It is higher-signal but may miss single-tool use.
-
 ### 2.2 Atomic SharpHound / BloodHound / AdFind / LDAP discovery
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 DeviceProcessEvents
@@ -140,6 +201,12 @@ DeviceProcessEvents
 
 ### 2.3 Native domain discovery (`nltest`, `net group`, `net localgroup`)
 
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** these are legitimate administrative commands. Alerting solely on them can be noisy. Higher-value conditions include unusual workstations, non-admin users, execution immediately after suspicious remote access, or several discovery commands in a short period.
+
 ```kusto
 DeviceProcessEvents
 | where Timestamp > ago(7d)
@@ -151,9 +218,13 @@ DeviceProcessEvents
           InitiatingProcessFileName, InitiatingProcessCommandLine
 ```
 
-**Review:** these are legitimate administrative commands. Alerting solely on them can be noisy. Higher-value conditions include unusual workstations, non-admin users, execution immediately after suspicious remote access, or several discovery commands in a short period.
-
 ### 2.4 Network scanning tools
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 DeviceProcessEvents
@@ -166,6 +237,12 @@ DeviceProcessEvents
 
 ### 2.5 Burst of outbound internal connections from one endpoint
 
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceNetworkEvents.
+
+**Review / tuning:** vulnerability scanners, management platforms and IT discovery systems commonly trigger this pattern. Maintain allowlists for sanctioned scanners.
+
 ```kusto
 DeviceNetworkEvents
 | where Timestamp > ago(1h)
@@ -177,11 +254,15 @@ DeviceNetworkEvents
 | order by DistinctHosts desc
 ```
 
-**Review:** vulnerability scanners, management platforms and IT discovery systems commonly trigger this pattern. Maintain allowlists for sanctioned scanners.
-
-## 3. RMM / RAT and Remote Administration
+## 3. Persistence and Remote Administration
 
 ### 3.1 Execution of Akira-associated RMM products
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** these products are frequently legitimate. The most useful approach is often **approved-vs-unapproved RMM**, not simply "RMM = malicious".
 
 ```kusto
 DeviceProcessEvents
@@ -198,9 +279,13 @@ DeviceProcessEvents
           ProcessCommandLine, InitiatingProcessFileName, SHA256
 ```
 
-**Review:** these products are frequently legitimate. The most useful approach is often **approved-vs-unapproved RMM**, not simply "RMM = malicious".
-
 ### 3.2 Rare RMM execution in the environment
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 let RMM = dynamic(["anydesk.exe", "rustdesk.exe", "radmin.exe", "teamviewer.exe", "meshagent.exe"]);
@@ -216,6 +301,12 @@ DeviceProcessEvents
 
 ### 3.3 SystemBC / suspicious proxy-RAT artifact names
 
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
+
 ```kusto
 DeviceProcessEvents
 | where Timestamp > ago(7d)
@@ -228,6 +319,12 @@ DeviceProcessEvents
 
 ### 4.1 Ngrok or Cloudflared execution
 
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
+
 ```kusto
 DeviceProcessEvents
 | where Timestamp > ago(7d)
@@ -238,6 +335,12 @@ DeviceProcessEvents
 ```
 
 ### 4.2 SSH port forwarding
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 DeviceProcessEvents
@@ -250,6 +353,12 @@ DeviceProcessEvents
 
 ### 4.3 Rare tunneling binaries with network activity
 
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceNetworkEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
+
 ```kusto
 let TunnelBins = dynamic(["ngrok.exe", "cloudflared.exe", "plink.exe"]);
 DeviceNetworkEvents
@@ -261,9 +370,15 @@ DeviceNetworkEvents
 | order by Connections desc
 ```
 
-## 5. Defense Impairment / Evasion
+## 5. Defense Evasion and Impairment
 
 ### 5.1 Defender / AV disabling commands
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 DeviceProcessEvents
@@ -278,6 +393,12 @@ DeviceProcessEvents
 
 ### 5.2 Firewall disabling/modification
 
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
+
 ```kusto
 DeviceProcessEvents
 | where Timestamp > ago(7d)
@@ -289,6 +410,12 @@ DeviceProcessEvents
 
 ### 5.3 Safe Mode abuse
 
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Safe Mode is legitimate during troubleshooting. Prioritize remote sessions, non-IT accounts and execution after security-tool tampering.
+
 ```kusto
 DeviceProcessEvents
 | where Timestamp > ago(7d)
@@ -298,9 +425,13 @@ DeviceProcessEvents
           InitiatingProcessFileName, InitiatingProcessCommandLine
 ```
 
-**Review:** Safe Mode is legitimate during troubleshooting. Prioritize remote sessions, non-IT accounts and execution after security-tool tampering.
-
 ### 5.4 Known Akira-associated defense-evasion tooling
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 DeviceProcessEvents
@@ -312,6 +443,12 @@ DeviceProcessEvents
 ```
 
 ### 5.5 Suspicious DLL side-loading through signed binaries
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceImageLoadEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 DeviceImageLoadEvents
@@ -329,6 +466,12 @@ DeviceImageLoadEvents
 
 ### 6.1 Exfiltration utilities
 
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
+
 ```kusto
 DeviceProcessEvents
 | where Timestamp > ago(7d)
@@ -340,6 +483,12 @@ DeviceProcessEvents
 
 ### 6.2 Archive utilities with potentially suspicious command lines
 
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** backup, packaging and development workflows may legitimately create archives. Correlate with unusual data locations and outbound transfer.
+
 ```kusto
 DeviceProcessEvents
 | where Timestamp > ago(7d)
@@ -349,9 +498,13 @@ DeviceProcessEvents
           InitiatingProcessFileName, InitiatingProcessCommandLine
 ```
 
-**Review:** backup, packaging and development workflows may legitimately create archives. Correlate with unusual data locations and outbound transfer.
-
 ### 6.3 Archive followed by transfer utility on same device/account
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 let Archives = DeviceProcessEvents
@@ -375,6 +528,12 @@ Archives
 
 ### 7.1 Shadow-copy deletion
 
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
+
 ```kusto
 DeviceProcessEvents
 | where Timestamp > ago(7d)
@@ -388,6 +547,12 @@ DeviceProcessEvents
 
 ### 7.2 Recovery/boot configuration tampering
 
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
+
 ```kusto
 DeviceProcessEvents
 | where Timestamp > ago(7d)
@@ -397,9 +562,15 @@ DeviceProcessEvents
           InitiatingProcessFileName
 ```
 
-## 8. Ransomware Deployment / Impact
+## 8. Deployment and Impact
 
 ### 8.1 PsExec / PSEXESVC remote execution
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** PsExec is legitimate and widely used. Prioritize execution from unusual hosts/users, remote-service creation, lateral fan-out and proximity to ransomware artifacts.
 
 ```kusto
 DeviceProcessEvents
@@ -410,9 +581,13 @@ DeviceProcessEvents
           ProcessCommandLine, InitiatingProcessFileName, SHA256
 ```
 
-**Review:** PsExec is legitimate and widely used. Prioritize execution from unusual hosts/users, remote-service creation, lateral fan-out and proximity to ransomware artifacts.
-
 ### 8.2 Akira-associated encrypted extensions
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceFileEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 DeviceFileEvents
@@ -430,6 +605,12 @@ DeviceFileEvents
 
 ### 8.3 Akira ransom-note artifact
 
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceFileEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
+
 ```kusto
 DeviceFileEvents
 | where Timestamp > ago(7d)
@@ -440,6 +621,12 @@ DeviceFileEvents
 ```
 
 ### 8.4 Fan-out of ransomware-like file creation
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceFileEvents.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 DeviceFileEvents
@@ -458,9 +645,19 @@ DeviceFileEvents
 | order by Files desc
 ```
 
-## 9. Multi-Stage Ransomware Correlation
+## 9. Multi-Stage Correlation
 
-This hunt assigns broad stages and identifies devices where several stages appear within the same day. Thresholds must be tuned to the environment.
+### 9.1 Multi-Stage Correlation
+
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** This hunt assigns broad stages and identifies devices where several stages appear within the same day. Thresholds must be tuned to the environment.
+
+
+
+**Use:** triage and threat hunting. This is intentionally broad and should not be used as a high-severity production alert without extensive tuning.
 
 ```kusto
 let Proc = DeviceProcessEvents
@@ -486,13 +683,15 @@ Proc
 | order by StageCount desc, Events desc
 ```
 
-**Use:** triage and threat hunting. This is intentionally broad and should not be used as a high-severity production alert without extensive tuning.
-
-## 10. Source-Linked Campaign Hunts
+## 10. Campaign Artifact Hunts
 
 ### 10.1 AnyDesk allowed in Safe Mode, followed by reboot tooling
 
-**Basis:** Huntress August 4, 2026 case. **Telemetry:** registry changes and process creation from MDE. **Review:** approved recovery work can produce the same sequence. `msconfig.exe` is a configuration clue, not proof a reboot occurred; verify Kernel-Boot/System events. A missing EDR event after reboot does not prove no encryption occurred.
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceRegistryEvents, DeviceProcessEvents.
+
+**Review / tuning:** **Basis:** Huntress August 4, 2026 case. **Telemetry:** registry changes and process creation from MDE. **Review:** approved recovery work can produce the same sequence. `msconfig.exe` is a configuration clue, not proof a reboot occurred; verify Kernel-Boot/System events. A missing EDR event after reboot does not prove no encryption occurred.
 
 ```kusto
 let SafeBoot = DeviceRegistryEvents
@@ -514,7 +713,11 @@ SafeBoot
 
 ### 10.2 Bulk AD export files under ProgramData
 
+**Origin:** Repository-authored defensive hunt.
+
 **Telemetry:** file creation. **Review:** inventory scripts are a common false positive. Filenames are case insensitive, mutable and not sufficient attribution. Pivot to PowerShell script-block logging and the initiating account; an export may use methods absent from command-line telemetry.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 DeviceFileEvents
@@ -530,7 +733,11 @@ DeviceFileEvents
 
 ### 10.3 s5cmd upload command with S3 destination
 
+**Origin:** Repository-authored defensive hunt.
+
 **Telemetry:** process command line; cloud audit/proxy bytes needed to confirm transfer. **Review:** exclude approved storage jobs by principal, executable provenance, bucket and schedule; a bucket name alone is weak. This is an execution hunt, not proof of upload completion. Shell wrappers/renamed executables can escape filename matching.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 DeviceProcessEvents
@@ -544,7 +751,11 @@ DeviceProcessEvents
 
 ### 10.4 Native WinRM and Impacket-like remote execution
 
-**Basis:** `wmiexec` in, Ruby WinRM in. **Telemetry:** endpoint process ancestry; network `/wsman` user-agent evidence is separately required for the Ruby client. **Review:** administrative WMI/WinRM is common. Prioritize new source hosts and remote identities. Parent names alone do not identify Impacket or Akira.
+**Origin:** Repository-authored defensive hunt.
+
+**Telemetry:** DeviceProcessEvents.
+
+**Review / tuning:** **Basis:** `wmiexec` in, Ruby WinRM in. **Telemetry:** endpoint process ancestry; network `/wsman` user-agent evidence is separately required for the Ruby client. **Review:** administrative WMI/WinRM is common. Prioritize new source hosts and remote identities. Parent names alone do not identify Impacket or Akira.
 
 ```kusto
 DeviceProcessEvents
@@ -557,7 +768,11 @@ DeviceProcessEvents
 
 ### 10.5 ESX Admins group creation or membership activity
 
+**Origin:** Repository-authored defensive hunt.
+
 **Telemetry:** Defender for Identity events in `IdentityDirectoryEvents`, **not endpoint-only MDE**. Confirm available ActionType values in the tenant. **Review:** an authorized ESX Admins group can be normal. Correlate creation/recreation with new members, domain-joined ESXi access and hypervisor version; this hunt does not itself prove CVE-2024-37085 exploitation.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 IdentityDirectoryEvents
@@ -569,7 +784,11 @@ IdentityDirectoryEvents
 
 ### 10.6 Credential extraction plus Veeam context
 
+**Origin:** Repository-authored defensive hunt.
+
 **Telemetry:** process arguments; SQL/audit access needed for silent DB queries. **Review:** backup migration/support and security assessments can match. Do not confuse database reads with an unauthenticated exploit or assume every credential-access tool uses a CVE.
+
+**Review / tuning:** Review approved administration, sensor coverage and the investigation context described in the coverage register.
 
 ```kusto
 DeviceProcessEvents

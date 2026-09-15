@@ -1,4 +1,10 @@
 /*
+    Presentation reviewed: 2026-09-15.
+    Defensive file and artifact triage; review each rule's scope and conditions.
+    Rule provenance remains in the actor bibliography and existing metadata.
+*/
+
+/*
     Akira Threat Hunting / Artifact Triage Rules
 
     IMPORTANT

@@ -1,5 +1,7 @@
 # Akira — IP Addresses
 
+**Presentation reviewed:** 2026-09-15.
+
 Historical investigative pivots, reviewed **2026-09-10**. Reassignment, shared hosting and legitimate services make present-day blocking inappropriate without enrichment. Confidence is for the published incident role, not exclusive Akira control.
 
 | Indicator | Role and context | Observation | Confidence / use |
@@ -12,9 +14,9 @@ Historical investigative pivots, reviewed **2026-09-10**. Reassignment, shared h
 
 The original two entries are preserved with their limitations. Newly sourced cases add roles rather than turning every contacted address into C2. See [operations](../intelligence/operations.md) for affiliate and campaign scope.
 
-## Mixed Akira / Fog Campaign Infrastructure
+## Campaign Infrastructure
 
-Arctic Wolf publishes the following indicators for its **combined August–October 2024 Akira/Fog incident population**. They are not individually labelled as Akira-only. **Moderate Confidence in published campaign association; Low Confidence in exclusive Akira ownership.** All are historical. 
+Arctic Wolf publishes the following indicators for its **combined August–October 2024 Akira/Fog incident population**. They are not individually labelled as Akira-only. **Moderate Confidence in published campaign association; Low Confidence in exclusive Akira ownership.** All are historical.
 
 | Indicator | Published role | Observation / limitation |
 |---|---|---|

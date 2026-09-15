@@ -1,12 +1,14 @@
 # APT28 — Hash Indicators
 
+**Presentation reviewed:** 2026-09-15.
+
 > Bulk hash indicators support retrospective scanning and triage but have limited durability. Use contextual artifacts and behavioral evidence to interpret matches.
 
-## Windows APT28 Ransomware Samples — SHA-256
+## Windows Samples — SHA-256
 
 Not applicable: the retained samples belong to espionage and credential-access chains.
 
-## Linux / Unix APT28 Ransomware Samples — SHA-256
+## Linux / Unix Samples — SHA-256
 
 Not applicable: no APT28 ransomware sample is assigned to this platform category.
 

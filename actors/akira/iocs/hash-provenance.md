@@ -1,5 +1,7 @@
 # Akira — Hash Provenance Register
 
+**Presentation reviewed:** 2026-09-15.
+
 Reviewed **2026-09-10**. All original hashes are retained. Exact text matches were checked against retrieved source bodies after removing layout whitespace; that establishes publication provenance, not a binary verdict, file equivalence across hash algorithms, or exclusive actor ownership. Hash length is syntactically valid; no malware was downloaded or executed.
 
 The April 2024 advisory contains both malicious and legitimate-tool hashes. A matching source must not turn Rclone, AnyDesk, WinRAR or a scanner into malware. Names can be deceptive. **Unresolved** rows are historical collection leads and are excluded from automatic blocking recommendations. Refer to each source's publication date; retrieval is not first-seen.

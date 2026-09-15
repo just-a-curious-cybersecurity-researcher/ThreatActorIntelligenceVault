@@ -1,5 +1,7 @@
 # Qilin — Qilin Media-Pressure Template
 
+**Presentation reviewed:** 2026-09-15.
+
 ## Variant, Filename and Period
 
 Filename: `README-RECOVER-[rand]_2.txt` (collector filename; victim-side suffix unconfirmed). The `_2` suffix is the collector’s filename, not a confirmed victim filename. Similar media/publication evolution is described in the separate 2025 MSP report, without proving the same sample.

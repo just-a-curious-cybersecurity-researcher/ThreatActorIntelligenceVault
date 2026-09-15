@@ -1,5 +1,7 @@
 # Qilin — Contextualized File Artifacts
 
+**Presentation reviewed:** 2026-09-15.
+
 Named artifacts retain their function and source context separately from the bulk hash inventory. Unknown filename/hash relationships are not inferred from an IOC list.
 
 | File / Artifact | Hash Type | Hash | Context |
