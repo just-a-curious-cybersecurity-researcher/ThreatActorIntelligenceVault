@@ -14,4 +14,4 @@ The extension/login/password are redacted. Portal: `e3v6tjarcltwc4hdkn6fxnpkzq42
 
 ## Source and Evidence State
 
-[Full archived redacted text](https://github.com/ThreatLabz/ransomware_notes/blob/main/qilin/README-RECOVER-%5Brand%5D.txt), [Q31](../References.md#q31). **Plaintext artifact**, not reconstructed screenshot. Retrieved 2026-09-10; source-byte SHA256 `f18a811db350910c562ed0753cc211c2281b2511795dc75f1a5efcc2dd4bdfc0` is an integrity identifier, **not a malware hash**. High Confidence in preserved text. Return to [index](Ransom-Notes.md).
+Full archived redacted text. **Plaintext artifact**, not reconstructed screenshot. Retrieved 2026-09-10; source-byte SHA256 `f18a811db350910c562ed0753cc211c2281b2511795dc75f1a5efcc2dd4bdfc0` is an integrity identifier, **not a malware hash**. High Confidence in preserved text. Return to [index](Ransom-Notes.md).

@@ -12,4 +12,4 @@ This collection distinguishes **textual templates**, **encryptor families** and 
 | [Akira_v2](akira-v2.md) | Rust Linux/ESXi; `akiranew.txt`; body not collected | 2024 |
 | [Other filenames](other-filenames.md) | `fn.txt`, dot-form and generic readme leads | 2024 advisory / undated sheet |
 
-Full archived text is linked at the source. Short excerpts, paraphrases and absence statements below are deliberately distinguished. No missing text, victim password, negotiation code or unobserved contact endpoint has been reconstructed. See [infrastructure roles](../iocs/onion-infrastructure.md), [negotiation analysis](../intelligence/operations.md) and [file patterns](../iocs/file-patterns.md).
+Available archived text is retained in the local variant files. Short excerpts, paraphrases and absence statements below are deliberately distinguished. No missing text, victim password, negotiation code or unobserved contact endpoint has been reconstructed. See [infrastructure roles](../iocs/onion-infrastructure.md), [negotiation analysis](../intelligence/operations.md) and [file patterns](../iocs/file-patterns.md).

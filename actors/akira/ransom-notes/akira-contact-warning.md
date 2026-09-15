@@ -14,4 +14,4 @@ Uses the same Akira publication/negotiation onions and redacted `/d/` victim rou
 
 ## Source and Evidence State
 
-[ThreatLabz archived text](https://github.com/ThreatLabz/ransomware_notes/blob/main/akira/akira_readme_3.txt), [reference A26](../References.md#a26). Full **redacted text**, not a reconstructed transcript. Retrieved 2026-09-10; SHA256 of source bytes: `7e8b75eee7514739f322363bc74d839f5be3885128bfb4d5b2bba3e2adf127e6` (document integrity, **not a malware IOC**). Early canonical context: [Avast A16](../References.md#a16). **High Confidence** in the preserved text; **unknown** incident date and victim-specific details. Return to [index](Ransom-Notes.md).
+ThreatLabz archived text. Full **redacted text**, not a reconstructed transcript. Retrieved 2026-09-10; SHA256 of source bytes: `7e8b75eee7514739f322363bc74d839f5be3885128bfb4d5b2bba3e2adf127e6` (document integrity, **not a malware IOC**). Early canonical context:. **High Confidence** in the preserved text; **unknown** incident date and victim-specific details. Return to [index](Ransom-Notes.md).

@@ -16,7 +16,7 @@ The dated sections below organize financial evidence. They do not assert a four-
 
 ## Phase I — 2023 Affiliate Terms
 
-Group-IB's panel investigation records advertised affiliate shares of 80% up to USD 3 million and 85% above that threshold. It does not expose an audited series of corresponding transfers. [Q10](../References.md#q10)
+Group-IB's panel investigation records advertised affiliate shares of 80% up to USD 3 million and 85% above that threshold. It does not expose an audited series of corresponding transfers. 
 
 ### Assessment
 
@@ -24,7 +24,7 @@ The advertised program terms describe a division of proceeds. Advertised terms a
 
 ## Phase II — 2025 Negotiation Evidence
 
-SANS's examined February negotiation illustrates offers of trial decryption and related services; it reports no payment in that case. This provides negotiation evidence, not an on-chain receipt. [Q37](../References.md#q37)
+SANS's examined February negotiation illustrates offers of trial decryption and related services; it reports no payment in that case. This provides negotiation evidence, not an on-chain receipt. 
 
 ### Assessment
 
@@ -32,7 +32,7 @@ Demand, agreement, payment and receipt are separate events. No amount should be 
 
 ## Phase III — June 2026 Laundering-Service Reporting
 
-Europol announced disruption of AudiA6 on June 11, 2026, describing a service suspected of laundering more than EUR 336 million in 2022–2025. TRM separately attributes approximately **USD 7.1 million in flows to Qilin**, versus USD 386,200 to Akira, among many ransomware customers. The actor-level estimate comes from TRM, not an actor-by-actor Europol transaction exhibit. **Moderate Confidence** in Qilin use: specialist provider attribution, without a reproducible public graph here. [F04](../References.md#f04), [F03](../References.md#f03)
+Europol announced disruption of AudiA6 on June 11, 2026, describing a service suspected of laundering more than EUR 336 million in 2022–2025. TRM separately attributes approximately **USD 7.1 million in flows to Qilin**, versus USD 386,200 to Akira, among many ransomware customers. The actor-level estimate comes from TRM, not an actor-by-actor Europol transaction exhibit. **Moderate Confidence** in Qilin use: specialist provider attribution, without a reproducible public graph here. 
 
 TRM also describes overlapping affiliate infrastructure between Qilin and other ransomware operations without identifying enough public transaction detail to resolve who controlled it. Plausible explanations include common affiliates, shared brokers or the same laundering service. **Low Confidence** in any stronger organizational inference. The EUR figure is neither funds seized nor Qilin revenue.
 
@@ -42,11 +42,11 @@ The official service disruption and TRM's Qilin flow estimate have different evi
 
 ## Phase IV — July 2026 Infrastructure-Purchase Reporting
 
-OFAC designated **FIRST VPN SERVICE** on **2026-07-13** under **CYBER4**, alongside its administrator and a cryptor provider. The official service entry publishes five addresses on Bitcoin, Ethereum, Litecoin and TRON. TRM reports that Qilin sent **USD 120 on 2026-01-11** to FirstVPN. This is a provider-attributed operating expense for infrastructure, not a victim paying ransom or a treasury consolidation transfer. [F01](../References.md#f01), [F07](../References.md#f07), [F02](../References.md#f02)
+OFAC designated **FIRST VPN SERVICE** on **2026-07-13** under **CYBER4**, alongside its administrator and a cryptor provider. The official service entry publishes five addresses on Bitcoin, Ethereum, Litecoin and TRON. TRM reports that Qilin sent **USD 120 on 2026-01-11** to FirstVPN. This is a provider-attributed operating expense for infrastructure, not a victim paying ransom or a treasury consolidation transfer. 
 
 **High Confidence** in OFAC's attribution of those identifiers to FirstVPN. **Moderate Confidence** in the service-level Qilin customer relationship. The purchase is attributed at service level; the listed addresses retain OFAC's FirstVPN attribution.
 
-TRM assesses that the five addresses appear located at **Cryptomus**. This is a custodial/service-location assessment, not an OFAC designation of Cryptomus or evidence Qilin controls the exchange. Custodial accounting can make the ultimate user and key holder different entities. [F02](../References.md#f02)
+TRM assesses that the five addresses appear located at **Cryptomus**. This is a custodial/service-location assessment, not an OFAC designation of Cryptomus or evidence Qilin controls the exchange. Custodial accounting can make the ultimate user and key holder different entities. 
 
 ### Analytical Assessment
 
@@ -58,11 +58,11 @@ A pooled service account, affiliate procurement or intermediary purchaser may se
 
 ## Qilin ↔ Akira
 
-Both appear in provider attribution for AudiA6. A shared service is a sufficient alternative explanation to common administrators or a merged treasury. [F03](../References.md#f03)
+Both appear in provider attribution for AudiA6. A shared service is a sufficient alternative explanation to common administrators or a merged treasury. 
 
 ## Qilin ↔ FirstVPN
 
-The official entity designation and TRM's customer linkage remain separate. Five listed identifiers do not establish five Qilin transactions or ownership by Qilin. [F01](../References.md#f01), [F02](../References.md#f02)
+The official entity designation and TRM's customer linkage remain separate. Five listed identifiers do not establish five Qilin transactions or ownership by Qilin. 
 
 ## Analyst Note
 
@@ -70,7 +70,7 @@ Preserve chain, asset, units, date, role, attributing entity and confidence for 
 
 ## Independent Corroboration and Financial-Service Disruption
 
-Europol corroborates the existence and disruption of the AudiA6 service, not the exact Qilin-specific USD figure. OFAC/Treasury establish FirstVPN's designation and listed addresses, not the exact Qilin purchase transaction. These are complementary layers rather than two independent proofs of each actor-level transfer. [F04](../References.md#f04), [F07](../References.md#f07)
+Europol corroborates the existence and disruption of the AudiA6 service, not the exact Qilin-specific USD figure. OFAC/Treasury establish FirstVPN's designation and listed addresses, not the exact Qilin purchase transaction. These are complementary layers rather than two independent proofs of each actor-level transfer. 
 
 ## Regulatory and Judicial Review
 

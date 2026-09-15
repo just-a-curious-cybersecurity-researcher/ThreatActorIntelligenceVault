@@ -449,9 +449,9 @@ For filename and functional context for selected indicators, see [file-artifacts
 
 The complete per-value [provenance register](hash-provenance.md) covers every original entry plus the additions below. Original corpus presence alone is not confirmation of maliciousness; unresolved values remain research leads. Review date: 2026-09-10.
 
-| SHA256 | Observed role | Source |
-|---|---|---|
-| `414b9985f46714f44dd1bd63860d2a48dcfababcfe5c712a4b4f575378127a56` | Akira payload; Huntress 2026-08-04 | [A11](../References.md#a11) |
-| `e2356c742c74cce5c6b6100162d0071a3f71e2fed2ed895c2011061a95b3299a` | s5cmd legitimate S3 utility abused for exfiltration; 2026-08-04 | [A11](../References.md#a11) |
-| `44ed99d5516cb7f132016c750cf28a2da39fc0432ed3b7038139f015a589c582` | decrypt.py; exposed operator directory June 2023 | [A12](../References.md#a12) |
-| `d626e88d7910048e7f495d8afae49f534e22a90a080f49ca6f5b0b20e8a06c3c` | fortiConfParser.py; exposed directory June 2023 | [A12](../References.md#a12) |
+| SHA256 | Observed role |
+|---|---|
+| `414b9985f46714f44dd1bd63860d2a48dcfababcfe5c712a4b4f575378127a56` | Akira payload; Huntress 2026-08-04 |
+| `e2356c742c74cce5c6b6100162d0071a3f71e2fed2ed895c2011061a95b3299a` | s5cmd legitimate S3 utility abused for exfiltration; 2026-08-04 |
+| `44ed99d5516cb7f132016c750cf28a2da39fc0432ed3b7038139f015a589c582` | decrypt.py; exposed operator directory June 2023 |
+| `d626e88d7910048e7f495d8afae49f534e22a90a080f49ca6f5b0b20e8a06c3c` | fortiConfParser.py; exposed directory June 2023 |

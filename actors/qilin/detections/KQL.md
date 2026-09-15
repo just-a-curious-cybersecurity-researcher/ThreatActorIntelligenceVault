@@ -27,7 +27,6 @@ Query identifiers Q01–Q19 are stable across KQL and SPL; their numbered sectio
 
 ### 1.1 Q03 — WDigest plaintext retention enabled
 
-**Evidence:** [Q15](../References.md#q15).  
 **Telemetry:** MDE RegistryValueSet or Sysmon registry Event 13.
 
 **Review / tuning:** Legacy compatibility/security labs can match. Registry change makes future credential exposure possible; it is not evidence a password was dumped. Verify OS behavior and follow-on credential tooling.
@@ -45,7 +44,6 @@ DeviceRegistryEvents
 
 ### 1.2 Q04 — Credential toolkit and output orchestration
 
-**Evidence:** [Q15](../References.md#q15).  
 **Telemetry:** Process creation; script block/module logs improve renamed-tool visibility.
 
 **Review / tuning:** NirSoft and Mimikatz have legitimate forensic/assessment uses. Prioritize new accounts/paths and proximity to WDigest changes or SMTP output. Filenames alone are evadable and not actor attribution.
@@ -65,7 +63,6 @@ DeviceProcessEvents
 
 ### 2.1 Q07 — RMM-launched domain reconnaissance
 
-**Evidence:** [Q22](../References.md#q22), [Q23](../References.md#q23).  
 **Telemetry:** Endpoint process ancestry; collect parent and grandparent when available.
 
 **Review / tuning:** MSPs legitimately enumerate domains. Review tenant/customer scope, session administrator, schedule and neighboring agent installations. Parent process checks can miss deeper shells; pivot on process tree.
@@ -85,7 +82,6 @@ DeviceProcessEvents
 
 ### 2.2 Q15 — Domain computer discovery or RSAT preparation
 
-**Evidence:** [Q35](../References.md#q35).  
 **Telemetry:** Process command lines; PowerShell script blocks improve visibility when commands are read from a file.
 
 **Review / tuning:** Inventory, server setup and authorized administration can match. This discovers computers, not user accounts. Correlate the initiating identity and later remote service execution.
@@ -105,7 +101,6 @@ DeviceProcessEvents
 
 ### 3.1 Q05 — ScreenConnect instance installed through an existing RMM session
 
-**Evidence:** [Q22](../References.md#q22).  
 **Telemetry:** Process ancestry and installation command; verify software installation and RMM tenant logs.
 
 **Review / tuning:** Legitimate agent rollout and upgrades are common. The suspicious distinction is an unapproved instance/customer identifier or control endpoint. ru.msi alone is insufficient; do not mistake this for a product exploit.
@@ -125,7 +120,6 @@ DeviceProcessEvents
 
 ### 4.1 Q16 — Reported proxy-DLL staging artifact
 
-**Evidence:** [Q23](../References.md#q23).  
 **Telemetry:** MDE file creation/modification or Sysmon Event 11; no assumption of network traffic from a file event.
 
 **Review / tuning:** The DLL name is generic and changeable. This is a staging lead, not detection of an active tunnel or a SystemBC family signature. Confirm the loading process, sample and subsequent network destinations.
@@ -144,7 +138,6 @@ DeviceFileEvents
 
 ### 5.1 Q13 — Reported driver and DLL artifacts
 
-**Evidence:** [Q15](../References.md#q15), [Q23](../References.md#q23).  
 **Telemetry:** MDE file events; Splunk Sysmon driver-load Event 6. The platforms detect different stages.
 
 **Review / tuning:** Legitimate utilities may include similarly named drivers. A file drop is weaker than an actual load. Verify hash/signature, service owner, driver behavior and nearby endpoint-agent termination; no kernel exploit is inferred solely from name.
@@ -162,7 +155,6 @@ DeviceFileEvents
 
 ### 6.1 Q06 — Cyberduck connection to Backblaze
 
-**Evidence:** [Q15](../References.md#q15).  
 **Telemetry:** MDE network events; Splunk Sysmon Event 3 requires DestinationHostname enrichment.
 
 **Review / tuning:** Authorized backups and migrations match. Connection alone does not establish direction or bytes uploaded; obtain Cyberduck history, destination bucket/account and cloud audit. No hostname means this query can miss an event.
@@ -178,7 +170,6 @@ DeviceNetworkEvents
 
 ### 6.2 Q17 — WinRAR archive creation
 
-**Evidence:** [Q22](../References.md#q22).  
 **Telemetry:** Process command line; successful archive creation and transfer require separate file/network evidence.
 
 **Review / tuning:** Routine compression and backups match. Correlate the source data, archive path, account and subsequent browser or transfer utility. The command does not demonstrate sensitive content or completed exfiltration.
@@ -196,7 +187,6 @@ DeviceProcessEvents
 
 ### 7.1 Q09 — Safe Mode and recovery-inhibition commands
 
-**Evidence:** [Q12](../References.md#q12), [Q22](../References.md#q22).  
 **Telemetry:** Process command lines; validate boot/System logs and VSS audit separately.
 
 **Review / tuning:** Disaster-recovery testing and maintenance can match. The aggregate is co-occurrence, not an ordered attack chain. Require unapproved change context and preserve pre-reboot telemetry.
@@ -207,7 +197,7 @@ DeviceProcessEvents
 | where (FileName =~ "bcdedit.exe" and ProcessCommandLine has "safeboot" and ProcessCommandLine contains "/set")
     or (FileName =~ "vssadmin.exe" and ProcessCommandLine has_all ("delete", "shadows"))
     or (FileName =~ "wevtutil.exe" and ProcessCommandLine has_any ("cl", "clear-log"))
-| summarize Events=count(), Tools=make_set(FileName), Commands=make_set(ProcessCommandLine, 20)
+| summarize Events=count, Tools=make_set(FileName), Commands=make_set(ProcessCommandLine, 20)
     by DeviceId, DeviceName, AccountSid, bin(Timestamp, 30m)
 ```
 
@@ -215,7 +205,6 @@ DeviceProcessEvents
 
 ### 8.1 Q11 — Ransom-note creation with variable company identifier
 
-**Evidence:** [Q09](../References.md#q09), [Q12](../References.md#q12), [Q31](../References.md#q31).  
 **Telemetry:** MDE file events or Sysmon Event 11.
 
 **Review / tuning:** Recovery simulations, research archives and restored notes match. Match either ordering; do not require a fixed ten-character extension. Alerting needs creator/process/volume context and evidence of actual file impact.
@@ -231,7 +220,6 @@ DeviceFileEvents
 
 ### 8.2 Q12 — QLOG encryptor-worker artifacts
 
-**Evidence:** [Q15](../References.md#q15).  
 **Telemetry:** File-creation telemetry; writes must be enabled for temp paths.
 
 **Review / tuning:** Unrelated software can use QLOG/ThreadId names. The combined directory and exact filename structure is stronger; correlate with note drops, share writes and known sample hashes. Presence is not proof encryption completed.
@@ -247,7 +235,6 @@ DeviceFileEvents
 
 ### 8.3 Q18 — PsExec distribution or remote service execution
 
-**Evidence:** [Q15](../References.md#q15).  
 **Telemetry:** Process creation; service installation and SMB auditing can corroborate remote execution.
 
 **Review / tuning:** Software deployment and approved administration use PsExec. Renaming can evade this filename hunt. Identify both the initiating host and remote service host, account and copied payload before claiming ransomware deployment.
@@ -265,7 +252,6 @@ DeviceProcessEvents
 
 ### 9.1 Q19 — Multiple ransomware-relevant stages on one device and account
 
-**Evidence:** [Q15](../References.md#q15), [Q22](../References.md#q22).  
 **Telemetry:** Process commands only. The aggregate does not implicitly include network, registry or hypervisor events.
 
 **Review / tuning:** Three stage labels in a fixed hour are co-occurrence, not temporal ordering or attribution. Boundary-spanning activity and account changes can evade it; IR automation can match. The first matching case branch wins, and encoded/script-file commands may be invisible.
@@ -293,7 +279,6 @@ DeviceProcessEvents
 
 ### 10.1 Q01 — Unexpected logon scripts written into SYSVOL
 
-**Evidence:** [Q11](../References.md#q11).  
 **Telemetry:** MDE file events or Sysmon Event 11; collect SYSVOL paths on DCs.
 
 **Review / tuning:** Approved policy maintenance and deployment scripts can match. Confirm policy version/owner, writer identity and endpoint execution. SYSVOL replication can duplicate events; a write is not proof a GPO was linked.
@@ -310,7 +295,6 @@ DeviceFileEvents
 
 ### 10.2 Q02 — Credential output staged back into SYSVOL
 
-**Evidence:** [Q11](../References.md#q11).  
 **Telemetry:** MDE file creation/modification or Sysmon Event 11.
 
 **Review / tuning:** LD and temp.log are generic names. Stronger context is new host-specific directories and the Q01 logon script; baseline replication and administration. Fixed buckets can miss pairs crossing boundaries.
@@ -330,7 +314,6 @@ DeviceFileEvents
 
 ### 10.3 Q08 — Qilin restoration-task or Run-key artifacts
 
-**Evidence:** [Q15](../References.md#q15).  
 **Telemetry:** Process creation for task commands; registry telemetry for Run value content.
 
 **Review / tuning:** TeamViewer installation/repair is legitimate. Require task name plus restoration argument, or suspicious encryptor-style arguments in a Run value. Renamed task/payload can evade; generic --password alone is weak.
@@ -352,7 +335,6 @@ union Tasks, Runs
 
 ### 10.4 Q10 — PowerShell vCenter cluster and hypervisor changes
 
-**Evidence:** [Q15](../References.md#q15).  
 **Telemetry:** Command-line hunting on management hosts; ScriptBlockText query for Splunk Event 4104.
 
 **Review / tuning:** Authorized PowerCLI maintenance is expected. Commands read from a script may not appear on the command line; KQL coverage is intentionally partial. Confirm vCenter tasks, principal, SSH changes and time before treating HA/DRS changes as malicious.
@@ -369,7 +351,6 @@ DeviceProcessEvents
 
 ### 10.5 Q14 — Linux-payload or WSL clues under RMM ancestry
 
-**Evidence:** [Q23](../References.md#q23).  
 **Telemetry:** Windows process ancestry only; Linux/WSL auditing required to verify execution.
 
 **Review / tuning:** WSL is legitimate developer infrastructure. This is a hypothesis-oriented hunt for the report’s unresolved execution path, not a confirmed Qilin WSL technique. A transferred ELF file may never execute locally; investigate remote target and process tree.

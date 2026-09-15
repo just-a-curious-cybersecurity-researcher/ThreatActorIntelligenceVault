@@ -2,7 +2,7 @@
 
 ## Variant, Filename and Period
 
-Trend Micro's October 23, 2025 analysis includes a ransom-note screenshot extracted from a Linux payload. [Q23](../References.md#q23)
+Trend Micro's October 23, 2025 analysis includes a ransom-note screenshot extracted from a Linux payload. 
 
 ## Known Text and Differences
 
@@ -14,4 +14,4 @@ Extension/domain/login/password fields are shown in the source's description. No
 
 ## Source and Evidence State
 
-**High Confidence** in the reported binary artifact; the report's WSL explanation is a separate assessment about execution. Source: [Trend Q23](../References.md#q23). Return to [index](Ransom-Notes.md).
+**High Confidence** in the reported binary artifact; the report's WSL explanation is a separate assessment about execution. Return to [index](Ransom-Notes.md).

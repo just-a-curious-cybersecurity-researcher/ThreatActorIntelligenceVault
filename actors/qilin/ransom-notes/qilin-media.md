@@ -14,4 +14,4 @@ Extension `.2ir53sQQAU`; two publication onions and `wikileaks2[.]site` are sepa
 
 ## Source and Evidence State
 
-[Full archived redacted text](https://github.com/ThreatLabz/ransomware_notes/blob/main/qilin/README-RECOVER-%5Brand%5D_2.txt), [Q31](../References.md#q31). **Plaintext artifact**, not reconstructed screenshot. Retrieved 2026-09-10; source-byte SHA256 `64d535c6f51d772f7970b6908c979fbc3ddca4e0a62b6379471a0b44d438ce7d` is an integrity identifier, **not a malware hash**. High Confidence in preserved text. Return to [index](Ransom-Notes.md).
+Full archived redacted text. **Plaintext artifact**, not reconstructed screenshot. Retrieved 2026-09-10; source-byte SHA256 `64d535c6f51d772f7970b6908c979fbc3ddca4e0a62b6379471a0b44d438ce7d` is an integrity identifier, **not a malware hash**. High Confidence in preserved text. Return to [index](Ransom-Notes.md).

@@ -4,9 +4,9 @@
 
 Public on-chain analysis included in the collected research describes a clear evolution in how Akira receives, consolidates, launders and cashes out ransomware proceeds.
 
-The November 2025 joint advisory reports approximately **USD 244.17 million in ransomware proceeds as of late September 2025**. This is the authorities' dated aggregate, not a September 2026 balance, independently reproduced sum of this repository's 21 payment addresses, or net operator profit. It cannot be added to provider-specific laundering estimates, which may overlap. [A01](../References.md#a01)
+The November 2025 joint advisory reports approximately **USD 244.17 million in ransomware proceeds as of late September 2025**. This is the authorities' dated aggregate, not a September 2026 balance, independently reproduced sum of this repository's 21 payment addresses, or net operator profit. It cannot be added to provider-specific laundering estimates, which may overlap. 
 
-TRM divides its observations into four phases, bounded by its **2026-03-20** profile. The diagrams below summarize that provider account; they are not independently reconstructed transaction graphs. [A02](../References.md#a02)
+TRM divides its observations into four phases, bounded by its **2026-03-20** profile. The diagrams below summarize that provider account; they are not independently reconstructed transaction graphs. 
 
 ```mermaid
 flowchart LR
@@ -186,17 +186,17 @@ Blockchain evidence is strongest when combined with non-financial CTI. Shared wa
 
 ## Independent Corroboration and Financial-Service Disruption
 
-Chainalysis independently reports Akira and Fog flows to the same no-KYC exchange in its February 2025 review of 2024. This corroborates **shared cash-out behavior**, but does not independently reproduce TRM's exact Defiway cluster, prove identical private-key control, or identify all affiliates. A common broker or exchange is an alternative explanation. [A25](../References.md#a25)
+Chainalysis independently reports Akira and Fog flows to the same no-KYC exchange in its February 2025 review of 2024. This corroborates **shared cash-out behavior**, but does not independently reproduce TRM's exact Defiway cluster, prove identical private-key control, or identify all affiliates. A common broker or exchange is an alternative explanation. 
 
-On June 11, 2026, Europol announced the disruption of AudiA6, a suspected laundering service associated with approximately **EUR 336 million during 2022–2025**. TRM separately estimates that its identified AudiA6 infrastructure received **USD 386,200 attributable to Akira** and **USD 7.1 million attributable to Qilin**. The operation and the actor-level flow estimates have different sources; the aggregate is neither Akira revenue nor the value of assets seized. **Moderate Confidence** in the actor/service connection: provider attribution with no transaction-level replication in this dossier. No AudiA6 address is promoted to an Akira treasury address. [Europol F04](../References.md#f04), [TRM F03](../References.md#f03)
+On June 11, 2026, Europol announced the disruption of AudiA6, a suspected laundering service associated with approximately **EUR 336 million during 2022–2025**. TRM separately estimates that its identified AudiA6 infrastructure received **USD 386,200 attributable to Akira** and **USD 7.1 million attributable to Qilin**. The operation and the actor-level flow estimates have different sources; the aggregate is neither Akira revenue nor the value of assets seized. **Moderate Confidence** in the actor/service connection: provider attribution with no transaction-level replication in this dossier. No AudiA6 address is promoted to an Akira treasury address. 
 
 ## Regulatory and Judicial Review
 
 See the shared [dated financial-source review](../../financial-source-review.md) for OFAC/SDN screening, official actions, provider coverage and retrieval limitations. French OFAC, named in AA24-109A, is a police office and must not be confused with US Treasury OFAC.
 
-US Treasury removed Tornado Cash sanctions on **2025-03-21**. Its historical designation must not be carried forward automatically to the later TRM-reported Akira transactions. Neither the delisting nor interaction with a mixer identifies the person controlling the funds. [F05](../References.md#f05), [F06](../References.md#f06)
+US Treasury removed Tornado Cash sanctions on **2025-03-21**. Its historical designation must not be carried forward automatically to the later TRM-reported Akira transactions. Neither the delisting nor interaction with a mixer identifies the person controlling the funds. 
 
-The May 2026 Zolotarjovs sentence concerns a money-laundering/wire-fraud conspiracy in a historical multi-brand organization. The release contains no validated Akira payment or seizure address for this inventory. Its organization-wide payment figures are not Akira-only totals. [A24](../References.md#a24)
+The May 2026 Zolotarjovs sentence concerns a money-laundering/wire-fraud conspiracy in a historical multi-brand organization. The release contains no validated Akira payment or seizure address for this inventory. Its organization-wide payment figures are not Akira-only totals. 
 
 ## Multi-Chain Research and Next Collection Priorities
 

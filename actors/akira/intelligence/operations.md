@@ -134,7 +134,7 @@ net localgroup "Administrators" /dom
 tasklist
 ```
 
-The ransomware itself has also been described as performing logical-drive enumeration through `GetLogicalDriveStrings()` and user/process-related enumeration through `WTSEnumerateProcessesW`.
+The ransomware itself has also been described as performing logical-drive enumeration through `GetLogicalDriveStrings` and user/process-related enumeration through `WTSEnumerateProcessesW`.
 
 ## 6. Privilege Escalation
 
@@ -262,18 +262,18 @@ No single tool listed above uniquely identifies Akira. Many are legitimate admin
 
 ## Evidence Anchors for the Lifecycle
 
-The credential, discovery, remote-access, exfiltration and impact inventory above is primarily supported by [AA24-109A, pp. 5–12 (A01)](../References.md); [Stairwell (A12)](../References.md) supports the Fortinet-server activity, and [Arctic Wolf (A17)](../References.md) provides independent IR observations. Tools merely available to an operator are not automatically observed techniques. SharePoint collection and specific DonPAPI/DPAPI procedures in older notes remain uncorroborated at incident level.
+The credential, discovery, remote-access, exfiltration and impact inventory combines official advisory, incident-response and malware-analysis evidence. Tools merely available to an operator are not automatically observed techniques. SharePoint collection and specific DonPAPI/DPAPI procedures in older notes remain uncorroborated at incident level.
 
 ## Additional Case Evidence
 
-**Darktrace, incident 2025-08-20 — Moderate Confidence in Akira linkage.** The company observed unusual WinRM with a Ruby client, ICertPassage requests followed by PKINIT and U2U ticket activity, interpreting the sequence as UnPAC-the-hash. This is richer evidence than generic “Kerberos use”; it does not identify a particular AD CS exploit class. Its mention of RDP to an “ESXi device” is an unresolved asset/protocol ambiguity, not evidence of native ESXi RDP support. IP roles are in [IP Addresses](../iocs/ip-addresses.md). [A10](../References.md#a10)
+**Darktrace, incident 2025-08-20 — Moderate Confidence in Akira linkage.** The company observed unusual WinRM with a Ruby client, ICertPassage requests followed by PKINIT and U2U ticket activity, interpreting the sequence as UnPAC-the-hash. This is richer evidence than generic “Kerberos use”; it does not identify a particular AD CS exploit class. Its mention of RDP to an “ESXi device” is an unresolved asset/protocol ambiguity, not evidence of native ESXi RDP support. IP roles are in [IP Addresses](../iocs/ip-addresses.md). 
 
-**Huntress, published August 2026.** Newly documented artifacts include full-property AD user/computer exports, S3 upload with s5cmd and registration of AnyDesk under SafeBoot before an msconfig-driven reboot. The missing EDR visibility was temporary; exfiltration preceded failed encryption. [A11](../References.md#a11)
+**Huntress, published August 2026.** Newly documented artifacts include full-property AD user/computer exports, S3 upload with s5cmd and registration of AnyDesk under SafeBoot before an msconfig-driven reboot. The missing EDR visibility was temporary; exfiltration preceded failed encryption. 
 
 **Analytical implication — High Confidence:** a missing encryption alert does not close an extortion incident. Correlate VPN identity, server activity and egress; preserve appliance and hypervisor logs outside their own administrative boundary. File-share encryption from an unmanaged host can make the first protected endpoint look like a victim of remote writes rather than the source of execution.
 
 ## Negotiation and Organizational Signals
 
-KELA's 2023 sample describes negotiators referring price decisions to other personnel, separate pricing for decryption and data deletion, and staged movement from naming victims to publishing data. Demands varied from $105,000 to $3.7 million in that sample. These are negotiation observations, not proof of a formal management chart or present-day tariff. Some chats persisted despite promised deletion. [A15](../References.md#a15)
+KELA's 2023 sample describes negotiators referring price decisions to other personnel, separate pricing for decryption and data deletion, and staged movement from naming victims to publishing data. Demands varied from $105,000 to $3.7 million in that sample. These are negotiation observations, not proof of a formal management chart or present-day tariff. Some chats persisted despite promised deletion. 
 
 **Assessment — Moderate Confidence:** specialization in negotiation is plausible; scripted bargaining or affiliate delegation can produce similar communications. A deletion log or guarantee is an adversary assertion and cannot establish that all stolen copies were destroyed. Note-level evidence is catalogued in [Ransom Notes](../ransom-notes/Ransom-Notes.md).

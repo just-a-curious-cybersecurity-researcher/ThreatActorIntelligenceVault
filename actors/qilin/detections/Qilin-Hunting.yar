@@ -4,7 +4,6 @@ rule QILIN_AGENDA_Redacted_Note_Triage
 {
     meta:
         description = "Agenda/Qilin note content triage, not encryptor detection"
-        source = "https://github.com/ThreatLabz/ransomware_notes/tree/main/qilin"
         confidence = "high for template resemblance; no operator attribution"
         false_positives = "Archived notes, threat reports, simulations, restored files"
     strings:
@@ -20,7 +19,6 @@ rule QILIN_SYSVOL_Chrome_Script_Artifact_Triage
 {
     meta:
         description = "Script/document combining reported logon script and staging artifacts"
-        source = "https://www.sophos.com/en-us/blog/qilin-ransomware-caught-stealing-credentials-stored-in-google-chrome"
         observed = "July 2024 case"
         confidence = "generic artifact triage, not proof of GPO execution"
         false_positives = "IR scripts, report text, training and policy maintenance"
@@ -37,7 +35,6 @@ rule QILIN_Configuration_PE_Heuristic
 {
     meta:
         description = "PE triage with Talos-reported configuration and restoration clues"
-        source = "https://blog.talosintelligence.com/uncovering-qilin-attack-methods-exposed-through-multiple-cases/"
         observed = "2025 samples"
         confidence = "heuristic, sample corpus validation required"
         false_positives = "Other software with similar configs, packed research fixtures, copied code"
@@ -55,7 +52,6 @@ rule QILIN_Restoration_Script_Artifact_Triage
 {
     meta:
         description = "Text artifact combining restoration task and masqueraded TeamViewer launcher"
-        source = "https://blog.talosintelligence.com/uncovering-qilin-attack-methods-exposed-through-multiple-cases/"
         confidence = "workflow resemblance only; not a malware family signature"
         false_positives = "Legitimate deployment documentation, threat reports and test scripts"
     strings:

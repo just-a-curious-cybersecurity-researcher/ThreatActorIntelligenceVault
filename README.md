@@ -56,6 +56,8 @@ The presence of a single tool, IOC or ATT&CK technique is not sufficient to attr
 
 **Collection → Processing → Analysis → Dissemination:** source registers identify publisher, dates and access limits; IOC registers normalize values and roles while preserving unresolved leads; intelligence documents evaluate competing explanations; actor summaries and detections translate findings into defensive use. Source-review documents record the disposition and substantive use of references.
 
+Bibliographic URLs and citation identifiers are centralized in each actor's `References.md`. The remaining dossier files use source-aware prose without repeated inline citations; their internal links are reserved for navigation between analytical and defensive sections.
+
 - **High Confidence:** direct or strongly corroborated evidence supports the specific proposition. “High confidence in published reporting” still does not mean independently verified private-key ownership or actor identity.
 - **Moderate Confidence:** credible evidence supports an assessment, but incomplete visibility or plausible alternatives remain.
 - **Low Confidence:** a tentative lead, indirect relationship or uncorroborated claim; unsuitable as a sole attribution or blocking basis.

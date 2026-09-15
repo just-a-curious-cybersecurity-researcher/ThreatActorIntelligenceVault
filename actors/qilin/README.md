@@ -12,7 +12,7 @@ Qilin is a financially motivated ransomware-as-a-service program associated with
 | Motivation | Financial |
 | Model | Ransomware-as-a-Service with configurable builders and extortion support |
 | Primary platforms | Windows and separate Linux/ESXi payloads; newer Nutanix checks are capability evidence |
-| Primary regions in collected reporting | Global; United States, Canada, UK, France and Germany prominent in cited populations |
+| Primary regions in collected reporting | Global; United States, Canada, UK, France and Germany prominent in reviewed populations |
 | Common target sectors | Manufacturing, professional services, healthcare, education and others; SMEs/cloud providers in Italian reporting |
 | Suspected nexus | Moderate Confidence Russian-speaking criminal ecosystem; nationality, location and state control unestablished |
 | Status | Active in the collected reporting; source-bounded rather than live monitoring |
@@ -31,7 +31,7 @@ Qilin is a financially motivated ransomware-as-a-service program associated with
 
 **KJ-06 — High Confidence.** Qilin combines encryption with disclosure pressure; management-plane and central-share access can amplify impact beyond the executing host. [Operations](intelligence/operations.md#13-ransomware-deployment-and-impact)
 
-**KJ-07 — Moderate Confidence.** AudiA6 and FirstVPN reporting establishes service relationships,. [Financial analysis](intelligence/blockchain.md)
+**KJ-07 — Moderate Confidence.** AudiA6 and FirstVPN reporting establishes service relationships. [Financial analysis](intelligence/blockchain.md)
 
 ## Navigation
 

@@ -21,7 +21,6 @@ rule AKIRA_Ransomware_Artifact_Cooccurrence_Triage
         author = "ThreatActorIntelligenceVault"
         confidence = "artifact association only; no execution or operator attribution"
         false_positives = "Research documents, note archives, test fixtures and restored files"
-        reference = "https://www.gendigital.com/blog/insights/research/decrypted-akira-ransomware"
 
     strings:
         $ext1 = ".akira" ascii wide
@@ -260,7 +259,6 @@ rule AKIRA_SafeBoot_S3_Script_Artifact_Triage
 {
     meta:
         description = "Text artifact containing SafeBoot service registration and S3 transfer clues"
-        source = "https://www.huntress.com/blog/akira-hits-safe-mode-ransomware-rebooting-around-edr"
         observed = "2026-08-04"
         confidence = "generic workflow triage; not a malware signature"
         false_positives = "Incident reports, administration scripts, lab fixtures"

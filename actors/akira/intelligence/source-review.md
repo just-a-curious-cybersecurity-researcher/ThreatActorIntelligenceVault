@@ -1,6 +1,6 @@
 # Akira — Source Review and Intelligence Gaps
 
-Review date: **2026-09-10**. This register separates collection from the resulting analysis. A source being reachable is not evidence that all its claims are reliable. The [reference register](../References.md) resolves publisher, URL, date and limitations for the original and additional sources.
+Review date: **2026-09-10**. This register separates collection from the resulting analysis. A source being reachable is not evidence that all its claims are reliable. The reference register resolves publisher, URL, date and limitations for the original and additional sources.
 
 ## Original Reference-by-Reference Disposition
 
@@ -40,8 +40,8 @@ Review date: **2026-09-10**. This register separates collection from the resulti
 | Treasury and ultimate beneficiaries | Service deposits obscure internal balances | Exchange records, judicial attribution or independently reproducible clustering |
 | Infrastructure control intervals | Cloud IPs and relay services change ownership | Passive DNS/certificates, tenancy dates and incident timestamps |
 
-See [References](../References.md), [Attribution](attribution.md), [Blockchain](blockchain.md) and [IOC index](../iocs/IOCs.md).
+See References, [Attribution](attribution.md), [Blockchain](blockchain.md) and [IOC index](../iocs/IOCs.md).
 
 ## Additional Findings After Original-Source Review
 
-DOJ's May 2026 sentencing record adds historical organizational evidence beyond code/transaction overlap. Chainalysis independently supports Akira/Fog cash-out overlap, while TRM's AudiA6 analysis exposes another shared service. ThreatLabz's three archived note texts establish real wording changes and `.arika` mentions; they do not prove actual extension-emission behavior. The official September SDN snapshot enables reproducible, narrowly scoped screening. [A24](../References.md#a24), [A25](../References.md#a25), [A26](../References.md#a26), [financial review](../../financial-source-review.md)
+DOJ's May 2026 sentencing record adds historical organizational evidence beyond code/transaction overlap. Chainalysis independently supports Akira/Fog cash-out overlap, while TRM's AudiA6 analysis exposes another shared service. ThreatLabz's three archived note texts establish real wording changes and `.arika` mentions; they do not prove actual extension-emission behavior. The official September SDN snapshot enables reproducible, narrowly scoped screening. [financial review](../../financial-source-review.md)

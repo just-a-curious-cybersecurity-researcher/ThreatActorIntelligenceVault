@@ -10,14 +10,14 @@ This register applies to **every numbered query** in this file. These are hunts;
 
 | Query family | Evidence | Required interpretation / false positives |
 |---|---|---|
-| 1.x credential access | [A01](../References.md#a01), [A03](../References.md#a03) | DFIR, backup exports and authorized assessments match. MiniDump typically receives a **numeric PID**, so no literal `lsass` requirement; verify the target PID and output. Command strings do not prove the dump succeeded. |
-| 2.x discovery | [A01](../References.md#a01), [A11](../References.md#a11) | Inventory, vulnerability scanning and helpdesk activity match. Connection fan-out may be an application server; `dcount` is approximate and thresholds are starting values. |
-| 3.x RMM/C2 | [A01](../References.md#a01) | Authorized support is common; frequency is not authorization. SystemBC-like filenames are low-confidence heuristics, not family signatures. |
-| 4.x tunnels | [A01](../References.md#a01) | Developers, VPNs and remote administrators match. SSH uppercase forwarding flags differ from lowercase `-l` login name. Correlate listener/destination and process identity. |
-| 5.x impairment / DLL | [A01](../References.md#a01), [A11](../References.md#a11) | Troubleshooting/updates can match. A DLL in a writable directory is not proof of side-loading or a signed loader. Collect image loads and verify the **created** process's signer separately from its parent. |
-| 6.x archive / transfer | [A01](../References.md#a01), [A11](../References.md#a11) | Backups, data engineering and routine transfers match. Tool execution is not proof of theft. Fixed buckets are co-occurrence and can miss boundary-spanning activity; ordered examples state their interval explicitly. |
-| 7.x recovery inhibition | [A01](../References.md#a01) | Authorized maintenance can delete shadows. Verify the executing identity, target scope, backups affected and subsequent impact. |
-| 8.x deployment / impact | [A01](../References.md#a01), [A03](../References.md#a03), [A26](../References.md#a26) | PsExec is dual-use. Note/extension matches also occur in research folders and restores; `.arika` is verified in note text, not independently as emitted extension. Generic `fn.txt` is intentionally omitted from standalone alerts. |
+| 1.x credential access |  | DFIR, backup exports and authorized assessments match. MiniDump typically receives a **numeric PID**, so no literal `lsass` requirement; verify the target PID and output. Command strings do not prove the dump succeeded. |
+| 2.x discovery |  | Inventory, vulnerability scanning and helpdesk activity match. Connection fan-out may be an application server; `dcount` is approximate and thresholds are starting values. |
+| 3.x RMM/C2 |  | Authorized support is common; frequency is not authorization. SystemBC-like filenames are low-confidence heuristics, not family signatures. |
+| 4.x tunnels |  | Developers, VPNs and remote administrators match. SSH uppercase forwarding flags differ from lowercase `-l` login name. Correlate listener/destination and process identity. |
+| 5.x impairment / DLL |  | Troubleshooting/updates can match. A DLL in a writable directory is not proof of side-loading or a signed loader. Collect image loads and verify the **created** process's signer separately from its parent. |
+| 6.x archive / transfer |  | Backups, data engineering and routine transfers match. Tool execution is not proof of theft. Fixed buckets are co-occurrence and can miss boundary-spanning activity; ordered examples state their interval explicitly. |
+| 7.x recovery inhibition |  | Authorized maintenance can delete shadows. Verify the executing identity, target scope, backups affected and subsequent impact. |
+| 8.x deployment / impact |  | PsExec is dual-use. Note/extension matches also occur in research folders and restores; `.arika` is verified in note text, not independently as emitted extension. Generic `fn.txt` is intentionally omitted from standalone alerts. |
 | 9.x multi-stage | Same sources above | Co-occurrence within the lookback is not temporal ordering or actor attribution. Category assignment can select the first matching category only. Baseline admin/IR automation. |
 | 10.x campaign-specific | Source and telemetry stated per query | Each query has its own review note; adapt time, thresholds and missing-field behavior. |
 
@@ -104,7 +104,7 @@ DeviceProcessEvents
 | extend Cmd = tolower(ProcessCommandLine), Proc = tolower(FileName)
 | where Proc has_any (CredentialTools)
     or Cmd has_any ("comsvcs.dll", "minidump", "ntds.dit", "hklm\\sam", "sekurlsa::", "veeam-get-creds")
-| summarize Events=count(), Tools=make_set(FileName), Commands=make_set(ProcessCommandLine, 20),
+| summarize Events=count, Tools=make_set(FileName), Commands=make_set(ProcessCommandLine, 20),
             FirstSeen=min(Timestamp), LastSeen=max(Timestamp)
     by DeviceName, AccountName
 | order by Events desc
@@ -207,7 +207,7 @@ let RMM = dynamic(["anydesk.exe", "rustdesk.exe", "radmin.exe", "teamviewer.exe"
 DeviceProcessEvents
 | where Timestamp > ago(30d)
 | where FileName in~ (RMM)
-| summarize Hosts=dcount(DeviceName), Users=dcount(AccountName), Executions=count(),
+| summarize Hosts=dcount(DeviceName), Users=dcount(AccountName), Executions=count,
             FirstSeen=min(Timestamp), LastSeen=max(Timestamp)
     by FileName, SHA256
 | where Hosts <= 3
@@ -255,7 +255,7 @@ let TunnelBins = dynamic(["ngrok.exe", "cloudflared.exe", "plink.exe"]);
 DeviceNetworkEvents
 | where Timestamp > ago(7d)
 | where InitiatingProcessFileName in~ (TunnelBins)
-| summarize Connections=count(), Destinations=make_set(RemoteUrl, 20),
+| summarize Connections=count, Destinations=make_set(RemoteUrl, 20),
             IPs=make_set(RemoteIP, 20), FirstSeen=min(Timestamp), LastSeen=max(Timestamp)
     by DeviceName, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessSHA256
 | order by Connections desc
@@ -366,7 +366,7 @@ let Exfil = DeviceProcessEvents
 | project DeviceId, AccountSid, ExfilTime=Timestamp, ExfilProcess=FileName, ExfilCmd=ProcessCommandLine;
 Archives
 | join kind=inner Exfil on DeviceId, AccountSid
-| where ExfilTime between (ArchiveTime .. ArchiveTime + 2h)
+| where ExfilTime between (ArchiveTime.. ArchiveTime + 2h)
 | project DeviceName, AccountName, ArchiveTime, ArchiveProcess, ArchiveCmd,
           ExfilTime, ExfilProcess, ExfilCmd
 ```
@@ -450,7 +450,7 @@ DeviceFileEvents
     or FileName endswith ".powerranges"
     or FileName endswith ".akiranew"
     or FileName endswith ".aki"
-| summarize Files=count(), Paths=dcount(FolderPath),
+| summarize Files=count, Paths=dcount(FolderPath),
             Examples=make_set(strcat(FolderPath, "\\", FileName), 20)
     by DeviceName, InitiatingProcessFileName, InitiatingProcessSHA256,
        InitiatingProcessAccountName, bin(Timestamp, 5m)
@@ -478,8 +478,8 @@ let Proc = DeviceProcessEvents
 | where Stage != "Other"
 | project Timestamp, DeviceName, AccountName, Stage, FileName, ProcessCommandLine;
 Proc
-| summarize Stages=make_set(Stage), Events=count(), FirstSeen=min(Timestamp), LastSeen=max(Timestamp),
-            Examples=make_set(strcat(FileName, " :: ", ProcessCommandLine), 30)
+| summarize Stages=make_set(Stage), Events=count, FirstSeen=min(Timestamp), LastSeen=max(Timestamp),
+            Examples=make_set(strcat(FileName, ":: ", ProcessCommandLine), 30)
     by DeviceName, AccountName
 | extend StageCount=array_length(Stages)
 | where StageCount >= 3
@@ -492,7 +492,7 @@ Proc
 
 ### 10.1 AnyDesk allowed in Safe Mode, followed by reboot tooling
 
-**Basis:** Huntress August 4, 2026 case [A11](../References.md#a11). **Telemetry:** registry changes and process creation from MDE. **Review:** approved recovery work can produce the same sequence. `msconfig.exe` is a configuration clue, not proof a reboot occurred; verify Kernel-Boot/System events. A missing EDR event after reboot does not prove no encryption occurred.
+**Basis:** Huntress August 4, 2026 case. **Telemetry:** registry changes and process creation from MDE. **Review:** approved recovery work can produce the same sequence. `msconfig.exe` is a configuration clue, not proof a reboot occurred; verify Kernel-Boot/System events. A missing EDR event after reboot does not prove no encryption occurred.
 
 ```kusto
 let SafeBoot = DeviceRegistryEvents
@@ -508,13 +508,13 @@ let BootTools = DeviceProcessEvents
 | project DeviceId, BootTime=Timestamp, FileName, ProcessCommandLine;
 SafeBoot
 | join kind=inner BootTools on DeviceId
-| where BootTime between (SetTime .. SetTime + 1h)
+| where BootTime between (SetTime.. SetTime + 1h)
 | project DeviceName, SetTime, Setter, SetterCmd, BootTime, FileName, ProcessCommandLine
 ```
 
 ### 10.2 Bulk AD export files under ProgramData
 
-**Basis:** [A11](../References.md#a11). **Telemetry:** file creation. **Review:** inventory scripts are a common false positive. Filenames are case insensitive, mutable and not sufficient attribution. Pivot to PowerShell script-block logging and the initiating account; an export may use methods absent from command-line telemetry.
+**Telemetry:** file creation. **Review:** inventory scripts are a common false positive. Filenames are case insensitive, mutable and not sufficient attribution. Pivot to PowerShell script-block logging and the initiating account; an export may use methods absent from command-line telemetry.
 
 ```kusto
 DeviceFileEvents
@@ -530,7 +530,7 @@ DeviceFileEvents
 
 ### 10.3 s5cmd upload command with S3 destination
 
-**Basis:** [A11](../References.md#a11). **Telemetry:** process command line; cloud audit/proxy bytes needed to confirm transfer. **Review:** exclude approved storage jobs by principal, executable provenance, bucket and schedule; a bucket name alone is weak. This is an execution hunt, not proof of upload completion. Shell wrappers/renamed executables can escape filename matching.
+**Telemetry:** process command line; cloud audit/proxy bytes needed to confirm transfer. **Review:** exclude approved storage jobs by principal, executable provenance, bucket and schedule; a bucket name alone is weak. This is an execution hunt, not proof of upload completion. Shell wrappers/renamed executables can escape filename matching.
 
 ```kusto
 DeviceProcessEvents
@@ -544,7 +544,7 @@ DeviceProcessEvents
 
 ### 10.4 Native WinRM and Impacket-like remote execution
 
-**Basis:** `wmiexec` in [A01](../References.md#a01), Ruby WinRM in [A10](../References.md#a10). **Telemetry:** endpoint process ancestry; network `/wsman` user-agent evidence is separately required for the Ruby client. **Review:** administrative WMI/WinRM is common. Prioritize new source hosts and remote identities. Parent names alone do not identify Impacket or Akira.
+**Basis:** `wmiexec` in, Ruby WinRM in. **Telemetry:** endpoint process ancestry; network `/wsman` user-agent evidence is separately required for the Ruby client. **Review:** administrative WMI/WinRM is common. Prioritize new source hosts and remote identities. Parent names alone do not identify Impacket or Akira.
 
 ```kusto
 DeviceProcessEvents
@@ -557,7 +557,7 @@ DeviceProcessEvents
 
 ### 10.5 ESX Admins group creation or membership activity
 
-**Basis:** [Microsoft A04](../References.md#a04). **Telemetry:** Defender for Identity events in `IdentityDirectoryEvents`, **not endpoint-only MDE**. Confirm available ActionType values in the tenant. **Review:** an authorized ESX Admins group can be normal. Correlate creation/recreation with new members, domain-joined ESXi access and hypervisor version; this hunt does not itself prove CVE-2024-37085 exploitation.
+**Telemetry:** Defender for Identity events in `IdentityDirectoryEvents`, **not endpoint-only MDE**. Confirm available ActionType values in the tenant. **Review:** an authorized ESX Admins group can be normal. Correlate creation/recreation with new members, domain-joined ESXi access and hypervisor version; this hunt does not itself prove CVE-2024-37085 exploitation.
 
 ```kusto
 IdentityDirectoryEvents
@@ -569,7 +569,7 @@ IdentityDirectoryEvents
 
 ### 10.6 Credential extraction plus Veeam context
 
-**Basis:** [A01](../References.md#a01), [A03](../References.md#a03). **Telemetry:** process arguments; SQL/audit access needed for silent DB queries. **Review:** backup migration/support and security assessments can match. Do not confuse database reads with an unauthenticated exploit or assume every credential-access tool uses a CVE.
+**Telemetry:** process arguments; SQL/audit access needed for silent DB queries. **Review:** backup migration/support and security assessments can match. Do not confuse database reads with an unauthenticated exploit or assume every credential-access tool uses a CVE.
 
 ```kusto
 DeviceProcessEvents

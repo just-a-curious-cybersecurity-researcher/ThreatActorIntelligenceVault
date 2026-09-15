@@ -2,7 +2,7 @@
 
 ## Variant, Filename and Period
 
-Talos's 2025 Windows case analysis, Figure 23. The report analyzes two encryptor configurations, but the note alone does not distinguish them. [Q15](../References.md#q15)
+Talos's 2025 Windows case analysis, Figure 23. The report analyzes two encryptor configurations, but the note alone does not distinguish them. 
 
 ## Known Text and Differences
 
@@ -14,4 +14,4 @@ The excerpt describes a Tor leak endpoint and a clear-IP access alternative. The
 
 ## Source and Evidence State
 
-**High Confidence in the vendor-reported artifact**, incomplete body available in this dossier. Source: [Talos Q15](../References.md#q15), Figure 23. Return to [index](Ransom-Notes.md).
+**High Confidence in the vendor-reported artifact.** The dossier retains only the incomplete body visible in the published figure. Return to [index](Ransom-Notes.md).

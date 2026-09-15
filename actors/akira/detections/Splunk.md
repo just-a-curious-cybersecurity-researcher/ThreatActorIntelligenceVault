@@ -14,14 +14,14 @@ This register applies to **every numbered query** in this file. These are hunts;
 
 | Query family | Evidence | Required interpretation / false positives |
 |---|---|---|
-| 1.x credential access | [A01](../References.md#a01), [A03](../References.md#a03) | DFIR, backup exports and authorized assessments match. MiniDump typically receives a **numeric PID**, so no literal `lsass` requirement; verify the target PID and output. Command strings do not prove the dump succeeded. |
-| 2.x discovery | [A01](../References.md#a01), [A11](../References.md#a11) | Inventory, vulnerability scanning and helpdesk activity match. Connection fan-out may be an application server; `dcount` is approximate and thresholds are starting values. |
-| 3.x RMM/C2 | [A01](../References.md#a01) | Authorized support is common; frequency is not authorization. SystemBC-like filenames are low-confidence heuristics, not family signatures. |
-| 4.x tunnels | [A01](../References.md#a01) | Developers, VPNs and remote administrators match. SSH uppercase forwarding flags differ from lowercase `-l` login name. Correlate listener/destination and process identity. |
-| 5.x impairment / DLL | [A01](../References.md#a01), [A11](../References.md#a11) | Troubleshooting/updates can match. A DLL in a writable directory is not proof of side-loading or a signed loader. Collect image loads and verify the **created** process's signer separately from its parent. |
-| 6.x archive / transfer | [A01](../References.md#a01), [A11](../References.md#a11) | Backups, data engineering and routine transfers match. Tool execution is not proof of theft. Fixed buckets are co-occurrence and can miss boundary-spanning activity; ordered examples state their interval explicitly. |
-| 7.x recovery inhibition | [A01](../References.md#a01) | Authorized maintenance can delete shadows. Verify the executing identity, target scope, backups affected and subsequent impact. |
-| 8.x deployment / impact | [A01](../References.md#a01), [A03](../References.md#a03), [A26](../References.md#a26) | PsExec is dual-use. Note/extension matches also occur in research folders and restores; `.arika` is verified in note text, not independently as emitted extension. Generic `fn.txt` is intentionally omitted from standalone alerts. |
+| 1.x credential access |  | DFIR, backup exports and authorized assessments match. MiniDump typically receives a **numeric PID**, so no literal `lsass` requirement; verify the target PID and output. Command strings do not prove the dump succeeded. |
+| 2.x discovery |  | Inventory, vulnerability scanning and helpdesk activity match. Connection fan-out may be an application server; `dcount` is approximate and thresholds are starting values. |
+| 3.x RMM/C2 |  | Authorized support is common; frequency is not authorization. SystemBC-like filenames are low-confidence heuristics, not family signatures. |
+| 4.x tunnels |  | Developers, VPNs and remote administrators match. SSH uppercase forwarding flags differ from lowercase `-l` login name. Correlate listener/destination and process identity. |
+| 5.x impairment / DLL |  | Troubleshooting/updates can match. A DLL in a writable directory is not proof of side-loading or a signed loader. Collect image loads and verify the **created** process's signer separately from its parent. |
+| 6.x archive / transfer |  | Backups, data engineering and routine transfers match. Tool execution is not proof of theft. Fixed buckets are co-occurrence and can miss boundary-spanning activity; ordered examples state their interval explicitly. |
+| 7.x recovery inhibition |  | Authorized maintenance can delete shadows. Verify the executing identity, target scope, backups affected and subsequent impact. |
+| 8.x deployment / impact |  | PsExec is dual-use. Note/extension matches also occur in research folders and restores; `.arika` is verified in note text, not independently as emitted extension. Generic `fn.txt` is intentionally omitted from standalone alerts. |
 | 9.x multi-stage | Same sources above | Co-occurrence within the lookback is not temporal ordering or actor attribution. Category assignment can select the first matching category only. Baseline admin/IR automation. |
 | 10.x campaign-specific | Source and telemetry stated per query | Each query has its own review note; adapt time, thresholds and missing-field behavior. |
 
@@ -249,7 +249,7 @@ index=windows sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" E
 | eval stage=case(
     match(lower(Image), "(rar|winrar|7z|7za)"), "archive",
     match(lower(Image), "(rclone|winscp|filezilla|pscp)"), "exfil",
-    true(), "other")
+    true, "other")
 | bin _time span=2h
 | stats dc(stage) as stages values(stage) as stage_list values(Image) as images values(CommandLine) as commands by _time Computer User
 | where stages>=2 AND mvfind(stage_list,"archive")>=0 AND mvfind(stage_list,"exfil")>=0
@@ -336,7 +336,7 @@ SharpHound
 
 ### 10.1 AnyDesk SafeBoot service registration
 
-**Basis:** [A11](../References.md#a11). **Telemetry:** Sysmon registry Event 13, collected by configuration. **Review:** legitimate troubleshooting can register services; escalate with unplanned reboot and security-service gaps. This detects registration; it does not assert the host actually entered Safe Mode.
+**Telemetry:** Sysmon registry Event 13, collected by configuration. **Review:** legitimate troubleshooting can register services; escalate with unplanned reboot and security-service gaps. This detects registration; it does not assert the host actually entered Safe Mode.
 
 ```spl
 index=windows sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=13 earliest=-7d
@@ -346,7 +346,7 @@ TargetObject="*\\Control\\SafeBoot\\Network\\AnyDesk\\*" Details="Service"
 
 ### 10.2 AD export files
 
-**Basis:** [A11](../References.md#a11). **Telemetry:** Sysmon Event 11, including ProgramData. **Review:** inventory tools can create both files. The fixed bucket can miss a pair crossing a boundary; tune scheduling and correlate account/process GUID before alerting.
+**Telemetry:** Sysmon Event 11, including ProgramData. **Review:** inventory tools can create both files. The fixed bucket can miss a pair crossing a boundary; tune scheduling and correlate account/process GUID before alerting.
 
 ```spl
 index=windows sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11 earliest=-7d
@@ -358,14 +358,14 @@ index=windows sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" E
 
 ### 10.3 Archive followed by S3 transfer command — ordered interval
 
-**Basis:** [A11](../References.md#a11), archive/transfer tradecraft [A01](../References.md#a01). **Telemetry:** Sysmon process creation. **Review:** backup jobs are expected; use the destination account/bucket, user and schedule. `sort 0` can be expensive: constrain hosts/time in large deployments. `streamstats` limits may truncate high-volume windows. Correlation establishes command order, not file identity or completed exfiltration.
+**Basis:** observed archive and transfer tradecraft. **Telemetry:** Sysmon process creation. **Review:** backup jobs are expected; use the destination account/bucket, user and schedule. `sort 0` can be expensive: constrain hosts/time in large deployments. `streamstats` limits may truncate high-volume windows. Correlation establishes command order, not file identity or completed exfiltration.
 
 ```spl
 index=windows sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 earliest=-1d
 (Image="*\\7z.exe" OR Image="*\\7za.exe" OR Image="*\\rar.exe" OR Image="*\\winrar.exe" OR Image="*\\s5cmd.exe")
 | eval stage=if(match(lower(Image),"s5cmd[.]exe$"),"transfer","archive")
 | sort 0 + _time
-| streamstats current=f time_window=2h latest(eval(if(stage="archive",_time,null()))) as archive_time by Computer User
+| streamstats current=f time_window=2h latest(eval(if(stage="archive",_time,null))) as archive_time by Computer User
 | where stage="transfer" AND isnotnull(archive_time) AND _time>archive_time AND _time-archive_time<=7200
     AND match(CommandLine,"(?i)s3://") AND match(CommandLine,"(?i)\\b(cp|sync|run)\\b")
 | table _time Computer User archive_time Image CommandLine
@@ -373,7 +373,7 @@ index=windows sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" E
 
 ### 10.4 ESX Admins security-group changes
 
-**Basis:** [A04](../References.md#a04). **Telemetry:** Windows **Security** audit logs on domain controllers, not Sysmon. Field extraction varies; `TargetUserName` is the group in these event types. **Review:** legitimate provisioning; investigate unexpected recreation and privileged membership. Hypervisor events are needed to prove follow-on access.
+**Telemetry:** Windows **Security** audit logs on domain controllers, not Sysmon. Field extraction varies; `TargetUserName` is the group in these event types. **Review:** legitimate provisioning; investigate unexpected recreation and privileged membership. Hypervisor events are needed to prove follow-on access.
 
 ```spl
 index=windows sourcetype="XmlWinEventLog:Security" earliest=-7d
@@ -383,7 +383,7 @@ EventCode IN (4727,4731,4754,4728,4732,4756) TargetUserName="ESX Admins"
 
 ### 10.5 Driver loading near suspicious service creation
 
-**Basis:** reported POORTRY/STONESTOP [A01](../References.md#a01). **Telemetry:** Sysmon Event 6 for driver load plus Windows System Event 7045 for services. **Review:** signed drivers may still be malicious; legitimate driver updates are frequent. This broad hunt identifies candidates, not BYOVD exploitation or proof of EDR termination. Obtain the driver hash, signer validation, service path and subsequent security-agent health.
+**Basis:** reported POORTRY/STONESTOP. **Telemetry:** Sysmon Event 6 for driver load plus Windows System Event 7045 for services. **Review:** signed drivers may still be malicious; legitimate driver updates are frequent. This broad hunt identifies candidates, not BYOVD exploitation or proof of EDR termination. Obtain the driver hash, signer validation, service path and subsequent security-agent health.
 
 ```spl
 index=windows earliest=-1d

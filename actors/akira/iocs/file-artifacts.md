@@ -60,13 +60,13 @@ For bulk indicator matching, see [hashes.md](hashes.md).
 
 For each existing hash, consult the [provenance register](hash-provenance.md). Labels above are retained from the original collection and are **not independently revalidated malware verdicts**. A `.exe` described as an “encryption script” should be interpreted as a reported deployment artifact until the sample's function is verified. Ladon and Snaffler are dual-use tools; their names alone do not establish an encryptor. The source description of `winrar-x64-623.exe` as a network transfer program is imprecise: WinRAR is an archiver.
 
-The original Level.io “trojanized” labels are not established by a filename: both `level.exe` and `level-windows-amd64.exe` require sample-specific verification. Legitimate Level.io use and malware impersonating it are distinct hypotheses. [A01](../References.md#a01)
+The original Level.io “trojanized” labels are not established by a filename: both `level.exe` and `level-windows-amd64.exe` require sample-specific verification. Legitimate Level.io use and malware impersonating it are distinct hypotheses. 
 
 | Additional artifact | Incident role | Date / source |
 |---|---|---|
-| `s5cmd` | Legitimate object-storage utility used for S3 exfiltration; hash in register | 2026-08-04, [A11](../References.md#a11) |
-| `AdUsers.txt`, `AdComp.txt` | AD exports written under ProgramData | 2026-08-04, [A11](../References.md#a11) |
-| `decrypt.py`, `fortiConfParser.py` | Fortinet credential/config scripts in exposed operator data; hashes in register | June 2023, [A12](../References.md#a12) |
-| AnyDesk SafeBoot registry entry | `HKLM\SYSTEM\CurrentControlSet\Control\SafeBoot\Network\AnyDesk`, default value `Service` | 2026-08-04, [A11](../References.md#a11) |
+| `s5cmd` | Legitimate object-storage utility used for S3 exfiltration; hash in register | 2026-08-04 |
+| `AdUsers.txt`, `AdComp.txt` | AD exports written under ProgramData | 2026-08-04 |
+| `decrypt.py`, `fortiConfParser.py` | Fortinet credential/config scripts in exposed operator data; hashes in register | June 2023 |
+| AnyDesk SafeBoot registry entry | `HKLM\SYSTEM\CurrentControlSet\Control\SafeBoot\Network\AnyDesk`, default value `Service` | 2026-08-04 |
 
 All timestamps are report observation periods, not universal first-seen dates. The archive hash and contextual file tables support DFIR comparison, not blind blocking.

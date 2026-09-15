@@ -22,9 +22,9 @@ Each query file has a coverage/tuning register and campaign-specific review note
 
 | Opportunity | Evidence | Collection and decision |
 |---|---|---|
-| VPN spray then successful session | Huntress [A11](../References.md#a11) | Normalize vendor username, source IP, authentication result and MFA state; count distinct targets before success. Exclude health checks and mistyped saved credentials. No universal VPN field schema is assumed. |
-| Certificate request, PKINIT, U2U and WinRM | Darktrace [A10](../References.md#a10) | Correlate CA request/issuance audits, DC Kerberos logs and network RPC/WinRM telemetry. This supports a credential-abuse investigation; U2U alone is not UnPAC proof. |
-| Offline DC disk mounting | [A01](../References.md#a01) | Hypervisor datastore/mount events plus NTDS and SYSTEM access; endpoint-only detection may miss the operation. Authorized recovery is an alternative. |
-| ESXi/AHV disruption | [A01](../References.md#a01), [A04](../References.md#a04) | Preserve remote hypervisor audit/syslog and backup logs; mass VM shutdown, disk writes and identity changes. A Windows query cannot claim hypervisor coverage. |
+| VPN spray then successful session | Huntress | Normalize vendor username, source IP, authentication result and MFA state; count distinct targets before success. Exclude health checks and mistyped saved credentials. No universal VPN field schema is assumed. |
+| Certificate request, PKINIT, U2U and WinRM | Darktrace | Correlate CA request/issuance audits, DC Kerberos logs and network RPC/WinRM telemetry. This supports a credential-abuse investigation; U2U alone is not UnPAC proof. |
+| Offline DC disk mounting |  | Hypervisor datastore/mount events plus NTDS and SYSTEM access; endpoint-only detection may miss the operation. Authorized recovery is an alternative. |
+| ESXi/AHV disruption |  | Preserve remote hypervisor audit/syslog and backup logs; mass VM shutdown, disk writes and identity changes. A Windows query cannot claim hypervisor coverage. |
 
 See [validation](../../../VALIDATION.md) for compiled YARA checks and the limits of static query review.

@@ -10,4 +10,4 @@ Reviewed **2026-09-10**. Three public redacted plaintext artifacts and two techn
 | [2025 Windows/Talos note](qilin-2025.md) | Vendor Figure 23 excerpt; Onion plus clear-IP fallback described; not reconstructed as full plaintext | 2025 Talos cases; exact incident date unspecified |
 | [Linux sample note](linux.md) | Vendor binary-extraction screenshot; Agenda-style contact fields | 2025 technical reporting |
 
-Full texts remain linked at [ThreatLabz Q31](../References.md#q31); redactions are preserved, not filled in. Early Go/Rust context comes from [Q12](../References.md#q12) and [Q13](../References.md#q13). See [infrastructure](../iocs/onion-infrastructure.md), [file patterns](../iocs/file-patterns.md) and [financial intelligence](../intelligence/blockchain.md).
+The three archived plaintext variants preserve their original redactions. Early Go and Rust context is summarized in the technical dossier. See [infrastructure](../iocs/onion-infrastructure.md), [file patterns](../iocs/file-patterns.md) and [financial intelligence](../intelligence/blockchain.md).

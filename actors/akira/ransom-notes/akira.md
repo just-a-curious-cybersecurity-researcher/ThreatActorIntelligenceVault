@@ -14,4 +14,4 @@ The leak site is `akiral2iz6a7qgd3ayp3l6yub7xx2uep76idk3u2kollpj5z3z636bad[.]oni
 
 ## Source and Evidence State
 
-[ThreatLabz archived text](https://github.com/ThreatLabz/ransomware_notes/blob/main/akira/akira_readme.txt), [reference A26](../References.md#a26). Full **redacted text**, not a reconstructed transcript. Retrieved 2026-09-10; SHA256 of source bytes: `f0b94b282b17b52bd9d55fb264999a179adabe5eeb5854267249c46744860a41` (document integrity, **not a malware IOC**). Early canonical context: [Avast A16](../References.md#a16). **High Confidence** in the preserved text; **unknown** incident date and victim-specific details. Return to [index](Ransom-Notes.md).
+ThreatLabz archived text. Full **redacted text**, not a reconstructed transcript. Retrieved 2026-09-10; SHA256 of source bytes: `f0b94b282b17b52bd9d55fb264999a179adabe5eeb5854267249c46744860a41` (document integrity, **not a malware IOC**). Early canonical context:. **High Confidence** in the preserved text; **unknown** incident date and victim-specific details. Return to [index](Ransom-Notes.md).
