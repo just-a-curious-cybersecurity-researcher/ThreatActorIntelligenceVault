@@ -24,6 +24,8 @@ Financial investigation found evidence beyond victim wallets: official FirstVPN 
 
 ## Additional Findings After Original-Source Review
 
+Reviewed 2026-09-16: the [executable internals](encryptor.md) document adds sample-scoped execution flows, variant comparisons and explicit separation of payload, launcher and operator activity. The bibliography records the supporting analyses and a section-to-source map; no malware was executed.
+
 -: primary discovery, propagation and backup evidence added to the lifecycle and tool categories; source ATT&CK labels are not copied uncritically.
 -: incident-tool inventory and selected sample exclusions; no universal whitelist inferred.
 -: a bounded negotiation example, with offers separated from outcomes.

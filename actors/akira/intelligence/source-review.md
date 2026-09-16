@@ -46,4 +46,6 @@ See References, [Attribution](attribution.md), [Blockchain](blockchain.md) and [
 
 ## Additional Findings After Original-Source Review
 
+Reviewed 2026-09-16: the [executable internals](encryptor.md) document adds sample-scoped execution flows, variant comparisons and explicit separation of payload, launcher and operator activity. The bibliography records the supporting analyses and a section-to-source map; no malware was executed.
+
 DOJ's May 2026 sentencing record adds historical organizational evidence beyond code/transaction overlap. Chainalysis independently supports Akira/Fog cash-out overlap, while TRM's AudiA6 analysis exposes another shared service. ThreatLabz's three archived note texts establish real wording changes and `.arika` mentions; they do not prove actual extension-emission behavior. The official September SDN snapshot enables reproducible, narrowly scoped screening. [financial review](../../financial-source-review.md)

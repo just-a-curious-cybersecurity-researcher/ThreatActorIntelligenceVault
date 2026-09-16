@@ -1,15 +1,15 @@
 # Qilin — Ransom Notes
 
-**Presentation reviewed:** 2026-09-15.
+**Presentation reviewed:** 2026-09-16.
 
-Reviewed **2026-09-10**. Three public redacted plaintext artifacts and two technical screenshot/report contexts are separately catalogued. Collection suffixes do not establish chronology or encryptor generation. The notes' theft, recovery and media claims are attacker statements.
+Open each link to read the archived note on ransomware.live. Links and displayed note content checked on 2026-09-16; no local copies are stored.
 
-| Document | Variant / evidence | Approximate observation |
-|---|---|---|
-| [Agenda branded](agenda.md) | Redacted `DtMXQFOCos-RECOVER-README.txt`; Agenda heading, concrete company extension, early portal | 2022 branding context |
-| [Qilin base template](qilin.md) | Redacted `README-RECOVER-[rand].txt`; Qilin heading, altered portal, redacted extension | Historical archive |
-| [Qilin media-pressure template](qilin-media.md) | Redacted archive `README-RECOVER-[rand]_2.txt`; Added volume claim, payment deadline, media/publication pressure and exclusive-chat warning | Historical archive |
-| [2025 Windows/Talos note](qilin-2025.md) | Vendor Figure 23 excerpt; Onion plus clear-IP fallback described; not reconstructed as full plaintext | 2025 Talos cases; exact incident date unspecified |
-| [Linux sample note](linux.md) | Vendor binary-extraction screenshot; Agenda-style contact fields | 2025 technical reporting |
+| Archived note name | View note |
+|---|---|
+| `DtMXQFOCos-RECOVER-README.txt` | [Read on ransomware.live](https://www.ransomware.live/ransomnote/qilin/DtMXQFOCos-RECOVER-README.txt) |
+| `README-RECOVER-[rand].txt` | [Read on ransomware.live](https://www.ransomware.live/ransomnote/qilin/README-RECOVER-%5Brand%5D.txt) |
+| `README-RECOVER-[rand]_2.txt` | [Read on ransomware.live](https://www.ransomware.live/ransomnote/qilin/README-RECOVER-%5Brand%5D_2.txt) |
 
-The three archived plaintext variants preserve their original redactions. Early Go and Rust context is summarized in the technical dossier. See [infrastructure](../iocs/onion-infrastructure.md), [file patterns](../iocs/file-patterns.md) and [financial intelligence](../intelligence/blockchain.md).
+Archive suffixes such as `_2` and `_3` distinguish collected documents; they do not establish malware versions or original on-disk filenames.
+
+[Browse the actor's archive](https://www.ransomware.live/group/qilin#notes). See [file patterns](../iocs/file-patterns.md) for filenames documented in technical reporting.

@@ -11,4 +11,4 @@ The supplied research notes that Akira's data leak site has used **magnet links*
 
 The `akiral2...` hostname is the **leak/publication site**; `akiralk...` is the **victim negotiation portal**, as shown in the June 2023 Avast analysis and preserved notes.. High Confidence in historical association; current availability was not tested. Onion identifiers are preserved in defanged form, without requesting stolen data or entering victim negotiations.
 
-Magnet-link publishing is documented in tracker/profile reporting, it is an extortion-distribution method, not proof that every referenced torrent is hosted by core operators. See [ransom notes](../ransom-notes/Ransom-Notes.md) for cases that use other contact mechanisms. Reviewed 2026-09-10.
+Magnet-link publishing is documented in tracker/profile reporting, it is an extortion-distribution method, not proof that every referenced torrent is hosted by core operators. See [ransom notes](../ransom-notes/Ransom-Notes.md) to read the externally archived notes. Reviewed 2026-09-10.

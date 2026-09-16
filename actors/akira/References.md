@@ -192,6 +192,18 @@ Live Enterprise snapshot used to resolve names, tactics and revoked techniques.
 [MITRE — Akira S1129](https://attack.mitre.org/software/S1129/)
 Software object; not a one-to-one mapping of every affiliate operation.
 
+### A27
+
+**Check Point Research — Inside Akira Ransomware's Rust Experiment** — 2024-12-03; reviewed 2026-09-16.
+[Check Point Research — Rust control-flow analysis](https://research.checkpoint.com/2024/inside-akira-ransomwares-rust-experiment/)
+Function-level analysis of SHA-256 3298d203c2acb68c474e5fdad8379181890b4403d6491c523c13730129be3f75. Supports the Rust worker flow and sample-specific SOSEMANUK / Curve25519 finding. This hash also appears in A03; the cipher descriptions are not reconciled by assuming a new release.
+
+### A28
+
+**Antiy CERT — Analysis of Akira Ransomware Suspected of Using Targeted Attack Patterns** — 2023-05-30; reviewed 2026-09-16.
+[Antiy CERT — early sample analysis](https://www.antiy.net/p/analysis-of-akira-ransomware-suspected-of-using-targeted-attack-patterns/)
+English page identifies itself as AI-translated. Its AES+RSA and Defender-related descriptions are recorded as differing source claims, not substituted for Avast's cryptographic reconstruction.
+
 ## Review Coverage
 
 The individual review and disposition of all 15 original entries is recorded in [Source Review](intelligence/source-review.md). For analytical standards see the [repository README](../../README.md).
@@ -220,6 +232,39 @@ The individual review and disposition of all 15 original entries is recorded in 
 
 **Splunk — streamstats reference**, reviewed 2026-09-10. [Command documentation](https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.4/search-commands/streamstats). Ordered intervals require sorting, configured memory/window limits and deployment testing.
 
+### A29
+
+**Cynet — Megazord Ransomware Analysis**, 2023-10-18; reviewed 2026-09-16.
+[Original static and dynamic analysis](https://www.cynet.com/blog/megazord-ransomware-technical-analysis-and-preventions/). Documents build-ID gating and attempted service termination. Artifact spelling differs from Unit 42.
+
+### A30
+
+**Hunt & Hackett — Technical Curiosities of Akira Ransomware**, 2024-09-05; reviewed 2026-09-16.
+[Original binary and forensic analysis](https://www.huntandhackett.com/blog/technical-curiosities-of-akira-ransomware/). Supports WMI-mediated launch, Restart Manager calls and volatile session evidence. Missing session cleanup is scoped to the examined samples.
+
+### A31
+
+**K7 Labs — Akira Ransomware Unleashing Chaos using Conti Leaks**, 2023-05-26; reviewed 2026-09-16.
+[Original executable analysis](https://labs.k7computing.com/index.php/akira-ransomware-unleashing-chaos-using-conti-leaks/). Supports process enumeration, file traversal and the session-ending branch; intrusion-stage tasks/services are distinguished from payload routines.
+
 ## Detection Implementation Provenance
 
 The repository-authored defensive hunts translate the procedures documented in this source register into telemetry-based investigation hypotheses. A publisher's reporting supports the procedure; it does not make the repository's query or heuristic a vendor-published rule. Source-specific interpretation is retained in the source review and query notes.
+
+## Executable Analysis Provenance
+
+Ransom-note archive links were checked on 2026-09-16 against [ransomware.live's Akira profile](https://www.ransomware.live/group/akira#notes). All three linked note pages returned HTTP 200 and displayed note text. The local ransom-note index links to those pages without storing transcripts.
+
+The illustrative mock-api blocks are repository-authored explanations of the documented API roles. Their syntax, object names, handles and results are fictional, not publisher-provided commands or additional observed indicators.
+
+Reviewed 2026-09-16 for [ransomware executable internals](intelligence/encryptor.md). The narrative summarizes published reverse engineering; no executable was downloaded, disassembled or run locally.
+
+- Windows C++: A13 supplies the identified Qualys sample's parser, execution log, shadow-copy deletion and Restart Manager behavior. A16 supplies early file traversal, cryptography and output layout.
+- Linux C++: A16 supplies the June 2023 platform and library comparison.
+- Megazord: A29 supplies observed startup and service handling. A21 supplies artifact naming and March 2024 changes. Cynet's “powerrangers” spelling differs from Unit 42's “powerranges”; no new branch is inferred from that difference.
+- Akira_v2: A27 supplies the recovered function sequence and sample-specific SOSEMANUK/Curve25519 description. A03 supplies the runtime controls and conflicting ChaCha20 description for v2; its indicators include the same hash.
+- September 2024 C++: A03 supplies the platform controls, ChaCha8 and output names.
+
+- Command/API expansion: A13 and A30 support the literal PowerShell example; A30 supports mediated launch and RestartManager events/registry evidence; A31 supports named traversal/process APIs. A21 Appendix B supports the three Megazord commands and VM-related cmdlets. Process ancestry guidance is defensive synthesis, not a claim that all samples have an identical process tree.
+
+A13's currently retrieved page displays 2025-05-06 despite its 2024 URL path. Functional numbering does not assert a single observed instruction trace across different samples.

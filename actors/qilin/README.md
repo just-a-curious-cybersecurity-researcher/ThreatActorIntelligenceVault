@@ -41,6 +41,7 @@ Qilin is a financially motivated ransomware-as-a-service program associated with
 
 - [Overview and timeline](intelligence/overview.md)
 - [Operations / Attack Lifecycle](intelligence/operations.md)
+- [Ransomware executable internals](intelligence/encryptor.md)
 - [Attribution and relationships](intelligence/attribution.md)
 - [Blockchain and financial intelligence](intelligence/blockchain.md)
 - [Source review](intelligence/source-review.md)
@@ -79,6 +80,7 @@ qilin/
 ├── intelligence/
 │   ├── attribution.md
 │   ├── blockchain.md
+│   ├── encryptor.md
 │   ├── operations.md
 │   ├── overview.md
 │   └── source-review.md
@@ -93,11 +95,6 @@ qilin/
 │   ├── ip-addresses.md
 │   └── onion-infrastructure.md
 ├── ransom-notes/
-│   ├── agenda.md
-│   ├── linux.md
-│   ├── qilin-2025.md
-│   ├── qilin-media.md
-│   ├── qilin.md
 │   └── Ransom-Notes.md
 ├── technical/
 │   ├── mitre-attack.md

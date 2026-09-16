@@ -75,7 +75,7 @@ Primary IR. Browser collection via GPO and SYSVOL. Direct download timed out; br
 ### Q12
 
 **Trend Micro — original Go Agenda analysis** — 2022-08-25.
-[Trend Micro — original Go Agenda analysis](https://www.trendaisecurity.com/en-us/resources-insights/research/new-golang-ransomware-agenda-customizes-attacks)
+[Trend Micro — original Go Agenda analysis](https://www.trendaisecurity.com/en-us/resources-insights/trendai-security-blog/new-golang-ransomware-agenda-customizes-attacks)
 Original URL moved; resolved publisher URL. Victim-customized Windows binaries and a Citrix valid-account incident.
 
 ### Q13
@@ -256,10 +256,48 @@ Research on public negotiation evidence and service organization. The February 2
 [Symantec — Ransomware 2025](https://www.security.com/sites/default/files/2025-02/2025_02_Ransomware_2025.pdf)
 Primary case evidence for NetSupport, credential tooling and Rclone. Adobe exploitation and the possible BianLian-related backdoor are qualified assessments. Adjacent RansomHub procedures are not attributed to Qilin.
 
+### Q39
+
+**Flashpoint — Inside Qilin Ransomware: Custom Rust Loader and Kernel-Level EDR Killer** — 2026-07-17; reviewed 2026-09-16.
+[Flashpoint — loader and EDR-killer analysis](https://flashpoint.io/blog/inside-qilin-ransomware/)
+Public component analysis distinguishes reflective loading, vulnerable-driver abuse and a separate security-impairment payload. The gated extended report was not used. This is not evidence of a newly named encryptor version.
+
 ## Review Coverage
 
 The [source review](intelligence/source-review.md) records the starting references, analytical decisions and subsequent additions. Publication, incident and collection dates remain distinct.
 
+### Q40
+
+**AhnLab — Qilin Ransomware: Why Decryption Is Impossible by Design**, reviewed 2026-09-16.
+[Original executable analysis](https://www.ahnlab.com/en/contents/content-center/35984). Supplies service matching, continuing process termination and autorun/self-deletion interaction. Publication date is not inferred from the retrieval date.
+
+### Q41
+
+**TXOne Networks — Mid-Year Report 2025: An In-Depth Analysis of Evolving Ransomware and Weaponized ICS Malware**, 2025; reviewed 2026-09-16.
+[Original report, Qilin service analysis, printed page 21](https://media.txone.com/prod/uploads/2025/10/v6_2025-H1-WP-Mid-Year-Report-2025_An-In-Depth-Analysis-of-Evolving-Ransomware-and-Weaponized-ICS-Malware.pdf). Supports the SCM API sequence in the separately examined sample; not assigned to all Qilin.B builds. The PDF text was accessible; browser screenshot rendering failed.
+
 ## Detection Implementation Provenance
 
 The repository-authored defensive hunts translate the procedures documented in this source register into telemetry-based investigation hypotheses. A publisher's reporting supports the procedure; it does not make the repository's query or heuristic a vendor-published rule. Source-specific interpretation is retained in the source review and query notes.
+
+## Executable Analysis Provenance
+
+Ransom-note archive links were checked on 2026-09-16 against [ransomware.live's Qilin profile](https://www.ransomware.live/group/qilin#notes). All three linked note pages returned HTTP 200 and displayed note text. The local ransom-note index links to those pages without storing transcripts.
+
+The illustrative mock-api blocks are repository-authored explanations of the documented API roles. Their syntax, object names, handles and results are fictional, not publisher-provided commands or additional observed indicators.
+
+Reviewed 2026-09-16 for [ransomware executable internals](intelligence/encryptor.md). The narrative summarizes published reverse engineering; no executable was downloaded, disassembled or run locally.
+
+- Agenda Go: Q12 supplies embedded configuration, conditional boot/account handling, cryptography and the companion DLL.
+- Agenda Rust: Q13 supplies the early argument interface, password-test observation, AppInfo handling and intermittent encryption.
+- July 2024 Windows: Q35 supplies password hashing, reported embedded token-handling component, symbolic-link settings and log-clearing thread. These are scoped to Group-IB's reported implementation.
+- Qilin.B: Q24 supplies initialization, discovery, hardware-dependent cipher selection and completion. Q40 supplies separately scoped service/process and autorun observations; it is not used to establish a new version.
+- Windows 2025: Q15 supplies compared execution paths, configuration, vCenter orchestration, QLOG and wallpaper behavior.
+- Linux/ESXi: Q23 supplies platform recognition and runtime/diagnostic changes.
+- Windows 2026: Q36 supplies dispatch options, file enumeration, AES/RSA processing and optional completion modes. Its publication date is not a release identifier.
+
+- Command/API expansion: Q40 supplies VSS command examples, mutex API and service/process targets; Q41 supplies the direct service-control path. Q15 supplies PowerShell log-clearing fragments, wallpaper path and the incident task TVInstallRestore. The task is not asserted to be created by the encryptor. Q12 supplies the original Go RunOnce artifact.
+
+Targeted searches for cron persistence did not establish a sample-bound primary analysis supporting a cron-creation routine in these encryptors. No such routine was added. Host-correlation guidance is defensive synthesis; telemetry availability depends on configured logging.
+
+Q40's password-bypass wording describes an ambiguous analysis passage and is not treated as proof that an unmodified payload accepts arbitrary passwords. Q39 remains a source for surrounding loader and EDR-killer components, which are separate from the encryptor variants described here.

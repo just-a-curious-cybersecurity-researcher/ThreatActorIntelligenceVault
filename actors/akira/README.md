@@ -45,6 +45,7 @@ Its intrusions commonly combine compromised credentials or exploitation of expos
 
 - [Overview](intelligence/overview.md)
 - [Operations / Attack Lifecycle](intelligence/operations.md)
+- [Ransomware executable internals](intelligence/encryptor.md)
 - [Attribution & Relationships](intelligence/attribution.md)
 - [Blockchain & Financial Intelligence](intelligence/blockchain.md)
 
@@ -83,6 +84,7 @@ akira/
 ├── intelligence/
 │   ├── attribution.md
 │   ├── blockchain.md
+│   ├── encryptor.md
 │   ├── operations.md
 │   ├── overview.md
 │   └── source-review.md
@@ -97,13 +99,6 @@ akira/
 │   ├── ip-addresses.md
 │   └── onion-infrastructure.md
 ├── ransom-notes/
-│   ├── akira-contact-warning.md
-│   ├── akira-v2.md
-│   ├── akira-warning.md
-│   ├── akira.md
-│   ├── megazord-messaging.md
-│   ├── megazord.md
-│   ├── other-filenames.md
 │   └── Ransom-Notes.md
 ├── technical/
 │   ├── mitre-attack.md
