@@ -21,6 +21,7 @@ The repository is intended as a research and defensive reference. Attribution in
 |---|---|---|---|---|
 | [Akira](actors/akira/README.md) | Ransomware / RaaS | Financial | March–April 2023 emergence | 2026-09-10 |
 | [Qilin / Agenda](actors/qilin/README.md) | Ransomware / RaaS | Financial | Mid-2022; operator, sample and branding dates differ | 2026-09-10 |
+| [The Gentlemen / Storm-2697](actors/thegentlemen/README.md) | Ransomware / RaaS | Financial | 2025 emergence; activity and publication dates differ | 2026-09-17 |
 | [APT28 / Fancy Bear](actors/apt28%20-%20Fancy%20Bear/README.md) | State-linked espionage | Military / political intelligence | At least 2004 in retrospective reporting | 2026-09-14 |
 
 See the [actor index](actors/README.md), [financial-source review](actors/financial-source-review.md) and [validation report](VALIDATION.md).
