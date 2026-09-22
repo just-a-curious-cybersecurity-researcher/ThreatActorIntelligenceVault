@@ -23,6 +23,7 @@ The repository is intended as a research and defensive reference. Attribution in
 | [Qilin / Agenda](actors/qilin/README.md) | Ransomware / RaaS | Financial | Mid-2022; operator, sample and branding dates differ | 2026-09-10 |
 | [The Gentlemen / Storm-2697](actors/thegentlemen/README.md) | Ransomware / RaaS | Financial | 2025 emergence; activity and publication dates differ | 2026-09-17 |
 | [LockBit](actors/lockbit/README.md) | Ransomware / RaaS | Financial | 2019 ABCD emergence; overlapping encryptor branches | 2026-09-17 |
+| [INC Ransom](actors/inc-ransom/README.md) | Ransomware / RaaS | Financial | Mid-2023; classic and Rust Windows/Linux branches | 2026-09-22 |
 | [APT28 / Fancy Bear](actors/apt28%20-%20Fancy%20Bear/README.md) | State-linked espionage | Military / political intelligence | At least 2004 in retrospective reporting | 2026-09-14 |
 
 See the [actor index](actors/README.md), [financial-source review](actors/financial-source-review.md) and [validation report](VALIDATION.md).
