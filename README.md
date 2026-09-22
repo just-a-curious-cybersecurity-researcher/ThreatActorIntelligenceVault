@@ -22,6 +22,7 @@ The repository is intended as a research and defensive reference. Attribution in
 | [Akira](actors/akira/README.md) | Ransomware / RaaS | Financial | March–April 2023 emergence | 2026-09-10 |
 | [Qilin / Agenda](actors/qilin/README.md) | Ransomware / RaaS | Financial | Mid-2022; operator, sample and branding dates differ | 2026-09-10 |
 | [The Gentlemen / Storm-2697](actors/thegentlemen/README.md) | Ransomware / RaaS | Financial | 2025 emergence; activity and publication dates differ | 2026-09-17 |
+| [LockBit](actors/lockbit/README.md) | Ransomware / RaaS | Financial | 2019 ABCD emergence; overlapping encryptor branches | 2026-09-17 |
 | [APT28 / Fancy Bear](actors/apt28%20-%20Fancy%20Bear/README.md) | State-linked espionage | Military / political intelligence | At least 2004 in retrospective reporting | 2026-09-14 |
 
 See the [actor index](actors/README.md), [financial-source review](actors/financial-source-review.md) and [validation report](VALIDATION.md).
@@ -53,6 +54,8 @@ ThreatActorIntelligenceVault/
 Equivalent actor documents share the section names and order, table columns and heading hierarchy registered in the repository validator. Actor-specific campaigns, periods, variants and supported coverage remain variable. Optional sections are omitted when they have no content. `Presentation reviewed` records a format review, not a new intelligence collection date.
 
 Detection indexes use a common coverage register and YARA inventory. KQL and Splunk entries use the same numbered investigation families and field order: origin, telemetry, review / tuning, then copyable code. YARA files share declaration and section formatting while retaining rule-specific metadata and logic.
+
+An actor with multiple substantial encryptor branches can use `intelligence/encryptor/` with an index and one analysis per branch instead of a single `encryptor.md`. Each analysis retains the shared executable-analysis sections and variant-register columns.
 
 The presence of a single tool, IOC or ATT&CK technique is not sufficient to attribute activity to a specific threat actor. Greater analytical weight should be placed on combinations of behavior, infrastructure, malware artifacts, temporal context and corroborating reporting.
 
