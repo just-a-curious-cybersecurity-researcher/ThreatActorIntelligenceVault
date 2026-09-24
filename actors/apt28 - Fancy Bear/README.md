@@ -57,7 +57,6 @@ The dossier follows the Akira/Qilin file and section conventions. Espionage, cre
 
 - [Indicators of compromise](iocs/IOCs.md)
 - [Published detections and hunting](detections/Detections.md)
-- [Ransom notes — applicability](ransom-notes/Ransom-Notes.md)
 - [References](References.md)
 
 ## Analytical Caveat
@@ -95,8 +94,6 @@ apt28 - Fancy Bear/
 │   ├── IOCs.md
 │   ├── ip-addresses.md
 │   └── onion-infrastructure.md
-├── ransom-notes/
-│   └── Ransom-Notes.md
 ├── technical/
 │   ├── mitre-attack.md
 │   ├── tooling-malware.md

@@ -194,4 +194,4 @@ They describe different victims, time windows and sensors. The combined lifecycl
 
 **No aplica to ransom negotiation, affiliate recruitment or builder panels.** The documented organizational signals are government attribution, named defendants' alleged roles, custom development and remote/close-access division of work. Public evidence does not establish a current contractor roster or open recruitment process.
 
-The financial distinction is infrastructure expenditure versus extortion receipts. See [Blockchain](blockchain.md), [Attribution](attribution.md) and [Ransom Notes](../ransom-notes/Ransom-Notes.md).
+The financial distinction is infrastructure expenditure versus extortion receipts. See [Blockchain](blockchain.md) and [Attribution](attribution.md).
