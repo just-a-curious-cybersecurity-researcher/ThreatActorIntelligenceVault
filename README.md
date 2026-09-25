@@ -27,6 +27,7 @@ The repository is intended as a research and defensive reference. Attribution in
 | [DragonForce](actors/dragonforce/README.md) | Ransomware / RaaS cartel | Financial | Late 2023; later white-label/cartel expansion | 2026-09-24 |
 | [SafePay](actors/safepay/README.md) | Ransomware / closed group | Financial | September–October 2024 | 2026-09-24 |
 | [APT28 / Fancy Bear](actors/apt28%20-%20Fancy%20Bear/README.md) | State-linked espionage | Military / political intelligence | At least 2004 in retrospective reporting | 2026-09-14 |
+| [APT29 / Midnight Blizzard](actors/apt29-midnight-blizzard/README.md) | State-linked espionage | Strategic foreign intelligence | At least 2008 in government/MITRE reporting | 2026-09-24 |
 
 See the [actor index](actors/README.md), [financial-source review](actors/financial-source-review.md) and [validation report](VALIDATION.md).
 
